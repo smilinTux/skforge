@@ -1,0 +1,53 @@
+{
+  "name": "forgeprint",
+  "version": "0.1.0",
+  "description": "AI-native software blueprints. Don't use software. Forge your own. 🐧",
+  "type": "module",
+  "bin": {
+    "forge": "forge.mjs",
+    "forgeprint": "forge.mjs"
+  },
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node forge.mjs",
+    "build": "echo 'No build step required'",
+    "test": "node --test test/"
+  },
+  "keywords": [
+    "ai",
+    "blueprints",
+    "software-generation",
+    "code-generation",
+    "self-hosted",
+    "decentralized",
+    "open-source",
+    "llm",
+    "forge",
+    "devops",
+    "infrastructure"
+  ],
+  "author": "S&K Holdings",
+  "license": "AGPL-3.0-or-later",
+  "homepage": "https://smilintux.org/forgeprint/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smilinTux/forgeprint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/smilinTux/forgeprint/issues"
+  },
+  "files": [
+    "forge.mjs",
+    "dist/",
+    "blueprints/",
+    "templates/",
+    "profiles/",
+    "protocols/",
+    "cli/",
+    "README.md",
+    "LICENSE"
+  ]
+}

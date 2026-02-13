@@ -1,0 +1,39 @@
+# Features Catalog Template
+# Copy and customize for your blueprint category
+#
+# Each feature needs:
+#   name: Human-readable feature name
+#   description: 1-2 sentence description
+#   complexity: low | medium | high
+#   default: true | false (included in simple mode?)
+#   dependencies: [] (list of other feature names this requires)
+#   group: Feature group/category name
+
+groups:
+  - name: Core
+    description: Fundamental features every implementation needs
+    features:
+      - name: Example Feature
+        description: Brief description of what this feature does
+        complexity: low
+        default: true
+        dependencies: []
+
+  - name: Security
+    description: Security-related features
+    features:
+      - name: Example Security Feature
+        description: Brief description
+        complexity: medium
+        default: true
+        dependencies:
+          - Example Feature
+
+  - name: Observability
+    description: Monitoring, logging, and tracing
+    features:
+      - name: Example Observability Feature
+        description: Brief description
+        complexity: low
+        default: false
+        dependencies: []

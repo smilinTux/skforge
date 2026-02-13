@@ -1,0 +1,15 @@
+Apache License 2.0
+
+All blueprint specifications in this directory are licensed under the Apache License 2.0.
+
+This means:
+- ✅ Code generated from these blueprints is YOURS — no restrictions
+- ✅ Use commercially, personally, or for nonprofit — no strings
+- ✅ Modify, distribute, sublicense freely
+- ✅ No requirement to share your generated code
+
+The blueprints themselves are community contributions.
+The forge tooling (forge.mjs, CLI) is licensed under AGPL-3.0.
+
+Copyright 2026 S&K Holdings QT (Quantum Technologies)
+Organization: smilinTux (https://github.com/smilinTux)
