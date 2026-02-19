@@ -23,10 +23,10 @@ theme = 'smilintux'
 
   # Projects
   [[params.projects]]
-    name = "Forgeprint"
+    name = "SKForge"
     tagline = "Don't use software. Forge your own."
     description = "AI-native software blueprints. Pick a category, choose features, and let AI build complete tested software."
-    url = "https://github.com/smilinTux/forgeprint"
+    url = "https://github.com/smilinTux/skforge"
     icon = "🔧"
     status = "Active"
 
@@ -52,8 +52,8 @@ theme = 'smilintux'
     url = "/projects/"
     weight = 1
   [[menu.main]]
-    name = "Forgeprint"
-    url = "/forgeprint/"
+    name = "SKForge"
+    url = "/skforge/"
     weight = 2
   [[menu.main]]
     name = "About"

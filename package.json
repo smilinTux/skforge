@@ -1,11 +1,11 @@
 {
-  "name": "forgeprint",
+  "name": "skforge",
   "version": "0.1.0",
   "description": "AI-native software blueprints. Don't use software. Forge your own. 🐧",
   "type": "module",
   "bin": {
     "forge": "forge.mjs",
-    "forgeprint": "forge.mjs"
+    "skforge": "forge.mjs"
   },
   "main": "dist/index.js",
   "engines": {
@@ -31,13 +31,13 @@
   ],
   "author": "S&K Holdings",
   "license": "AGPL-3.0-or-later",
-  "homepage": "https://smilintux.org/forgeprint/",
+  "homepage": "https://smilintux.org/skforge/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/smilinTux/forgeprint.git"
+    "url": "https://github.com/smilinTux/skforge.git"
   },
   "bugs": {
-    "url": "https://github.com/smilinTux/forgeprint/issues"
+    "url": "https://github.com/smilinTux/skforge/issues"
   },
   "files": [
     "forge.mjs",

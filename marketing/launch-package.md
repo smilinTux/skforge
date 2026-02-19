@@ -1,4 +1,4 @@
-# FORGEPRINT VIRAL MARKETING PACKAGE
+# SKFORGE VIRAL MARKETING PACKAGE
 **Complete Launch Strategy for AI-Native Software Blueprints**
 
 ---
@@ -11,7 +11,7 @@
 *Why this works:* Direct, empowering, memorable. Creates a clear distinction between "users" and "creators." The word "forge" ties to the brand name while implying strength, craftsmanship, and creation.
 
 ### Brand Voice Guide
-Forgeprint speaks like a confident craftsperson who democratizes expertise. We're direct without being intimidating, technical without being exclusive, and revolutionary without being arrogant. Think: "Your friendly neighborhood blacksmith, but for code."
+SKForge speaks like a confident craftsperson who democratizes expertise. We're direct without being intimidating, technical without being exclusive, and revolutionary without being arrogant. Think: "Your friendly neighborhood blacksmith, but for code."
 
 ### Color Scheme Recommendation
 - **Primary:** Deep Forge Orange (#FF6B35) - Energy, creation, fire of the forge
@@ -25,7 +25,7 @@ A minimalist anvil silhouette with geometric circuit patterns integrated into it
 
 ---
 
-## 2. WEBSITE COPY (forgeprint.dev)
+## 2. WEBSITE COPY (skforge.io)
 
 ### Hero Section
 **Headline:** Don't use software. Forge your own.
@@ -38,7 +38,7 @@ A minimalist anvil silhouette with geometric circuit patterns integrated into it
 3. **Select Your Language** - Rust, Go, Python, JavaScript, or any language your AI understands
 4. **Let AI Build** - Feed the blueprint to any LLM and get complete, tested, production-ready code
 
-### "Why Forgeprint" Section
+### "Why SKForge" Section
 **Stop settling. Start forging.**
 
 - **Truly Custom:** No compromises, no "close enough" - get exactly what you need
@@ -50,12 +50,12 @@ A minimalist anvil silhouette with geometric circuit patterns integrated into it
 ### FAQ Section
 
 **Q: How is this different from existing frameworks?**
-A: Frameworks give you what they think you need. Forgeprint gives you blueprints to build exactly what you want, in any language, with AI as your developer.
+A: Frameworks give you what they think you need. SKForge gives you blueprints to build exactly what you want, in any language, with AI as your developer.
 
 **Q: Do I need to know how to code?**
 A: Basic understanding helps, but the AI does the heavy lifting. If you can describe what you want, you can forge it.
 
-**Q: What LLMs work with Forgeprint?**
+**Q: What LLMs work with SKForge?**
 A: Any modern LLM (GPT-4, Claude, Gemini, local models). The blueprints are designed to be universally understood.
 
 **Q: Is this actually production-ready?**
@@ -65,7 +65,7 @@ A: Yes. Our blueprints include comprehensive testing specifications, security co
 A: We don't. This is an S&K Holdings open-source project - we believe good tools should be available to everyone.
 
 **Q: Can I contribute blueprints?**
-A: Absolutely! The community drives Forgeprint's evolution. Check our contributor guidelines.
+A: Absolutely! The community drives SKForge's evolution. Check our contributor guidelines.
 
 **Q: What if I need help or support?**
 A: Join our Discord community, browse GitHub Discussions, or dive into our comprehensive documentation.
@@ -80,7 +80,7 @@ A: It's YOUR code once generated. Modify, extend, or use it as inspiration - no 
 A: 50+ categories and growing: web servers, databases, load balancers, monitoring tools, CLI utilities, APIs, microservices, and more.
 
 ### Footer Copy
-**Forgeprint** - AI-native software blueprints
+**SKForge** - AI-native software blueprints
 Don't use software. Forge your own.
 
 Built with ❤️ by S&K Holdings | Open Source | MIT License
@@ -93,11 +93,11 @@ Built with ❤️ by S&K Holdings | Open Source | MIT License
 ### X/Twitter Posts (10 posts)
 
 **Post 1 - Announcement**
-🔥 Introducing Forgeprint: AI-native software blueprints that let you forge exactly the software you need, in any language, for free. Forever.
+🔥 Introducing SKForge: AI-native software blueprints that let you forge exactly the software you need, in any language, for free. Forever.
 
 Stop settling for "close enough." Start building "exactly right."
 
-#Forgeprint #OpenSource #AI #SoftwareDevelopment
+#SKForge #OpenSource #AI #SoftwareDevelopment
 *Viral Hook: The tension between settling and perfection*
 
 **Post 2 - Educational**
@@ -107,7 +107,7 @@ Here's the problem with existing software:
 ❌ Missing that one crucial feature
 ❌ Expensive licensing
 
-Forgeprint solves ALL of this ⚡️
+SKForge solves ALL of this ⚡️
 
 #BuildDontBuy
 *Viral Hook: Universal developer frustrations*
@@ -119,11 +119,11 @@ They might fit. They probably don't fit perfectly.
 
 Time to get your software tailored. 🧵✂️
 
-#Forgeprint #CustomSoftware
+#SKForge #CustomSoftware
 *Viral Hook: Uncomfortable but relatable analogy*
 
 **Post 4 - Demo Tease**
-Watch me build a production-ready load balancer in 60 seconds using just an AI and a Forgeprint blueprint.
+Watch me build a production-ready load balancer in 60 seconds using just an AI and a SKForge blueprint.
 
 No frameworks. No dependencies. Just pure, custom code.
 
@@ -141,11 +141,11 @@ And unlike apps, blueprints are:
 ✅ Fully customizable  
 ✅ Actually yours
 
-#DevEvolution #Forgeprint
+#DevEvolution #SKForge
 *Viral Hook: Cultural evolution meme format*
 
 **Post 6 - Technical**
-Forgeprint blueprints aren't templates or boilerplates.
+SKForge blueprints aren't templates or boilerplates.
 
 They're comprehensive specifications that any LLM can interpret to generate:
 🎯 Production-ready code
@@ -157,7 +157,7 @@ Language agnostic. AI native.
 *Viral Hook: Technical precision for dev audience*
 
 **Post 7 - Community**
-The most exciting thing about Forgeprint isn't the software it generates.
+The most exciting thing about SKForge isn't the software it generates.
 
 It's the community of developers who refuse to settle for "good enough" and decide to forge their own path.
 
@@ -169,7 +169,7 @@ Join us: [link]
 **Post 8 - Problem/Solution**
 You: "I need a web server that does X, Y, and Z"
 Existing solutions: "Here's A, B, C, and maybe W if you pay extra"
-Forgeprint: "Here's exactly X, Y, and Z, built for your stack, tested, and documented. Free."
+SKForge: "Here's exactly X, Y, and Z, built for your stack, tested, and documented. Free."
 
 This is the way.
 
@@ -177,7 +177,7 @@ This is the way.
 *Viral Hook: Star Wars reference + clear value prop*
 
 **Post 9 - Behind the Scenes**
-Why we built Forgeprint:
+Why we built SKForge:
 
 S&K Holdings believes that in an AI-native world, the barrier to custom software should be ideas, not implementation.
 
@@ -197,7 +197,7 @@ The age of settling for imperfect software is over.
 
 Ready to forge your own?
 
-→ forgeprint.dev
+→ skforge.io
 
 #DontUseSoftwareForgeYourOwn
 *Viral Hook: Decisive moment + clear action*
@@ -207,7 +207,7 @@ Ready to forge your own?
 **Post 1 - Professional Problem**
 Enterprise leaders: How much of your technical debt comes from software that was "close enough" at purchase time?
 
-Introducing Forgeprint - AI-native blueprints that generate exactly the software your business needs, in your preferred language, with your specific requirements.
+Introducing SKForge - AI-native blueprints that generate exactly the software your business needs, in your preferred language, with your specific requirements.
 
 Custom software, without custom development costs.
 
@@ -218,14 +218,14 @@ The average enterprise pays $200K+ annually for software that meets 80% of their
 
 What if you could generate software that meets 100% of your needs, for the cost of AI compute time?
 
-Forgeprint makes this possible. Open source, production-ready blueprints that any LLM can build from.
+SKForge makes this possible. Open source, production-ready blueprints that any LLM can build from.
 
 #CostOptimization #SoftwareDevelopment #AI
 
 **Post 3 - Innovation Angle**
 "The future belongs to companies that can adapt their software as fast as they can adapt their strategy."
 
-Forgeprint enables this agility. When your business requirements change, your software can change with them - in hours, not quarters.
+SKForge enables this agility. When your business requirements change, your software can change with them - in hours, not quarters.
 
 #DigitalTransformation #BusinessAgility #Innovation
 
@@ -243,7 +243,7 @@ Solution: Empower your existing team with AI-native blueprints that generate pro
 **Post 5 - Industry Leadership**
 Open source is eating the world, but proprietary solutions are still eating budgets.
 
-S&K Holdings is changing this with Forgeprint - comprehensive software blueprints that democratize custom development.
+S&K Holdings is changing this with SKForge - comprehensive software blueprints that democratize custom development.
 
 This is how forward-thinking organizations will build in the AI era.
 
@@ -256,7 +256,7 @@ Title: "I built an AI-native blueprint system that generates production-ready so
 
 Hey r/programming! 
 
-After years of frustration with "close enough" software solutions, my team at S&K Holdings built Forgeprint - a system of comprehensive blueprints that any LLM can use to generate complete, tested, production-ready software.
+After years of frustration with "close enough" software solutions, my team at S&K Holdings built SKForge - a system of comprehensive blueprints that any LLM can use to generate complete, tested, production-ready software.
 
 Unlike templates or boilerplates, these are detailed specifications covering everything from architecture to security to testing. You pick your requirements from expert-curated checklists, choose your language, and let AI build exactly what you need.
 
@@ -264,16 +264,16 @@ We've open-sourced the entire thing because we believe good tools should be avai
 
 Categories so far: load balancers, databases, web servers, monitoring tools, CLI utilities, APIs, and 40+ more.
 
-GitHub: [link] | Try it: forgeprint.dev
+GitHub: [link] | Try it: skforge.io
 
 Happy to answer questions about the architecture, blueprint design, or anything else!
 
 **r/opensource**
-Title: "Forgeprint: Open-source AI-native software blueprints that generate custom code in any language"
+Title: "SKForge: Open-source AI-native software blueprints that generate custom code in any language"
 
 The problem with most software: it's built for the average use case, not YOUR use case.
 
-Forgeprint solves this with comprehensive blueprints that LLMs can consume to generate exactly the software you need:
+SKForge solves this with comprehensive blueprints that LLMs can consume to generate exactly the software you need:
 
 🎯 Production-ready specifications
 🧪 Complete testing frameworks  
@@ -290,11 +290,11 @@ Repo: [link] | Docs: [link] | Discord: [link]
 What categories would you like to see blueprinted next?
 
 **r/rust**
-Title: "Generate production-ready Rust applications from AI-native blueprints - Forgeprint launch"
+Title: "Generate production-ready Rust applications from AI-native blueprints - SKForge launch"
 
 Rust developers! 🦀
 
-Just launched Forgeprint - open-source blueprints that let you specify exactly what you want and have AI generate complete Rust applications.
+Just launched SKForge - open-source blueprints that let you specify exactly what you want and have AI generate complete Rust applications.
 
 Current Rust-focused blueprints:
 - High-performance web servers (Axum/Actix)
@@ -307,18 +307,18 @@ Each blueprint includes comprehensive cargo configurations, error handling patte
 
 The generated code is idiomatic Rust that you'd be proud to maintain.
 
-Try it: forgeprint.dev | Contribute: [github-link]
+Try it: skforge.io | Contribute: [github-link]
 
 What Rust patterns would you like to see blueprinted?
 
 **r/golang**
-Title: "AI-generated Go applications from expert blueprints - introducing Forgeprint"
+Title: "AI-generated Go applications from expert blueprints - introducing SKForge"
 
 Gophers! 🐹
 
 Tired of starting Go projects from scratch or adapting frameworks that don't quite fit?
 
-Forgeprint provides detailed blueprints that AI can use to generate production-ready Go applications:
+SKForge provides detailed blueprints that AI can use to generate production-ready Go applications:
 
 ✅ Proper project structure with go.mod
 ✅ Idiomatic Go patterns and interfaces  
@@ -331,19 +331,19 @@ Categories: web servers (gin/fiber/echo), APIs, microservices, CLI tools, databa
 
 Everything is open source and community-driven.
 
-Check it out: forgeprint.dev
+Check it out: skforge.io
 Contribute: [link]
 
 What Go patterns are missing from existing blueprint collections?
 
 **r/selfhosted**
-Title: "Self-host exactly the software you need with AI-generated applications - Forgeprint"
+Title: "Self-host exactly the software you need with AI-generated applications - SKForge"
 
 Fellow self-hosters!
 
 Sick of compromising on software because the perfect solution doesn't exist, or exists but costs too much, or exists and is free but missing that one crucial feature?
 
-Forgeprint lets you specify exactly what you need and have AI generate it:
+SKForge lets you specify exactly what you need and have AI generate it:
 
 🏠 Custom home automation systems
 📊 Personalized monitoring dashboards  
@@ -356,7 +356,7 @@ All generated code includes Docker configurations, docker-compose files, and dep
 
 Open source, free forever, production-ready.
 
-Try it: forgeprint.dev | Join community: [discord-link]
+Try it: skforge.io | Join community: [discord-link]
 
 What self-hosted tools would you love to have custom-built?
 
@@ -364,13 +364,13 @@ What self-hosted tools would you love to have custom-built?
 
 ## 4. SHORT-FORM VIDEO SCRIPTS
 
-### Script 1: "What is Forgeprint?" (30 seconds)
+### Script 1: "What is SKForge?" (30 seconds)
 
 [Scene: Developer at computer, looking frustrated]
 **Narrator:** "Tired of software that's almost what you need?"
 
-[Cut to: Forgeprint interface]
-**Narrator:** "Forgeprint gives you AI-native blueprints..."
+[Cut to: SKForge interface]
+**Narrator:** "SKForge gives you AI-native blueprints..."
 
 [Scene: User selecting features from checklist]
 **Narrator:** "Pick your specs, choose your language..."
@@ -383,14 +383,14 @@ What self-hosted tools would you love to have custom-built?
 
 [End screen: Logo and tagline]
 **Text:** "Don't use software. Forge your own."
-**URL:** forgeprint.dev
+**URL:** skforge.io
 
 ### Script 2: "Build a load balancer in 60 seconds" (demo concept)
 
 [Scene: Timer starts at 60 seconds]
 **Developer:** "I need a load balancer with health checks, SSL termination, and rate limiting."
 
-[0:55 - Forgeprint interface opens]
+[0:55 - SKForge interface opens]
 **Developer:** "Load balancer blueprint... check health monitoring..."
 
 [0:45 - Selecting features]
@@ -412,7 +412,7 @@ What self-hosted tools would you love to have custom-built?
 **Developer:** "Production-ready load balancer. 60 seconds."
 
 [End screen]
-**Text:** "Your turn. forgeprint.dev"
+**Text:** "Your turn. skforge.io"
 
 ### Script 3: "Why every developer needs this" (45 seconds)
 
@@ -426,7 +426,7 @@ What self-hosted tools would you love to have custom-built?
 [Scene: Frustrated developer]
 **Developer:** "It does 80% of what I need..."
 
-[Scene: Forgeprint logo appears]
+[Scene: SKForge logo appears]
 **Narrator:** "What if you could build 100% of what you need?"
 
 [Montage: Various software being generated]
@@ -440,13 +440,13 @@ What self-hosted tools would you love to have custom-built?
 
 [End screen: Call to action]
 **Text:** "Stop compromising. Start forging."
-**URL:** forgeprint.dev
+**URL:** skforge.io
 
 ---
 
 ## 5. LAUNCH ONE-PAGER (PDF-Ready)
 
-# FORGEPRINT
+# SKFORGE
 ## AI-Native Software Blueprints
 *Don't use software. Forge your own.*
 
@@ -454,7 +454,7 @@ What self-hosted tools would you love to have custom-built?
 Developers waste countless hours adapting existing software that's "close enough" but never perfect. Enterprises pay premium prices for solutions that meet 80% of their needs. Innovation stalls because custom software requires custom development teams.
 
 ### THE SOLUTION
-Forgeprint provides comprehensive, AI-native blueprints that any LLM can consume to generate complete, production-ready software in any language. These aren't templates - they're detailed specifications covering architecture, testing, security, and deployment.
+SKForge provides comprehensive, AI-native blueprints that any LLM can consume to generate complete, production-ready software in any language. These aren't templates - they're detailed specifications covering architecture, testing, security, and deployment.
 
 ### HOW IT WORKS
 1. **Choose** from 50+ software categories (web servers, databases, load balancers, APIs, CLI tools, monitoring systems)
@@ -470,8 +470,8 @@ Forgeprint provides comprehensive, AI-native blueprints that any LLM can consume
 ### GET INVOLVED
 
 **For Developers:**
-- Try it: forgeprint.dev
-- Contribute blueprints: GitHub/forgeprint
+- Try it: skforge.io
+- Contribute blueprints: GitHub/skforge
 - Join community: Discord server
 
 **For Organizations:**
@@ -492,7 +492,7 @@ Forgeprint provides comprehensive, AI-native blueprints that any LLM can consume
 - Growing developer community
 - Free forever guarantee
 
-*Contact: hello@forgeprint.dev | forgeprint.dev | @ForgerintAI*
+*Contact: hello@skforge.io | skforge.io | @ForgerintAI*
 
 ---
 
@@ -506,7 +506,7 @@ Hi [Name],
 
 After years of adapting software that was "close enough," we decided to build something different.
 
-Today, we're launching Forgeprint - AI-native blueprints that let you generate exactly the software you need, in any language, for free.
+Today, we're launching SKForge - AI-native blueprints that let you generate exactly the software you need, in any language, for free.
 
 **Here's what makes it special:**
 
@@ -518,7 +518,7 @@ Today, we're launching Forgeprint - AI-native blueprints that let you generate e
 
 **Categories available now:** Web servers, databases, load balancers, APIs, CLI utilities, monitoring tools, and 40+ more.
 
-Want to try it? Visit forgeprint.dev and forge your first custom application in minutes.
+Want to try it? Visit skforge.io and forge your first custom application in minutes.
 
 Questions? Hit reply - I read every email.
 
@@ -536,7 +536,7 @@ Hi [Name],
 
 I've been following your work on [project] and I'm impressed by [specific detail]. Your expertise is exactly what we need for our newest open source project.
 
-**What is Forgeprint?**
+**What is SKForge?**
 AI-native software blueprints that generate production-ready applications in any language. Instead of adapting existing frameworks, developers can now forge exactly what they need.
 
 **Why your contribution matters:**
@@ -563,7 +563,7 @@ Ready to help democratize custom software development?
 Looking forward to building the future together,
 
 [Your name]
-S&K Holdings / Forgeprint Team
+S&K Holdings / SKForge Team
 
 ---
 
@@ -735,4 +735,4 @@ S&K Holdings / Forgeprint Team
 
 ---
 
-*This marketing package positions Forgeprint as the revolutionary solution to software compromise while building a strong, engaged community around the open-source project. The viral potential comes from solving a universal developer pain point with a bold, memorable brand voice.*
+*This marketing package positions SKForge as the revolutionary solution to software compromise while building a strong, engaged community around the open-source project. The viral potential comes from solving a universal developer pain point with a bold, memorable brand voice.*

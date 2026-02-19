@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Forgeprint Installer
-# curl -fsSL https://forgeprint.dev/install.sh | sh
+# SKForge Installer
+# curl -fsSL https://skforge.io/install.sh | sh
 #
 # Don't use software. Forge your own. 🐧
 # S&K Holdings — Helping architect our quantum future, one smile at a time.
 
 set -euo pipefail
 
-REPO="smilinTux/forgeprint"
-INSTALL_DIR="${FORGE_HOME:-$HOME/.forgeprint}"
+REPO="smilinTux/skforge"
+INSTALL_DIR="${FORGE_HOME:-$HOME/.skforge}"
 BIN_DIR="${FORGE_BIN:-/usr/local/bin}"
 
 RED='\033[0;31m'
@@ -33,7 +33,7 @@ cat << 'PENGUIN'
 
 PENGUIN
 
-echo -e "${BOLD}Installing Forgeprint...${NC}\n"
+echo -e "${BOLD}Installing SKForge...${NC}\n"
 
 # Check dependencies
 echo -e "  Checking dependencies..."
@@ -103,7 +103,7 @@ bp_count=$(find "$INSTALL_DIR/blueprints/blueprints" -maxdepth 1 -type d 2>/dev/
 bp_count=$((bp_count - 1))
 
 echo -e "\n${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}  ✅ Forgeprint installed successfully!${NC}"
+echo -e "${GREEN}  ✅ SKForge installed successfully!${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e ""
 echo -e "  📦 ${BOLD}$bp_count blueprint categories${NC} available"
@@ -115,9 +115,9 @@ echo -e "    ${CYAN}forge init${NC}          Interactive setup wizard"
 echo -e "    ${CYAN}forge doctor${NC}        Check your AI providers"
 echo -e ""
 echo -e "  ${BOLD}Links:${NC}"
-echo -e "    Website:  ${CYAN}https://forgeprint.dev${NC}"
+echo -e "    Website:  ${CYAN}https://skforge.io${NC}"
 echo -e "    GitHub:   ${CYAN}https://github.com/$REPO${NC}"
-echo -e "    Discord:  ${CYAN}https://discord.gg/forgeprint${NC}"
+echo -e "    Discord:  ${CYAN}https://discord.gg/skforge${NC}"
 echo -e ""
 echo -e "  ${DIM}S&K Holdings — Helping architect our quantum future, one smile at a time.${NC}"
 echo -e "  ${DIM}Making Self-Hosting & Decentralized Systems Cool Again 🐧${NC}"

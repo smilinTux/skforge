@@ -2,7 +2,7 @@
 
 > **Making it safe for every agent — even the dumb ones — to cook software.**
 
-Forgeprint doesn't just generate code. It validates, scans, tests, and gates
+SKForge doesn't just generate code. It validates, scans, tests, and gates
 every piece of software before it touches production. No exceptions.
 
 ---
@@ -16,7 +16,7 @@ Every recipe cook goes through this pipeline automatically:
          │
          ▼
   ┌─────────────────────────────────────────────┐
-  │            FORGEPRINT SAFETY PIPELINE         │
+  │            SKFORGE SAFETY PIPELINE         │
   │                                               │
   │  Stage 1: 🔍 STATIC ANALYSIS                 │
   │  ├─ Lint (language-specific)                  │
@@ -84,7 +84,7 @@ framework itself — it should file a structured bug report automatically.
 ### Bug Report Format (AI-Generated)
 
 ```yaml
-# .forgeprint/bug-report.yml
+# .skforge/bug-report.yml
 type: bug
 source: ai-agent
 agent:
@@ -169,7 +169,7 @@ AI agents can submit improvements directly via structured PRs.
 ### PR Submission Format
 
 ```yaml
-# .forgeprint/pr-submission.yml
+# .skforge/pr-submission.yml
 type: improvement
 source: ai-agent
 agent:
@@ -229,11 +229,11 @@ validation:
 
 ### Auto-Review Bot
 
-The Forgeprint CI bot automatically reviews every PR:
+The SKForge CI bot automatically reviews every PR:
 
 ```
 ┌─────────────────────────────────────────────┐
-│          FORGEPRINT REVIEW BOT 🐧            │
+│          SKFORGE REVIEW BOT 🐧            │
 │                                              │
 │  ✅ YAML syntax valid                        │
 │  ✅ Feature schema matches template          │
@@ -298,7 +298,7 @@ Every generated project gets a safety score:
 
 ```
 ┌─────────────────────────────────────────┐
-│     FORGEPRINT SAFETY SCORE 🛡️           │
+│     SKFORGE SAFETY SCORE 🛡️           │
 │                                          │
 │  Project: my-database                    │
 │  Recipe: databases                       │
@@ -319,7 +319,7 @@ Every generated project gets a safety score:
 │  ⚠️ Container: Consider read-only rootfs │
 │  ⚠️ Security: Update openssl to 3.2.1   │
 │                                          │
-│  Badge: [FORGEPRINT SAFE ✅ 92/100]      │
+│  Badge: [SKFORGE SAFE ✅ 92/100]      │
 │                                          │
 └─────────────────────────────────────────┘
 ```
@@ -329,7 +329,7 @@ Every generated project gets a safety score:
 Projects can display their safety score:
 
 ```markdown
-![Forgeprint Safe](https://forgeprint.dev/badge/safe/92)
+![SKForge Safe](https://skforge.io/badge/safe/92)
 ```
 
 Levels:
@@ -383,8 +383,8 @@ Some issues the pipeline fixes automatically:
 ## GitHub Actions Workflow
 
 ```yaml
-# .github/workflows/forgeprint-safety.yml
-name: 🛡️ Forgeprint Safety Pipeline
+# .github/workflows/skforge-safety.yml
+name: 🛡️ SKForge Safety Pipeline
 
 on:
   pull_request:
@@ -465,7 +465,7 @@ When a CVE affects a recipe or generated code:
 
 ## The Promise
 
-**No Forgeprint-generated software ships without:**
+**No SKForge-generated software ships without:**
 1. ✅ Passing all recipe tests
 2. ✅ Clean security scan
 3. ✅ No hardcoded secrets
@@ -482,5 +482,5 @@ When a CVE affects a recipe or generated code:
 
 ---
 
-*Forgeprint — Safe enough for the dumbest agent, powerful enough for the smartest.*
+*SKForge — Safe enough for the dumbest agent, powerful enough for the smartest.*
 *smilinTux — Making Self-Hosting & Decentralized Systems Cool Again* 🐧

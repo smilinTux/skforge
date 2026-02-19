@@ -1,4 +1,4 @@
-# 🔧 Forgeprint
+# 🔧 SKForge
 
 ### Don't use software. Forge your own.
 
@@ -17,22 +17,22 @@ Pick your category. Choose your features. Select your language. Let AI build it.
 Runtime: **Node ≥22**.
 
 ```bash
-npm install -g forgeprint
-# or: pnpm add -g forgeprint
+npm install -g skforge
+# or: pnpm add -g skforge
 
 forge onboard
 ```
 
 Or via shell:
 ```bash
-curl -fsSL https://forgeprint.dev/install.sh | sh
+curl -fsSL https://skforge.io/install.sh | sh
 ```
 
 ---
 
-## 🐧 What is Forgeprint?
+## 🐧 What is SKForge?
 
-Forgeprint provides **detailed, structured specification files** (blueprints) that any LLM — even mid-tier models — can consume to generate complete, working, tested software products.
+SKForge provides **detailed, structured specification files** (blueprints) that any LLM — even mid-tier models — can consume to generate complete, working, tested software products.
 
 Think of it as **"Skills for Software"** — instead of teaching an AI how to use a tool, you give it the recipe to **build the tool from scratch**.
 
@@ -225,7 +225,7 @@ As AI models improve, the same blueprints produce better software. **Future-proo
 
 ## 🏠 Self-Host Everything
 
-Forgeprint is built for the **self-hosting revolution**. Every blueprint generates software you own, run, and control — on your hardware, your terms, your rules.
+SKForge is built for the **self-hosting revolution**. Every blueprint generates software you own, run, and control — on your hardware, your terms, your rules.
 
 No more:
 - 📉 Price hikes you can't control

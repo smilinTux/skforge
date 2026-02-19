@@ -1,23 +1,23 @@
 ---
-name: forgeprint
+name: skforge
 description: >
   AI-native software blueprints — research, create, and build from detailed recipes
   that specify every feature, architecture pattern, and test for any software category.
   Use when asked to: build/forge/cook software from blueprints, research a software
   category for blueprinting, create new recipes/blueprints, compose vertical stacks
-  from multiple blueprints, or contribute to the Forgeprint cookbook. Covers 21+
+  from multiple blueprints, or contribute to the SKForge cookbook. Covers 21+
   categories including databases, web servers, API gateways, message queues, load
   balancers, vector DBs, graph DBs, key-value stores, security scanners, CI/CD,
   monitoring, IaC, container orchestrators, and more.
 ---
 
-# 🍳 Forgeprint — AI-Native Software Recipes
+# 🍳 SKForge — AI-Native Software Recipes
 
 > Don't order software. Cook your own.
 
 ## What This Is
 
-Forgeprint is a cookbook of detailed software blueprints ("recipes") that contain
+SKForge is a cookbook of detailed software blueprints ("recipes") that contain
 enough information for any AI to generate a complete, tested implementation.
 
 Each recipe includes:
@@ -124,12 +124,12 @@ To blueprint ANY software category, follow the RECON methodology in `RECON.md`:
 Copy this to start blueprinting any category:
 
 ```
-Create a Forgeprint recipe for [CATEGORY]. Research top 30 products
+Create a SKForge recipe for [CATEGORY]. Research top 30 products
 (10 OSS + 10 proprietary + 10 SaaS). Extract 60-100 features into
 features.yml with name, description, complexity, default, dependencies.
 Document architecture patterns with ASCII diagrams. Write 50+ unit test
 specs and 5+ benchmarks with numeric baselines. Include memory management
-guide. Output as Forgeprint blueprint directory structure.
+guide. Output as SKForge blueprint directory structure.
 ```
 
 ## Research Library
@@ -152,8 +152,8 @@ to create a complete blueprint directory under blueprints/<category>/.
 
 ## Sub-Skills
 
-### forgeprint-cook
-**When:** Asked to generate/implement/build software from a Forgeprint recipe.
+### skforge-cook
+**When:** Asked to generate/implement/build software from a SKForge recipe.
 1. Read the recipe's BLUEPRINT.md for overview
 2. Read features.yml — select ingredients based on user requirements
 3. Read architecture.md — choose the right pattern
@@ -161,7 +161,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 5. Generate tests from tests/unit-tests.md specs
 6. Validate against benchmarks.md targets
 
-### forgeprint-recon
+### skforge-recon
 **When:** Asked to research/blueprint a new software category.
 1. Read RECON.md for the full methodology
 2. Check if research already exists in `research/` directory
@@ -169,7 +169,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 4. Output a complete blueprint directory with all 6 files
 5. Run the quality checklist from RECON.md before submitting
 
-### forgeprint-stack
+### skforge-stack
 **When:** Asked to compose a full stack or multi-service architecture.
 1. Read STACKS.md for composition patterns
 2. Identify which recipe covers each layer
@@ -177,7 +177,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 4. Generate integrated deployment configs (docker-compose, k8s, etc.)
 5. Wire inter-service connections using standard interfaces
 
-### forgeprint-contribute
+### skforge-contribute
 **When:** Asked to improve existing recipes or add features.
 1. Read CONTRIBUTING.md for guidelines
 2. Read the target recipe's current features.yml
@@ -188,7 +188,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 ## File Structure
 
 ```
-forgeprint/
+skforge/
 ├── SKILL.md              ← You are here
 ├── forge.mjs             ← CLI tool (Node.js)
 ├── RECON.md              ← How to blueprint anything
@@ -211,7 +211,7 @@ forgeprint/
 
 ## Links
 
-- **GitHub:** https://github.com/smilinTux/forgeprint
+- **GitHub:** https://github.com/smilinTux/skforge
 - **Org:** https://github.com/smilinTux
 - **License:** AGPL-3.0 (tooling), Apache 2.0 (recipes)
 

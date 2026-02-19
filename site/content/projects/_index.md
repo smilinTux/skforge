@@ -6,7 +6,7 @@ title: "Projects"
 
 All projects are free, sovereign, and designed to replace commercial alternatives.
 
-### 🔧 [Forgeprint](https://github.com/smilinTux/forgeprint)
+### 🔧 [SKForge](https://github.com/smilinTux/skforge)
 **Don't use software. Forge your own.**
 
 AI-native software blueprints. Pick a category, choose features, select a language, and let AI build complete tested software. 25+ categories, 400+ features researched.

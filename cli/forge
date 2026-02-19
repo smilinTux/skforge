@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-# forge — The Forgeprint CLI
+# forge — The SKForge CLI
 # AI-native software blueprints. Don't use software. Forge your own.
-# https://forgeprint.dev | S&K Holdings | Apache 2.0
+# https://skforge.io | S&K Holdings | Apache 2.0
 #
 # Making Self-Hosting & Decentralized Systems Cool Again 🐧
 
 set -euo pipefail
 
 VERSION="0.1.0"
-FORGE_HOME="${FORGE_HOME:-$HOME/.forgeprint}"
+FORGE_HOME="${FORGE_HOME:-$HOME/.skforge}"
 BLUEPRINTS_DIR="$FORGE_HOME/blueprints"
-REPO_URL="https://github.com/smilinTux/forgeprint.git"
-RAW_URL="https://raw.githubusercontent.com/smilinTux/forgeprint/main"
+REPO_URL="https://github.com/smilinTux/skforge.git"
+RAW_URL="https://raw.githubusercontent.com/smilinTux/skforge/main"
 
 # Colors
 RED='\033[0;31m'
@@ -25,7 +25,7 @@ NC='\033[0m'
 penguin() {
   cat << 'EOF'
 
-    🐧 Forgeprint
+    🐧 SKForge
     Don't use software. Forge your own.
 
 EOF
@@ -67,16 +67,16 @@ ${BOLD}EXAMPLES${NC}
   forge build
 
 ${BOLD}ENVIRONMENT${NC}
-  FORGE_HOME        Blueprint storage (default: ~/.forgeprint)
+  FORGE_HOME        Blueprint storage (default: ~/.skforge)
   FORGE_AI          AI provider: openai|anthropic|ollama|moonshot (default: auto-detect)
   FORGE_MODEL       Model to use (default: provider's best)
   FORGE_API_KEY     API key for cloud AI providers
 
 ${BOLD}LINKS${NC}
-  Website:    https://forgeprint.dev
-  GitHub:     https://github.com/smilinTux/forgeprint
+  Website:    https://skforge.io
+  GitHub:     https://github.com/smilinTux/skforge
   Discord:    https://discord.gg/smilintux
-  Blueprints: https://forgeprint.dev/blueprints
+  Blueprints: https://skforge.io/blueprints
 
 ${DIM}Making Self-Hosting & Decentralized Systems Cool Again 🐧${NC}
 ${DIM}S&K Holdings — Helping architect our quantum future, one smile at a time.${NC}
@@ -428,7 +428,7 @@ cmd_build() {
   echo -e "  ${GREEN}✓${NC} Loaded ${DIM}$(( context_size / 1024 ))KB${NC} of blueprint context"
   
   # Build the AI prompt
-  local prompt="You are Forgeprint, an AI software forge. Read the following blueprint specification and driver configuration, then generate a COMPLETE, WORKING implementation in ${lang}.
+  local prompt="You are SKForge, an AI software forge. Read the following blueprint specification and driver configuration, then generate a COMPLETE, WORKING implementation in ${lang}.
 
 REQUIREMENTS:
 1. Implement ONLY the features marked [x] in the driver configuration
@@ -564,7 +564,7 @@ cmd_new() {
   
   cp -r "$template_dir" "$new_dir"
   echo -e "${GREEN}✅ Created blueprint template at $new_dir${NC}"
-  echo -e "${DIM}Edit the files, then submit a PR to smilinTux/forgeprint${NC}"
+  echo -e "${DIM}Edit the files, then submit a PR to smilinTux/skforge${NC}"
 }
 
 cmd_doctor() {

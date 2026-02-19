@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * 🐧 Forgeprint — AI-Native Software Blueprints
+ * 🐧 SKForge — AI-Native Software Blueprints
  * Don't use software. Forge your own.
  * 
  * S&K Holdings — Helping architect our quantum future, one smile at a time.
  * Making Self-Hosting & Decentralized Systems Cool Again
  * 
- * Apache 2.0 | https://forgeprint.dev
+ * Apache 2.0 | https://skforge.io
  */
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
@@ -21,7 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const VERSION = '0.1.0';
-const FORGE_HOME = process.env.FORGE_HOME || join(homedir(), '.forgeprint');
+const FORGE_HOME = process.env.FORGE_HOME || join(homedir(), '.skforge');
 const BLUEPRINTS_DIR = join(__dirname, 'blueprints');
 
 // ─── Colors ──────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ function ask(question) {
 
 function penguin() {
   console.log(`
-    🐧 ${c.bold('Forgeprint')} v${VERSION}
+    🐧 ${c.bold('SKForge')} v${VERSION}
     ${c.dim("Don't use software. Forge your own.")}
   `);
 }
@@ -80,9 +80,9 @@ ${c.bold('COMMANDS')}
   ${c.green('version')}       Show version
 
 ${c.bold('INSTALL')}
-  npm install -g forgeprint        ${c.dim('# npm')}
-  pnpm add -g forgeprint           ${c.dim('# pnpm')}
-  curl -fsSL forgeprint.dev/install.sh | sh  ${c.dim('# shell')}
+  npm install -g skforge        ${c.dim('# npm')}
+  pnpm add -g skforge           ${c.dim('# pnpm')}
+  curl -fsSL skforge.io/install.sh | sh  ${c.dim('# shell')}
 
 ${c.bold('QUICK START')}
   forge onboard                    ${c.dim('# guided wizard')}
@@ -173,7 +173,7 @@ async function cmdInfo(category) {
 
 async function cmdOnboard() {
   penguin();
-  console.log(c.bold('🔨 Welcome to Forgeprint!\n'));
+  console.log(c.bold('🔨 Welcome to SKForge!\n'));
   console.log("Let's get you set up to forge custom software.\n");
   
   // Step 1: Check AI provider
@@ -509,7 +509,7 @@ async function cmdStack(stackFile) {
   // Check if it's a template name or a file
   const templates = ['saas-starter', 'ai-platform', 'enterprise', 'notion-killer', 'zero-trust'];
   if (templates.includes(stackFile)) {
-    console.log(`\n    🐧 ${c.bold('Forgeprint')} v${VERSION} — Stack Composer\n`);
+    console.log(`\n    🐧 ${c.bold('SKForge')} v${VERSION} — Stack Composer\n`);
     console.log(c.cyan(`🏗️  Stack template: ${stackFile}`));
     console.log();
     const stacks = {
@@ -530,7 +530,7 @@ async function cmdStack(stackFile) {
     const ready = layers.filter(l => existsSync(join(BLUEPRINTS_DIR, l, 'BLUEPRINT.md'))).length;
     console.log(`  ${c.green(`${ready}/${layers.length}`)} blueprints available`);
     if (ready < layers.length) {
-      console.log(c.dim(`  Remaining blueprints coming soon — contribute at github.com/smilinTux/forgeprint`));
+      console.log(c.dim(`  Remaining blueprints coming soon — contribute at github.com/smilinTux/skforge`));
     }
     console.log();
     console.log(c.dim('  Full stack building coming in v0.2.0'));
@@ -543,7 +543,7 @@ async function cmdStack(stackFile) {
     console.log(c.red(`Stack file not found: ${stackFile}`));
     return;
   }
-  console.log(`\n    🐧 ${c.bold('Forgeprint')} v${VERSION} — Stack Composer\n`);
+  console.log(`\n    🐧 ${c.bold('SKForge')} v${VERSION} — Stack Composer\n`);
   console.log(c.cyan(`🏗️  Loading stack: ${stackFile}`));
   console.log(c.dim('  Stack composition from YAML coming in v0.2.0'));
   console.log(c.dim('  See STACKS.md for the stack.yml format'));
@@ -551,8 +551,8 @@ async function cmdStack(stackFile) {
 
 async function cmdUpdate() {
   console.log(c.cyan('🐧 Checking for blueprint updates...'));
-  console.log(c.dim('  Blueprint updates come via npm: npm update -g forgeprint'));
-  console.log(c.dim('  Or: pnpm update -g forgeprint'));
+  console.log(c.dim('  Blueprint updates come via npm: npm update -g skforge'));
+  console.log(c.dim('  Or: pnpm update -g skforge'));
 }
 
 // ─── Main ────────────────────────────────────────────────────────────

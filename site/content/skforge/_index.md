@@ -1,15 +1,15 @@
 ---
-title: "Forgeprint"
+title: "SKForge"
 ---
 
 ## 🔧 Don't use software. Forge your own.
 
-**Forgeprint** provides AI-native software blueprints — detailed specification files that any LLM can consume to generate complete, working, tested software products.
+**SKForge** provides AI-native software blueprints — detailed specification files that any LLM can consume to generate complete, working, tested software products.
 
 ### Install
 
 ```bash
-npm install -g forgeprint
+npm install -g skforge
 forge onboard
 ```
 
@@ -28,7 +28,7 @@ forge build                  # AI generates your code
 3. **Select Your Language** — Rust, Go, Python, Java, TypeScript, .NET, Zig
 4. **Forge It** — Any AI reads your config + blueprint specs → generates complete software
 
-### Why Forgeprint?
+### Why SKForge?
 
 - **Kill SaaS subscriptions** — Forge your own Datadog, Auth0, Algolia
 - **No bloat** — Only the features YOU choose
@@ -39,9 +39,9 @@ forge build                  # AI generates your code
 
 ### Links
 
-- [GitHub](https://github.com/smilinTux/forgeprint)
-- [Blueprint Browser](https://github.com/smilinTux/forgeprint/tree/main/blueprints)
-- [Contributing](https://github.com/smilinTux/forgeprint/blob/main/CONTRIBUTING.md)
+- [GitHub](https://github.com/smilinTux/skforge)
+- [Blueprint Browser](https://github.com/smilinTux/skforge/tree/main/blueprints)
+- [Contributing](https://github.com/smilinTux/skforge/blob/main/CONTRIBUTING.md)
 
 ---
 

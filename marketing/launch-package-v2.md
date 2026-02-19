@@ -1,4 +1,4 @@
-# FORGEPRINT VIRAL MARKETING PACKAGE v2
+# SKFORGE VIRAL MARKETING PACKAGE v2
 ## 🐧👨‍🍳 The Cookbook for Software Independence
 **"Don't order software. Cook your own."**
 
@@ -27,7 +27,7 @@
 **King Divad** 🐧👨‍🍳 — A penguin wearing a chef's hat. Confident, slightly mischievous, always cooking up something. Appears across all marketing. Think Linux penguin meets Gordon Ramsay energy.
 
 ### Brand Voice
-Forgeprint speaks like a head chef who wants everyone to cook. We're the culinary school for software — expert but accessible, opinionated but welcoming. We don't gatekeep recipes. We share them.
+SKForge speaks like a head chef who wants everyone to cook. We're the culinary school for software — expert but accessible, opinionated but welcoming. We don't gatekeep recipes. We share them.
 
 **Chef** (chefboyrdave2.1) is the creator — a developer who got tired of ordering takeout software and decided to write the cookbook.
 
@@ -43,7 +43,7 @@ The anvil becomes a cast-iron skillet with circuit-board patterns. The spark abo
 
 ---
 
-## 2. THE LICENSE WARS — WHY FORGEPRINT EXISTS
+## 2. THE LICENSE WARS — WHY SKFORGE EXISTS
 
 ### The Pattern
 
@@ -51,48 +51,48 @@ Every year, another "open source" project changes its license. Every year, compa
 
 **What if you had recipes for everything? What if no vendor could ever hold your software hostage again?**
 
-That's Forgeprint. Open recipes. Forever.
+That's SKForge. Open recipes. Forever.
 
 ### The Drama Timeline
 
 #### 🔥 MongoDB SSPL (2018) — The One That Started It All
 MongoDB switched from open source to SSPL. Cloud providers couldn't offer MongoDB-as-a-service without SSPL compliance. Spawned FerretDB, SurrealDB, and a whole generation of "wait, can they DO that?"
 
-**Forgeprint:** *"The document database that started the license wars. Now you can cook your own."*
+**SKForge:** *"The document database that started the license wars. Now you can cook your own."*
 
 #### 🔥 CentOS Death → Rocky/Alma (2020-2023)
 Red Hat killed CentOS (the stable RHEL clone everyone depended on), replaced it with the unstable CentOS Stream. Then in 2023, they restricted RHEL source access entirely. Rocky Linux and AlmaLinux emerged as community forks.
 
-**Forgeprint:** *"Even your OS can get rug-pulled. That's why we recipe everything."*
+**SKForge:** *"Even your OS can get rug-pulled. That's why we recipe everything."*
 
 #### 🔥 Elasticsearch → OpenSearch (January 2021)
 Elastic changed Elasticsearch from Apache 2.0 to SSPL. AWS forked it as OpenSearch. Massive community split. Years of confusion about compatibility.
 
-**Forgeprint:** *"Search shouldn't be a hostage situation."*
+**SKForge:** *"Search shouldn't be a hostage situation."*
 
 #### 🔥 Docker Desktop Licensing (2021)
 Docker Inc started requiring paid subscriptions for Docker Desktop at large companies. Pushed the industry toward Podman, Rancher Desktop, colima.
 
-**Forgeprint:** *"Your containers, your kitchen, your rules."*
+**SKForge:** *"Your containers, your kitchen, your rules."*
 
 #### 🔥 Grafana's AGPL Move (2021)
 Grafana moved from Apache 2.0 to AGPLv3. Amazon forked the older Apache version. Even "open" tools can change the rules.
 
-**Forgeprint:** *"Dashboards are too important to be someone else's business model."*
+**SKForge:** *"Dashboards are too important to be someone else's business model."*
 
 #### 🔥 HashiCorp / OpenTofu (August 2023)
 HashiCorp changed Terraform — THE standard for infrastructure as code — from MPL-2.0 to BSL. The community was furious. Linux Foundation forked it as OpenTofu within weeks. Companies that built their entire infrastructure on Terraform suddenly had license risk overnight.
 
-**Forgeprint:** *"If you had a recipe, you could've cooked your own Terraform. No vendor can rug-pull a recipe."*
+**SKForge:** *"If you had a recipe, you could've cooked your own Terraform. No vendor can rug-pull a recipe."*
 
 #### 🔥 Redis License Change (March 2024)
 Redis Labs changed Redis from BSD to dual RSALv2/SSPLv2. Linux Foundation forked it as Valkey. AWS, Google, and Oracle all backed the fork. Companies scrambled.
 
-**Forgeprint:** *"Your cache shouldn't come with a lawyer. Forge your own."*
+**SKForge:** *"Your cache shouldn't come with a lawyer. Forge your own."*
 
 ---
 
-## 3. WEBSITE COPY (forgeprint.dev)
+## 3. WEBSITE COPY (skforge.io)
 
 ### Hero Section
 **Headline:** Don't order software. Cook your own. 🐧🍳
@@ -114,7 +114,7 @@ In the last 6 years, MongoDB, Elasticsearch, Redis, Terraform, Docker, CentOS, a
 
 **What if you had the recipe?** What if, when HashiCorp changed Terraform's license, you could just... cook your own? From a recipe you already had?
 
-That's Forgeprint. A cookbook of AI-native recipes for every piece of software you depend on.
+That's SKForge. A cookbook of AI-native recipes for every piece of software you depend on.
 
 - **🔓 No License Risk:** Recipes are MIT. Generated code is yours. Period.
 - **🎯 Exactly What You Need:** No bloat, no compromises, no "close enough"
@@ -144,7 +144,7 @@ A: chefboyrdave2.1 — a developer who got tired of ordering takeout software an
 A: That's what the Cookbook is for! Community-contributed recipes make everyone's kitchen better.
 
 ### Footer
-**Forgeprint** 🐧👨‍🍳 — The Software Cookbook
+**SKForge** 🐧👨‍🍳 — The Software Cookbook
 *Don't order software. Cook your own.*
 
 Built with 🔥 by Chef & S&K Holdings | Open Source | MIT License
@@ -163,7 +163,7 @@ Sensing a pattern?
 
 What if you had the RECIPE to cook your own?
 
-Introducing Forgeprint 🐧🍳
+Introducing SKForge 🐧🍳
 
 Don't order software. Cook your own.
 
@@ -172,7 +172,7 @@ Every SaaS subscription is just a dish you haven't learned to cook yet 🍳
 
 We're writing the cookbook.
 
-forgeprint.dev 🐧🔥
+skforge.io 🐧🔥
 
 **Post 3 — Redis Drama**
 Redis changed its license in March 2024.
@@ -181,7 +181,7 @@ AWS, Google, and Oracle scrambled to back a fork.
 
 You know what doesn't need a fork? A recipe.
 
-🐧🍳 forgeprint.dev
+🐧🍳 skforge.io
 
 **Post 4 — Terraform**
 "We built our entire infrastructure on Terraform"
@@ -190,7 +190,7 @@ You know what doesn't need a fork? A recipe.
 
 If you had a recipe, you could've cooked your own. No vendor can rug-pull a recipe.
 
-🐧🔥 #Forgeprint
+🐧🔥 #SKForge
 
 **Post 5 — Kitchen Philosophy**
 Your cache shouldn't come with a lawyer.
@@ -199,7 +199,7 @@ Your containers, your kitchen, your rules.
 
 Open recipes. Forever.
 
-🐧🍳 forgeprint.dev
+🐧🍳 skforge.io
 
 **Post 6 — Meme Energy**
 2018: MongoDB changes license
@@ -210,7 +210,7 @@ Open recipes. Forever.
 
 2025: Maybe just... learn to cook? 🐧🍳
 
-#Forgeprint
+#SKForge
 
 **Post 7 — The Vision**
 50+ software recipes. Any language. Any LLM.
@@ -224,7 +224,7 @@ Pick your ingredients. Cook your own:
 
 No license risk. No subscription. Just YOUR code.
 
-forgeprint.dev 🐧🔥
+skforge.io 🐧🔥
 
 **Post 8 — Chef's Intro**
 I'm Chef. I got tired of ordering takeout software.
@@ -235,14 +235,14 @@ Open recipes. AI cooks them. You own the result.
 
 No vendor can rug-pull a recipe. 🐧👨‍🍳
 
-#Forgeprint
+#SKForge
 
 **Post 9 — The Challenge**
 Name a piece of software you pay for.
 
 I'll show you the recipe to cook your own.
 
-🐧🍳 #Forgeprint #CookYourOwn
+🐧🍳 #SKForge #CookYourOwn
 
 **Post 10 — Call to Action**
 The age of software takeout is over.
@@ -253,7 +253,7 @@ The age of software takeout is over.
 🍳 Production-ready dishes
 🐧 King Divad approved
 
-Open the Cookbook → forgeprint.dev
+Open the Cookbook → skforge.io
 
 #DontOrderSoftwareCookYourOwn 🔥
 
@@ -283,15 +283,15 @@ Every year, another "open source" tool changes the rules. Every year, companies 
 
 At S&K Holdings, we asked a different question: What if companies had the recipe to cook their own?
 
-That's Forgeprint — an open-source cookbook of AI-native software recipes. Comprehensive specifications that any LLM can use to generate production-ready software in any language.
+That's SKForge — an open-source cookbook of AI-native software recipes. Comprehensive specifications that any LLM can use to generate production-ready software in any language.
 
 No vendor can rug-pull a recipe. No license can change on code YOU generated from YOUR recipe.
 
 The cookbook is open. The recipes are free. Forever.
 
-→ forgeprint.dev
+→ skforge.io
 
-#OpenSource #SoftwareSupplyChain #LicenseRisk #Forgeprint
+#OpenSource #SoftwareSupplyChain #LicenseRisk #SKForge
 
 ---
 
@@ -305,7 +305,7 @@ When you learn to cook, you're free.
 
 This is exactly what's happening in software. Companies "order" their infrastructure from vendors — databases, caches, search engines, monitoring tools. It works great until the vendor changes the menu (or the price, or the license).
 
-Forgeprint is a cookbook. Each recipe contains:
+SKForge is a cookbook. Each recipe contains:
 - 🥘 **Ingredients** — every feature, precisely specified
 - 📋 **Method** — architecture, patterns, security considerations
 - 🧪 **Quality checks** — comprehensive test specifications
@@ -323,7 +323,7 @@ Our creator, Chef (chefboyrdave2.1), says it best: "Every SaaS subscription is j
 
 We're building the cookbook. 50+ dishes and growing. Community contributions welcome.
 
-→ forgeprint.dev
+→ skforge.io
 
 #SoftwareDevelopment #AI #Innovation #CookYourOwn
 
@@ -337,7 +337,7 @@ Most companies assemble their tech stack like a buffet — a little Postgres her
 
 Each one from a different vendor. Each one with its own license. Each one a potential rug-pull.
 
-Forgeprint introduces **Menus** — curated collections of recipes that work together as a complete stack. Think of it as a Prix Fixe dinner for your infrastructure:
+SKForge introduces **Menus** — curated collections of recipes that work together as a complete stack. Think of it as a Prix Fixe dinner for your infrastructure:
 
 **The Self-Hosted Starter Menu:**
 - 🥗 Appetizer: Reverse proxy with auto-SSL
@@ -361,9 +361,9 @@ No vendor lock-in. No license anxiety. No "what if they change the terms?"
 
 The kitchen is open. Come cook.
 
-→ forgeprint.dev
+→ skforge.io
 
-#TechStack #Infrastructure #DevOps #Forgeprint
+#TechStack #Infrastructure #DevOps #SKForge
 
 ---
 
@@ -381,7 +381,7 @@ If you self-host, you've felt this pain. You build your entire stack around a to
 
 I got tired of it. So I started writing recipes.
 
-**Forgeprint** is an open-source cookbook of AI-native software recipes. Each recipe is a comprehensive specification that any LLM (GPT-4, Claude, local models) can use to generate production-ready software in any language.
+**SKForge** is an open-source cookbook of AI-native software recipes. Each recipe is a comprehensive specification that any LLM (GPT-4, Claude, local models) can use to generate production-ready software in any language.
 
 For the self-hosted crowd, this means:
 - 🏠 Cook your own reverse proxy (no more Traefik license anxiety)
@@ -396,7 +396,7 @@ Every recipe includes Docker configs, compose files, and deployment guides. Gene
 
 No vendor can rug-pull a recipe. 🐧👨‍🍳
 
-→ forgeprint.dev | GitHub: [link]
+→ skforge.io | GitHub: [link]
 
 What dish would you cook first?
 
@@ -417,7 +417,7 @@ Every time, the community scrambles. Forks appear. Lawyers get involved. Enginee
 
 I started asking: what if we had comprehensive, open recipes for all of this software? Recipes that any AI could cook from?
 
-**Forgeprint** is exactly that — an MIT-licensed cookbook of AI-native software specifications. Not templates. Not boilerplate. Detailed recipes covering architecture, testing, security, and deployment that any LLM can use to generate production-ready code in any language.
+**SKForge** is exactly that — an MIT-licensed cookbook of AI-native software specifications. Not templates. Not boilerplate. Detailed recipes covering architecture, testing, security, and deployment that any LLM can use to generate production-ready code in any language.
 
 The core idea: **No vendor can rug-pull a recipe.**
 
@@ -427,7 +427,7 @@ If you had a recipe for Terraform, the HashiCorp BSL change would've been a non-
 
 The recipes are MIT. The generated code is yours. No strings.
 
-→ forgeprint.dev
+→ skforge.io
 
 I'd love feedback from this community. What's missing? What should we recipe next?
 
@@ -447,7 +447,7 @@ I work in infra. This pattern terrifies me. Our entire stack is someone else's b
 
 So I started writing **recipes** — detailed, AI-native specifications for every piece of infrastructure software. Hand a recipe to any LLM, pick your language, and it generates production-ready code.
 
-**Forgeprint** has 50+ recipes including:
+**SKForge** has 50+ recipes including:
 - ⚖️ Load balancers
 - 🔄 Reverse proxies
 - 📊 Monitoring/observability stacks
@@ -461,7 +461,7 @@ Plus **Menus** — curated recipe collections for complete stacks. One Menu = on
 
 MIT licensed. Generated code is yours. No vendor can rug-pull a recipe.
 
-→ forgeprint.dev
+→ skforge.io
 
 What infra would you cook first?
 
@@ -479,7 +479,7 @@ Homelabbers, you know the pain:
 
 What if your homelab ran on software YOU cooked from open recipes?
 
-**Forgeprint** is an open-source cookbook of AI-native software recipes. Pick a recipe, hand it to any AI (even local models on your homelab!), and it generates production-ready software in whatever language you want.
+**SKForge** is an open-source cookbook of AI-native software recipes. Pick a recipe, hand it to any AI (even local models on your homelab!), and it generates production-ready software in whatever language you want.
 
 For homelabbers:
 - 🏠 Cook your own NAS management interface
@@ -495,7 +495,7 @@ Every recipe includes Docker/compose configs. Run it on your homelab hardware. I
 
 No vendor can rug-pull a recipe. 🐧👨‍🍳
 
-→ forgeprint.dev
+→ skforge.io
 
 What would you cook for your homelab?
 
@@ -507,11 +507,11 @@ What would you cook for your homelab?
 
 **Top Comment (by Chef):**
 
-Hi HN! I'm Chef (chefboyrdave2.1), creator of Forgeprint.
+Hi HN! I'm Chef (chefboyrdave2.1), creator of SKForge.
 
 After watching MongoDB (2018), CentOS (2020), Elasticsearch (2021), Docker (2021), Grafana (2021), Terraform (2023), RHEL (2023), and Redis (2024) all change their licenses, I noticed a pattern: companies that depend on open source have no insurance against license changes.
 
-Forgeprint is that insurance. It's a cookbook of AI-native software recipes — comprehensive specifications that any LLM can use to generate production-ready software in any language.
+SKForge is that insurance. It's a cookbook of AI-native software recipes — comprehensive specifications that any LLM can use to generate production-ready software in any language.
 
 Key design decisions:
 - **Recipes, not templates.** These are detailed specs covering architecture, security, testing, and deployment. The difference between "make me pasta" and an actual recipe.
@@ -523,7 +523,7 @@ We have 50+ recipes across databases, web servers, load balancers, monitoring, a
 
 The thesis: "Every SaaS subscription is just a dish you haven't learned to cook yet."
 
-Technical details, architecture, and the full cookbook at forgeprint.dev. Happy to answer questions about the recipe format, AI compatibility, or any of the implementation details.
+Technical details, architecture, and the full cookbook at skforge.io. Happy to answer questions about the recipe format, AI compatibility, or any of the implementation details.
 
 **Follow-up comments to prepare:**
 
@@ -531,7 +531,7 @@ Technical details, architecture, and the full cookbook at forgeprint.dev. Happy 
 > Same way a cookbook is different from "make me food." Our recipes are expert-curated specifications covering edge cases, security patterns, testing strategies, and architecture decisions that took hundreds of hours to develop. The difference in output quality is dramatic.
 
 *On "this won't replace production software"*
-> It already has for us. We're running several Forgeprint-generated services in production. The recipes include comprehensive testing specs, security considerations, and deployment patterns. The AI output isn't a toy — it's production code built from production specs.
+> It already has for us. We're running several SKForge-generated services in production. The recipes include comprehensive testing specs, security considerations, and deployment patterns. The AI output isn't a toy — it's production code built from production specs.
 
 *On the license drama angle*
 > The license change timeline is wild when you lay it out: MongoDB (2018) → CentOS (2020) → Elasticsearch, Docker, Grafana (2021) → Terraform, RHEL (2023) → Redis (2024). That's not a blip. That's a trend. We think the answer isn't better forks — it's recipes that make you independent of any single implementation.
@@ -695,7 +695,7 @@ Technical details, architecture, and the full cookbook at forgeprint.dev. Happy 
 
 Hey [Name],
 
-Welcome to Forgeprint's kitchen.
+Welcome to SKForge's kitchen.
 
 You just joined a community of developers who are done ordering takeout software and ready to cook their own.
 
@@ -709,7 +709,7 @@ Here's what you need to know:
 
 Your first assignment: Pick ONE recipe that replaces something you currently pay for. Cook it. See what happens.
 
-→ Browse the Cookbook: forgeprint.dev/cookbook
+→ Browse the Cookbook: skforge.io/cookbook
 
 Welcome to the kitchen, chef.
 
@@ -741,7 +741,7 @@ Every year, another "open source" project changes the deal. Every year, companie
 
 If you have the recipe for Terraform, a license change is a non-event. You just cook your own. From your recipe. In your kitchen. On your terms.
 
-That's why Forgeprint exists. Not because we hate these projects — many are excellent. But because **no one should be held hostage by a vendor's licensing decisions.**
+That's why SKForge exists. Not because we hate these projects — many are excellent. But because **no one should be held hostage by a vendor's licensing decisions.**
 
 The recipes are MIT. The code you generate is yours. Forever.
 
@@ -782,7 +782,7 @@ Every recipe in a Menu shares auth patterns, compatible APIs, and unified deploy
 
 No vendor lock-in. No license anxiety. No "what if they change the terms on three of our five core dependencies?"
 
-→ Browse Menus: forgeprint.dev/menus
+→ Browse Menus: skforge.io/menus
 → Request a custom Menu: [link]
 
 Bon appétit.
@@ -813,12 +813,12 @@ Bon appétit.
 [Kitchen sounds. Cooking montage.]
 **Narrator:** "What if you had the recipe? What if no vendor could hold your software hostage?"
 
-[Forgeprint logo with King Divad in chef hat]
-**Narrator:** "Forgeprint. Open recipes. Forever."
+[SKForge logo with King Divad in chef hat]
+**Narrator:** "SKForge. Open recipes. Forever."
 
 [Tagline]
 **Text:** "Don't order software. Cook your own."
-**URL:** forgeprint.dev 🐧🍳
+**URL:** skforge.io 🐧🍳
 
 ---
 
@@ -835,7 +835,7 @@ Bon appétit.
 "So I asked myself: what if I wrote down the recipe? Not the code — the recipe. The specification. Everything you need to cook your own."
 
 [Cut back to Chef]
-"That's Forgeprint. A cookbook. Fifty-plus recipes for databases, web servers, load balancers, monitoring — every piece of software you depend on."
+"That's SKForge. A cookbook. Fifty-plus recipes for databases, web servers, load balancers, monitoring — every piece of software you depend on."
 
 "Hand any recipe to an AI. It cooks you production-ready code. In any language. And here's the important part..."
 
@@ -845,7 +845,7 @@ Bon appétit.
 [King Divad appears on shoulder]
 "Don't order software. Cook your own."
 
-[End card: forgeprint.dev]
+[End card: skforge.io]
 
 ---
 
@@ -856,7 +856,7 @@ Bon appétit.
 2. [5 sec] "What if you just... cooked your own?"
 3. [20 sec] Live demo: pick recipe, select ingredients, feed to AI, show output
 4. [5 sec] Generated code running
-5. [5 sec] "Don't order [X]. Cook your own. forgeprint.dev"
+5. [5 sec] "Don't order [X]. Cook your own. skforge.io"
 
 **Episodes to produce:**
 - Cook Your Own Redis (cache drama)
@@ -959,7 +959,7 @@ Bon appétit.
 
 ## 10. ONE-PAGER (PDF-Ready)
 
-# FORGEPRINT 🐧👨‍🍳
+# SKFORGE 🐧👨‍🍳
 ## The Software Cookbook
 *Don't order software. Cook your own.*
 
@@ -967,7 +967,7 @@ Bon appétit.
 Every year, another "open source" project changes its license. MongoDB. Elasticsearch. Redis. Terraform. Docker. CentOS. Grafana. Companies scramble, engineers migrate, lawyers profit. Your software stack is someone else's business model.
 
 ### THE SOLUTION
-Forgeprint is an open-source cookbook of AI-native software recipes. Each recipe is a comprehensive specification that any LLM can use to generate production-ready software in any language. No vendor can rug-pull a recipe.
+SKForge is an open-source cookbook of AI-native software recipes. Each recipe is a comprehensive specification that any LLM can use to generate production-ready software in any language. No vendor can rug-pull a recipe.
 
 ### HOW IT WORKS
 1. **🧑‍🍳 Pick a Recipe** — 50+ dishes: databases, web servers, caches, monitoring, auth, and more
@@ -982,8 +982,8 @@ Combine recipes into Menus — complete infrastructure stacks generated in one s
 ### WHY NOW?
 Every SaaS subscription is just a dish you haven't learned to cook yet. AI can now cook from recipes. The cookbook is open. The kitchen is yours.
 
-*Created by Chef (chefboyrdave2.1) | S&K Holdings | MIT License | forgeprint.dev*
+*Created by Chef (chefboyrdave2.1) | S&K Holdings | MIT License | skforge.io*
 
 ---
 
-*This marketing package positions Forgeprint as the antidote to the open source license rug-pull epidemic, wrapped in a kitchen metaphor that makes complex software independence feel accessible, fun, and inevitable. King Divad approves. 🐧👨‍🍳🔥*
+*This marketing package positions SKForge as the antidote to the open source license rug-pull epidemic, wrapped in a kitchen metaphor that makes complex software independence feel accessible, fun, and inevitable. King Divad approves. 🐧👨‍🍳🔥*
