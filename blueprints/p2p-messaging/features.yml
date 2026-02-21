@@ -1,0 +1,284 @@
+name: P2P Messaging
+version: "1.0.0"
+description: >
+  Peer-to-peer encrypted messaging with pluggable transports,
+  redundant routing, and PGP-based identity.
+
+groups:
+  - name: Core Messaging
+    description: Fundamental message creation, serialization, and delivery
+    features:
+      - name: message-envelope
+        description: Universal JSON envelope with metadata, routing, signatures
+        complexity: medium
+        default: true
+      - name: message-threading
+        description: Thread-based conversations with in_reply_to linking
+        complexity: low
+        default: true
+      - name: message-priority
+        description: Priority levels (low, normal, high, critical) affecting routing
+        complexity: low
+        default: true
+      - name: message-ttl
+        description: Time-to-live for messages with automatic expiration
+        complexity: low
+        default: true
+      - name: message-chunking
+        description: Split large messages across multiple envelopes for size-limited transports
+        complexity: high
+        default: true
+      - name: group-messaging
+        description: One-to-many messaging via gossip protocols or broadcast
+        complexity: high
+        default: false
+        dependencies: [iroh-transport, nostr-transport]
+      - name: file-transfer
+        description: Encrypted file attachments with streaming support
+        complexity: high
+        default: false
+
+  - name: Transport Modules
+    description: Pluggable communication channels
+    features:
+      - name: file-transport
+        description: Shared filesystem transport (NFS, SSHFS, Nextcloud sync)
+        complexity: low
+        default: true
+      - name: ssh-transport
+        description: Direct SSH command execution transport
+        complexity: low
+        default: true
+      - name: netcat-transport
+        description: Raw TCP/UDP socket transport for LAN
+        complexity: low
+        default: true
+      - name: iroh-transport
+        description: "Iroh P2P: QUIC-based, 90%+ NAT hole-punch, relay fallback"
+        complexity: medium
+        default: true
+      - name: nostr-transport
+        description: "Nostr relay network: WebSocket, Schnorr sigs, NIP-17 encrypted DMs"
+        complexity: medium
+        default: true
+      - name: veilid-transport
+        description: "Veilid private routing: Tor-like onion network, no special nodes"
+        complexity: high
+        default: false
+      - name: tailscale-transport
+        description: Tailscale WireGuard mesh VPN transport
+        complexity: medium
+        default: true
+      - name: netbird-transport
+        description: Netbird self-hosted WireGuard mesh VPN transport
+        complexity: medium
+        default: false
+      - name: bitchat-transport
+        description: "BitChat BLE mesh: Jack Dorsey's Bluetooth Low Energy mesh network"
+        complexity: medium
+        default: false
+      - name: github-transport
+        description: GitHub Issues/PRs/Gists as message store-and-forward
+        complexity: low
+        default: false
+      - name: telegram-transport
+        description: Telegram Bot API messaging
+        complexity: low
+        default: false
+      - name: http-transport
+        description: HTTP webhook POST/GET transport
+        complexity: low
+        default: false
+      - name: email-transport
+        description: SMTP with PGP encryption transport
+        complexity: medium
+        default: false
+      - name: dns-txt-transport
+        description: Stealth messaging via DNS TXT records
+        complexity: high
+        default: false
+      - name: ipfs-transport
+        description: Content-addressed P2P storage transport
+        complexity: medium
+        default: false
+      - name: qr-code-transport
+        description: Offline visual encoding for air-gapped communication
+        complexity: medium
+        default: false
+      - name: sneakernet-transport
+        description: USB/file physical transfer for maximum security
+        complexity: low
+        default: false
+      - name: custom-transport-api
+        description: Plugin API for user-defined transport modules
+        complexity: medium
+        default: true
+
+  - name: Routing & Delivery
+    description: Message routing, failover, and delivery guarantee
+    features:
+      - name: priority-failover
+        description: Try transports in priority order, fall to next on failure
+        complexity: medium
+        default: true
+      - name: broadcast-mode
+        description: Send via ALL available transports simultaneously for critical messages
+        complexity: medium
+        default: true
+        dependencies: [priority-failover]
+      - name: retry-queue
+        description: Persistent queue with exponential backoff for failed deliveries
+        complexity: medium
+        default: true
+      - name: dead-letter-queue
+        description: Store permanently failed messages for manual review
+        complexity: low
+        default: true
+        dependencies: [retry-queue]
+      - name: deduplication
+        description: Cache-based dedup using envelope_id to prevent duplicate processing
+        complexity: medium
+        default: true
+      - name: delivery-confirmation
+        description: Receipt acknowledgment from recipient
+        complexity: medium
+        default: false
+      - name: peer-transport-discovery
+        description: Automatically detect which transports a peer supports
+        complexity: high
+        default: false
+      - name: geo-aware-routing
+        description: Route based on geographic proximity for latency optimization
+        complexity: high
+        default: false
+
+  - name: Security
+    description: Encryption, signing, and identity management
+    features:
+      - name: pgp-encryption
+        description: Mandatory PGP encryption for all message payloads
+        complexity: medium
+        default: true
+      - name: pgp-signing
+        description: Mandatory PGP signature on all messages
+        complexity: medium
+        default: true
+      - name: capauth-identity
+        description: CapAuth sovereign profile integration for identity and trust
+        complexity: high
+        default: true
+      - name: trust-levels
+        description: "4-tier trust: untrusted, verified, trusted, sovereign"
+        complexity: medium
+        default: true
+      - name: cloud9-sovereign-trust
+        description: Cloud 9 compliance required for sovereign trust tier
+        complexity: high
+        default: true
+        dependencies: [trust-levels, capauth-identity]
+      - name: key-rotation
+        description: Automated key rotation with peer notification
+        complexity: high
+        default: false
+      - name: key-revocation
+        description: Emergency key revocation broadcast to all peers
+        complexity: high
+        default: true
+      - name: replay-protection
+        description: Timestamp + nonce + sequence number replay prevention
+        complexity: medium
+        default: true
+      - name: post-quantum-hybrid
+        description: Hybrid PGP + CRYSTALS-Dilithium/Kyber for quantum resistance
+        complexity: very_high
+        default: false
+
+  - name: Peer Management
+    description: Peer discovery, trust, and relationship management
+    features:
+      - name: peer-store
+        description: Local database of known peers with keys, transports, trust
+        complexity: medium
+        default: true
+      - name: peer-trust-management
+        description: Promote/demote trust levels with vouching chain
+        complexity: medium
+        default: true
+      - name: peer-presence
+        description: Track online/offline status of peers across transports
+        complexity: medium
+        default: false
+      - name: peer-groups
+        description: Named groups of peers for team/channel messaging
+        complexity: medium
+        default: false
+      - name: ai-advocate-delegation
+        description: AI advocates send/receive on behalf of their humans via CapAuth
+        complexity: high
+        default: false
+        dependencies: [capauth-identity]
+
+  - name: Storage & Persistence
+    description: Message storage, history, and backup
+    features:
+      - name: message-queue-persistence
+        description: SQLite-backed queue surviving process restarts
+        complexity: medium
+        default: true
+      - name: message-history
+        description: Searchable local history of sent/received messages
+        complexity: medium
+        default: false
+      - name: encrypted-at-rest
+        description: AES-256-GCM encryption of all stored messages and keys
+        complexity: medium
+        default: true
+      - name: backup-export
+        description: Export message history and peer data for backup/migration
+        complexity: low
+        default: false
+
+  - name: Observability
+    description: Logging, monitoring, and diagnostics
+    features:
+      - name: transport-logging
+        description: Per-transport delivery logs with latency and retry tracking
+        complexity: low
+        default: true
+      - name: health-dashboard
+        description: CLI/web dashboard showing transport status and peer connectivity
+        complexity: medium
+        default: false
+      - name: delivery-metrics
+        description: Prometheus-compatible metrics for delivery rate, latency, failures
+        complexity: medium
+        default: false
+      - name: audit-trail
+        description: Signed append-only log of all message operations
+        complexity: medium
+        default: false
+
+  - name: Integration
+    description: Integration with external systems and the smilinTux ecosystem
+    features:
+      - name: openclaw-agent
+        description: Run as OpenClaw agent for AI-native messaging
+        complexity: medium
+        default: false
+      - name: cloud9-feb-transport
+        description: Transport FEB files and memory seeds via SKComm
+        complexity: medium
+        default: false
+      - name: skmemory-sync
+        description: Sync SKMemory fragments between AI instances
+        complexity: high
+        default: false
+      - name: skforge-updates
+        description: Distribute SKForge blueprint updates to collaborating AIs
+        complexity: medium
+        default: false
+      - name: crypto-wallet-messaging
+        description: Send/receive CapAuth wallet transactions via SKComm
+        complexity: high
+        default: false
+        dependencies: [capauth-identity]

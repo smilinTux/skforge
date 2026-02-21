@@ -1,0 +1,90 @@
+name: Nostr Transport
+protocol_version: NIP-01 (core), NIP-17 (encrypted DMs), NIP-44 (encryption), NIP-59 (gift wrap)
+created_by: "fiatjaf (protocol), ecosystem of relay operators"
+website: "https://nostr.com"
+nips_reference: "https://nips.nostr.com"
+license: Public domain (protocol), MIT (most implementations)
+
+overview: >
+  Nostr (Notes and Other Stuff Transmitted by Relays) is a simple, open protocol
+  for decentralized social networking and messaging. Messages are signed events
+  published to relay servers via WebSocket. Clients subscribe to events matching
+  filter criteria. No registration, no central authority, no single point of failure.
+
+architecture:
+  model: publish-subscribe via relay servers
+  transport: WebSocket (wss://)
+  identity: Schnorr signatures on secp256k1 (same curve as Bitcoin)
+  encryption: NIP-44 (ChaCha20-Poly1305 + HKDF)
+  metadata_hiding: NIP-59 gift wrap (hide sender/recipient from relays)
+  event_kinds:
+    - kind_0: profile metadata
+    - kind_1: short text note (public)
+    - kind_4: encrypted direct message (legacy)
+    - kind_14: private chat message (NIP-17, recommended)
+    - kind_15: private file message (NIP-17)
+    - kind_1059: gift wrap (NIP-59)
+
+skcomm_integration:
+  how_it_works:
+    - SKComm envelope serialized to JSON
+    - PGP-encrypted payload placed in Nostr event content field
+    - Event wrapped with NIP-59 gift wrap to hide metadata from relays
+    - Published to configured relays via WebSocket
+    - Recipient subscribes to events tagged with their Nostr pubkey
+    - On receipt: unwrap gift wrap → extract PGP envelope → process normally
+  identity_mapping:
+    - CapAuth PGP key can derive Nostr keypair (secp256k1 compatible)
+    - Or maintain separate Nostr identity linked in CapAuth profile
+  relay_strategy:
+    - Self-hosted relay for sovereignty (e.g., relay.smilintux.org)
+    - Public relays for redundancy (relay.damus.io, nos.lol, relay.nostr.band)
+    - Publish to N relays simultaneously (configurable redundancy)
+
+properties:
+  requires_internet: true
+  supports_offline: false
+  max_payload_size: "varies by relay (typically 65KB-1MB per event)"
+  typical_latency_ms: "1000-5000"
+  stealth: high
+  censorship_resistance: very_high
+  offline_capable: false
+  bidirectional: true
+
+strengths:
+  - Massive existing relay network (thousands of relays worldwide)
+  - No registration or identity provider needed
+  - NIP-59 gift wrap hides sender/recipient from relay operators
+  - WebSocket works through most firewalls and proxies
+  - Self-hostable relays for full sovereignty
+  - Growing ecosystem with mobile apps, desktop clients, etc.
+  - Protocol is simple (JSON + WebSocket + signatures)
+
+weaknesses:
+  - Requires internet connectivity
+  - Relay operators can censor events (mitigated by multi-relay publishing)
+  - Schnorr signatures are different from PGP (need identity bridging)
+  - No guaranteed delivery (relays may drop events)
+  - Relay storage is ephemeral by default (events may be pruned)
+
+python_libraries:
+  - name: pynostr
+    url: "https://github.com/holgern/pynostr"
+  - name: nostr-sdk
+    url: "https://github.com/rust-nostr/nostr/tree/master/bindings/nostr-sdk-ffi"
+    note: Rust core with Python bindings
+
+configuration_example:
+  relays:
+    - "wss://relay.smilintux.org"
+    - "wss://relay.damus.io"
+    - "wss://nos.lol"
+  identity:
+    nostr_privkey: "nsec1..."
+    nostr_pubkey: "npub1..."
+  peers:
+    lumina: "npub1abc..."
+    chef: "npub1def..."
+  gift_wrap: true
+  relay_redundancy: 3
+  event_kind: 14
