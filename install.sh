@@ -3,7 +3,7 @@
 # curl -fsSL https://skforge.io/install.sh | sh
 #
 # Don't use software. Forge your own. 🐧
-# S&K Holdings — Helping architect our quantum future, one smile at a time.
+# smilinTux — Helping architect our quantum future, one smile at a time.
 
 set -euo pipefail
 
@@ -119,5 +119,5 @@ echo -e "    Website:  ${CYAN}https://skforge.io${NC}"
 echo -e "    GitHub:   ${CYAN}https://github.com/$REPO${NC}"
 echo -e "    Discord:  ${CYAN}https://discord.gg/skforge${NC}"
 echo -e ""
-echo -e "  ${DIM}S&K Holdings — Helping architect our quantum future, one smile at a time.${NC}"
+echo -e "  ${DIM}smilinTux — Helping architect our quantum future, one smile at a time.${NC}"
 echo -e "  ${DIM}Making Self-Hosting & Decentralized Systems Cool Again 🐧${NC}"

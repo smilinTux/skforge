@@ -3,7 +3,7 @@
 ## The Stack
 
 ```
-S&K Holdings QT (parent trust)
+smilinTux (open source organization)
   "Helping architect our quantum future, one smile at a time."
   │
   └── smilinTux (GitHub org) — "Making Self-Hosting & Decentralized Cool Again"
@@ -131,4 +131,4 @@ Coming soon — open source."
 
 ---
 
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.* 🐧👑
+*smilinTux — Helping architect our quantum future, one smile at a time.* 🐧👑

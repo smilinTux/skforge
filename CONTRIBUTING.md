@@ -64,4 +64,4 @@ By contributing, you agree that your contributions will be licensed under AGPL-3
 
 **Questions?** Open a Discussion or join our [Discord](https://discord.gg/smilintux).
 
-*smilinTux — a [S&K Holdings QT](https://smilintux.org) open source project* 🐧👑
+*smilinTux — a [smilinTux](https://smilintux.org) open source project* 🐧👑

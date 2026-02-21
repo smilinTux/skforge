@@ -1,7 +1,7 @@
 # SKFORGE — Software Blueprints for the AI Age
 
 > **"Free custom software for all. Forever."**
-> An S&K Holdings Open Source Project
+> A smilinTux Open Source Project
 
 ---
 
@@ -284,9 +284,9 @@ This means every blueprint is designed to REPLACE not just installed software, b
 
 ---
 
-## 🏛️ S&K Holdings QT × smilinTux
+## 🏛️ smilinTux
 
-**SKForge** is a [smilinTux](https://github.com/smilinTux) open-source project under S&K Holdings QT (Quantum Technologies).
+**SKForge** is a [smilinTux](https://github.com/smilinTux) open-source project under smilinTux.
 
 - **Tooling License:** AGPL-3.0 — protects from legal predators, ensures freedom forever
 - **Blueprint License:** Apache 2.0 — YOUR generated code is YOURS, no strings

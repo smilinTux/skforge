@@ -1,6 +1,6 @@
 # SKForge Website
 
-Official landing page for [SKForge](https://skforge.io) - AI-native software blueprints by S&K Holdings.
+Official landing page for [SKForge](https://skforge.io) - AI-native software blueprints by smilinTux.
 
 ## 🌐 Live Site
 
@@ -30,7 +30,7 @@ website/
 - **Example**: Interactive code demo showing blueprint → generated code
 - **Why SKForge**: Key differentiators and benefits
 - **Community**: Links to GitHub, Discord, contributing
-- **Footer**: S&K Holdings info, links, Apache 2.0 license
+- **Footer**: smilinTux info, links, Apache 2.0 license
 
 ### Interactive Elements
 - Smooth scroll navigation
@@ -71,11 +71,11 @@ SKForge is an open-source project that generates complete, tested software from 
 
 ## 📧 Contact
 
-- **Company**: S&K Holdings
+- **Company**: smilinTux
 - **Project**: https://github.com/skholdings/skforge
 - **Community**: https://discord.gg/skforge
 - **Support**: hello@skholdings.com
 
 ---
 
-Built with ❤️ by S&K Holdings for the developer community.
+Built with ❤️ by smilinTux for the developer community.

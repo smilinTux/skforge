@@ -4,7 +4,7 @@
  * 🐧 SKForge — AI-Native Software Blueprints
  * Don't use software. Forge your own.
  * 
- * S&K Holdings — Helping architect our quantum future, one smile at a time.
+ * smilinTux — Helping architect our quantum future, one smile at a time.
  * Making Self-Hosting & Decentralized Systems Cool Again
  * 
  * Apache 2.0 | https://skforge.io
@@ -98,7 +98,7 @@ ${c.bold('ENVIRONMENT')}
   MOONSHOT_API_KEY  ${c.dim('Moonshot/Kimi key')}
 
 ${c.dim('Making Self-Hosting & Decentralized Systems Cool Again 🐧')}
-${c.dim('S&K Holdings — Helping architect our quantum future, one smile at a time.')}
+${c.dim('smilinTux — Helping architect our quantum future, one smile at a time.')}
 `);
 }
 

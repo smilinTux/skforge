@@ -393,4 +393,4 @@ Every SaaS product is just a stack of open patterns with a UI on top. We documen
 ---
 
 *Forgeprint Stacks — A smilinTux project*
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.*
+*smilinTux — Helping architect our quantum future, one smile at a time.*

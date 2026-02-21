@@ -147,7 +147,7 @@ A: That's what the Cookbook is for! Community-contributed recipes make everyone'
 **SKForge** 🐧👨‍🍳 — The Software Cookbook
 *Don't order software. Cook your own.*
 
-Built with 🔥 by Chef & S&K Holdings | Open Source | MIT License
+Built with 🔥 by Chef & smilinTux | Open Source | MIT License
 [Cookbook](link) | [Kitchen (Discord)](link) | [Recipes (GitHub)](link) | [Share a Recipe](link)
 
 ---
@@ -281,7 +281,7 @@ Every year, another "open source" tool changes the rules. Every year, companies 
 
 **The question isn't IF your next dependency will change its license. It's WHEN.**
 
-At S&K Holdings, we asked a different question: What if companies had the recipe to cook their own?
+At smilinTux, we asked a different question: What if companies had the recipe to cook their own?
 
 That's SKForge — an open-source cookbook of AI-native software recipes. Comprehensive specifications that any LLM can use to generate production-ready software in any language.
 
@@ -982,7 +982,7 @@ Combine recipes into Menus — complete infrastructure stacks generated in one s
 ### WHY NOW?
 Every SaaS subscription is just a dish you haven't learned to cook yet. AI can now cook from recipes. The cookbook is open. The kitchen is yours.
 
-*Created by Chef (chefboyrdave2.1) | S&K Holdings | MIT License | skforge.io*
+*Created by Chef (chefboyrdave2.1) | smilinTux | MIT License | skforge.io*
 
 ---
 

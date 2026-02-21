@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # forge — The SKForge CLI
 # AI-native software blueprints. Don't use software. Forge your own.
-# https://skforge.io | S&K Holdings | Apache 2.0
+# https://skforge.io | smilinTux | Apache 2.0
 #
 # Making Self-Hosting & Decentralized Systems Cool Again 🐧
 
@@ -79,7 +79,7 @@ ${BOLD}LINKS${NC}
   Blueprints: https://skforge.io/blueprints
 
 ${DIM}Making Self-Hosting & Decentralized Systems Cool Again 🐧${NC}
-${DIM}S&K Holdings — Helping architect our quantum future, one smile at a time.${NC}
+${DIM}smilinTux — Helping architect our quantum future, one smile at a time.${NC}
 EOF
 }
 

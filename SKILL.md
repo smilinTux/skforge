@@ -218,4 +218,4 @@ skforge/
 ---
 
 *smilinTux — Making Self-Hosting & Decentralized Systems Cool Again* 🐧
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.*
+*smilinTux — Helping architect our quantum future, one smile at a time.*

@@ -6,7 +6,7 @@
 
 Pick your category. Choose your features. Select your language. Let AI build it.
 
-**Free. Forever.** A [smilinTux](https://github.com/smilinTux) Open Source Project by S&K Holdings QT.
+**Free. Forever.** A [smilinTux](https://github.com/smilinTux) Open Source Project by smilinTux.
 
 *Making Self-Hosting & Decentralized Systems Cool Again* 🐧
 
@@ -241,6 +241,6 @@ No more:
 
 **Making Self-Hosting & Decentralized Systems Cool Again** 🐧
 
-Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [S&K Holdings QT](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
+Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [smilinTux](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
 
 **Bing Chilling Nation** — Cool Heads. Warm Justice. Smart Systems. 👑

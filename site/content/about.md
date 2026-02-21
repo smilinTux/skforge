@@ -4,7 +4,7 @@ title: "About smilinTux"
 
 ## The Organization
 
-**smilinTux** is the open-source arm of **S&K Holdings QT (Quantum Technologies)**, a private trust committed to building sovereign infrastructure for the AI age.
+**smilinTux** is an open-source organization committed to building sovereign infrastructure for the AI age.
 
 We believe software should be:
 - **Free** — forever, for everyone
@@ -31,7 +31,7 @@ We're making self-hosting and decentralized systems cool again. Every project we
 ## Organizational Structure
 
 ```
-S&K Holdings QT (Quantum Technologies) — Parent Trust
+smilinTux — Open Source Organization
   └── smilinTux — Open Source Organization
        ├── Forgeprint — AI-Native Software Blueprints
        ├── SKMemory — Universal AI Memory System

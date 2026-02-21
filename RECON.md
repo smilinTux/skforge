@@ -384,4 +384,4 @@ Every blueprint you contribute helps someone cancel a SaaS subscription.
 
 *Don't use software. Forge your own.* 🐧
 *smilinTux — Making Self-Hosting & Decentralized Systems Cool Again*
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.*
+*smilinTux — Helping architect our quantum future, one smile at a time.*
