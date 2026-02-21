@@ -1,0 +1,121 @@
+# PETG (Polyethylene Terephthalate Glycol) Material Specification
+# SKForge 3D Printing Blueprint
+#
+# The best all-around functional filament. Combines ease of printing
+# with good mechanical properties, chemical resistance, and food-safe
+# grades. The go-to choice for enclosures and functional parts.
+
+material:
+  name: PETG
+  full_name: Polyethylene Terephthalate Glycol-modified
+  type: thermoplastic
+  category: polyester
+
+properties:
+  density_g_cm3: 1.27
+  tensile_strength_mpa: 50
+  elongation_at_break_pct: 23
+  flexural_modulus_mpa: 2100
+  impact_strength_kj_m2: 7.5
+  heat_deflection_c: 70
+  glass_transition_c: 80
+  melting_point_c: 230
+  moisture_absorption: medium
+  uv_resistance: fair
+  chemical_resistance:
+    - water (excellent)
+    - alcohol (good)
+    - dilute acids (good)
+    - dilute bases (good)
+    - oils/greases (good)
+    - acetone (good — does not dissolve)
+  food_safe: true  # FDA-approved base polymer (check specific brand)
+  biodegradable: false
+
+print_settings:
+  nozzle_temp_c:
+    min: 220
+    recommended: 240
+    max: 260
+  bed_temp_c:
+    min: 70
+    recommended: 80
+    max: 90
+  enclosure_required: false  # Helps but not required
+  bed_adhesion:
+    recommended: PEI  # Textured PEI is ideal
+    alternatives: [glass_with_glue, BuildTak]
+    note: "PETG bonds aggressively to smooth PEI — use textured or apply release agent"
+  cooling_fan_pct:
+    first_layer: 0
+    second_layer: 30
+    other_layers: 50  # Moderate cooling — too much causes layer splitting
+  max_print_speed_mm_s: 80
+  recommended_speed_mm_s: 50
+  retraction:
+    distance_mm: 0.8  # Direct drive — keep low to avoid jams
+    bowden_distance_mm: 5.0
+    speed_mm_s: 40
+    note: "PETG is stringy — tune retraction carefully. Z-hop helps."
+  layer_height:
+    min_mm: 0.08
+    recommended_mm: 0.2
+    max_mm: 0.3
+  wall_thickness:
+    minimum_mm: 0.8
+    recommended_mm: 1.6  # 4 walls for structural parts
+
+post_processing:
+  sandable: true
+  sand_grit_progression: [120, 220, 400]
+  sand_note: "Harder to sand than PLA. Wet sanding recommended for fine finish."
+  acetone_smoothable: false
+  paintable: true
+  paint_prep: "Scuff sand (220 grit), use adhesion promoter or PETG-compatible primer"
+  glueable_with:
+    - cyanoacrylate (super glue) — moderate bond
+    - epoxy — best structural bond
+    - hot glue — acceptable
+  annealable: true
+  annealing_temp_c: 85
+  annealing_duration_min: 30
+  annealing_note: "Modest improvement in crystallinity. Less dimensional change than PLA annealing."
+
+storage:
+  humidity_sensitive: true  # More sensitive than PLA
+  max_humidity_pct: 30
+  drying_temp_c: 65
+  drying_hours: 4
+  shelf_life_months: 6  # Sealed with desiccant
+  storage_note: "Absorbs moisture quickly. Wet PETG shows bubbling, stringing, and poor layer adhesion."
+
+strengths:
+  - Excellent layer adhesion — very strong inter-layer bonding
+  - Good impact resistance — bends before breaking
+  - Chemical resistant — survives cleaning agents, light solvents
+  - Higher heat resistance than PLA (70°C+ HDT)
+  - Food-safe grades available
+  - Minimal warping — no enclosure needed
+  - Good optical clarity in natural/transparent grades
+
+weaknesses:
+  - Stringy — requires careful retraction tuning
+  - Aggressive bed adhesion — can damage smooth PEI sheets
+  - Moisture sensitive — must be stored dry
+  - Harder to post-process (sand, paint) than PLA
+  - Slightly flexible — not ideal for rigid precision parts
+  - Lower detail resolution than PLA on fine features
+
+best_for:
+  - Functional enclosures (electronics, Raspberry Pi cases)
+  - Mechanical parts (brackets, mounts, clips)
+  - Water-contact items (plant pots, water containers)
+  - Food storage containers (certified grades)
+  - Parts needing moderate heat resistance
+  - Outdoor use with UV-protective coating
+
+avoid_for:
+  - High-temperature environments (>70°C sustained)
+  - Parts requiring ultra-fine detail (miniatures)
+  - Environments with strong UV exposure (long-term outdoor without coating)
+  - Applications requiring rigidity (PETG has some flex)

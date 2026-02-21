@@ -1,0 +1,137 @@
+# ABS (Acrylonitrile Butadiene Styrene) Material Specification
+# SKForge 3D Printing Blueprint
+#
+# The classic engineering thermoplastic. High temperature resistance,
+# excellent impact strength, and acetone smoothable. Requires enclosed
+# printer and ventilation. The material of choice for automotive,
+# industrial, and heat-exposed applications.
+
+material:
+  name: ABS
+  full_name: Acrylonitrile Butadiene Styrene
+  type: thermoplastic
+  category: styrene_copolymer
+
+properties:
+  density_g_cm3: 1.04
+  tensile_strength_mpa: 40
+  elongation_at_break_pct: 25
+  flexural_modulus_mpa: 2200
+  impact_strength_kj_m2: 20
+  heat_deflection_c: 98
+  glass_transition_c: 105
+  melting_point_c: 230
+  moisture_absorption: low
+  uv_resistance: poor
+  chemical_resistance:
+    - water (good)
+    - alcohol (fair)
+    - dilute acids (good)
+    - oils/greases (good)
+    - acetone (poor — dissolves, used for smoothing)
+    - MEK (poor — dissolves)
+  food_safe: false  # Contains acrylonitrile — not food-safe
+  biodegradable: false
+
+print_settings:
+  nozzle_temp_c:
+    min: 230
+    recommended: 245
+    max: 260
+  bed_temp_c:
+    min: 90
+    recommended: 100
+    max: 110
+  enclosure_required: true  # Critical for warping prevention
+  enclosure_temp_c: 40  # Ambient temp inside enclosure
+  bed_adhesion:
+    recommended: PEI
+    alternatives: [ABS_slurry, kapton_tape, glass_with_ABS_juice]
+    note: "ABS juice (ABS dissolved in acetone) on glass is a classic method"
+  cooling_fan_pct:
+    first_layer: 0
+    second_layer: 0
+    other_layers: 0  # ABS prints best with NO part cooling
+    max_bridge_fan_pct: 30  # Only for bridges/overhangs
+  max_print_speed_mm_s: 70
+  recommended_speed_mm_s: 45
+  retraction:
+    distance_mm: 0.8
+    bowden_distance_mm: 5.0
+    speed_mm_s: 40
+  layer_height:
+    min_mm: 0.1
+    recommended_mm: 0.2
+    max_mm: 0.3
+  wall_thickness:
+    minimum_mm: 1.2  # 3 walls minimum — ABS warps thin walls
+    recommended_mm: 1.6
+
+post_processing:
+  sandable: true
+  sand_grit_progression: [120, 220, 400, 800, 1200]
+  acetone_smoothable: true
+  acetone_method: |
+    Vapor Bath Method:
+    1. Place print on raised platform in sealed container
+    2. Add acetone-soaked paper towels to container walls (not touching print)
+    3. Seal container and wait 15-30 minutes
+    4. Remove print and let cure 24 hours in ventilated area
+    SAFETY: Work in well-ventilated area. Acetone is flammable. Wear gloves.
+  paintable: true
+  paint_prep: "Acetone vapor smooth OR sand with 400 grit. ABS accepts paint well."
+  glueable_with:
+    - acetone (solvent welding) — strongest bond, melts parts together
+    - ABS cement (acetone + dissolved ABS)
+    - cyanoacrylate — good bond
+    - epoxy — structural
+  annealable: true
+  annealing_temp_c: 100
+  annealing_duration_min: 60
+
+storage:
+  humidity_sensitive: false  # Low sensitivity compared to PETG/Nylon
+  max_humidity_pct: 50
+  drying_temp_c: 80
+  drying_hours: 4
+  shelf_life_months: 24
+  storage_note: "ABS is relatively moisture-tolerant but drying improves surface quality."
+
+safety:
+  fumes: true
+  fume_description: "ABS emits styrene fumes during printing — confirmed respiratory irritant"
+  ventilation_required: true
+  ventilation_type: "Active extraction to outside or HEPA+carbon filter"
+  ppe: "Wear mask if printing in enclosed space without ventilation"
+
+strengths:
+  - Excellent heat resistance (98°C HDT) — survives car interiors, near heat sources
+  - High impact strength — absorbs shock without shattering
+  - Acetone smoothable — professional surface finish achievable
+  - Solvent weldable — parts fuse together with acetone for permanent bonds
+  - Lightweight (density 1.04) — lighter than PLA and PETG
+  - Well-understood material — decades of engineering data available
+  - Machineable — can be drilled, tapped, and milled post-print
+
+weaknesses:
+  - Requires enclosed printer — warps severely without enclosure
+  - Harmful fumes — needs active ventilation during printing
+  - Warping prone — large flat parts curl at corners
+  - Not food safe — contains acrylonitrile
+  - Poor UV resistance — degrades outdoors (use ASA instead)
+  - Harder to print than PLA/PETG — more calibration needed
+
+best_for:
+  - Automotive parts (dashboard mounts, vent clips)
+  - Industrial enclosures near heat sources
+  - Parts requiring post-processing to smooth finish
+  - Impact-resistant housings (tool cases, protective covers)
+  - Functional prototypes matching injection-molded ABS parts
+  - Parts that will be painted (excellent paint adhesion)
+
+avoid_for:
+  - Outdoor/UV-exposed parts (use ASA instead)
+  - Food contact applications
+  - Printing without enclosure or ventilation
+  - Very large flat parts (extreme warping risk)
+  - Beginners (start with PLA/PETG)
