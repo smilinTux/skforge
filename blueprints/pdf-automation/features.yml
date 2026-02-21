@@ -1,0 +1,224 @@
+---
+blueprint: pdf-automation
+version: "0.1.0"
+description: "Feature catalog for AI-powered PDF form filling and GTD filing"
+
+groups:
+  - name: "Field Extraction"
+    features:
+      - name: "AcroForm Field Extraction"
+        complexity: 2
+        priority: critical
+        description: "Extract interactive fields from standard PDF forms"
+
+      - name: "XFA Form Support"
+        complexity: 4
+        priority: medium
+        description: "Parse and fill XML Forms Architecture PDFs"
+
+      - name: "OCR Field Detection"
+        complexity: 5
+        priority: high
+        description: "Detect field positions in scanned/flat PDFs via OCR"
+
+      - name: "Template Matching"
+        complexity: 3
+        priority: high
+        description: "Fingerprint PDFs against known form templates"
+
+      - name: "Multi-Page Extraction"
+        complexity: 2
+        priority: critical
+        description: "Handle forms spanning any number of pages"
+
+  - name: "Auto-Fill"
+    features:
+      - name: "Profile Auto-Fill"
+        complexity: 3
+        priority: critical
+        description: "Fill fields from CapAuth sovereign profile data"
+
+      - name: "Exact Field Mapping"
+        complexity: 2
+        priority: critical
+        description: "Dictionary-based field label to profile path mapping"
+
+      - name: "Fuzzy Field Mapping"
+        complexity: 3
+        priority: high
+        description: "Fuzzy string matching for field label variations"
+
+      - name: "LLM-Assisted Mapping"
+        complexity: 4
+        priority: medium
+        description: "Use local LLM for ambiguous field interpretation"
+
+      - name: "Sensitive Field Gating"
+        complexity: 3
+        priority: critical
+        description: "AI advocate approval for SSN, account numbers, etc."
+
+      - name: "Checkbox/Radio Auto-Fill"
+        complexity: 3
+        priority: high
+        description: "Map yes/no, gender, marital status to checkboxes"
+
+      - name: "Date Field Intelligence"
+        complexity: 2
+        priority: high
+        description: "Handle date formats (MM/DD/YYYY, ISO, written)"
+
+  - name: "Question Engine"
+    features:
+      - name: "Missing Field Detection"
+        complexity: 2
+        priority: critical
+        description: "Identify unfilled required fields"
+
+      - name: "Natural Language Answers"
+        complexity: 3
+        priority: high
+        description: "Parse free-text answers into structured field values"
+
+      - name: "Batch Questioning"
+        complexity: 2
+        priority: medium
+        description: "Ask all missing fields at once, parse batch response"
+
+      - name: "Context-Aware Questions"
+        complexity: 3
+        priority: medium
+        description: "Frame questions with form context for clarity"
+
+  - name: "PDF Writing"
+    features:
+      - name: "Field Value Writing"
+        complexity: 2
+        priority: critical
+        description: "Write values into PDF form fields"
+
+      - name: "PDF Flattening"
+        complexity: 2
+        priority: high
+        description: "Lock fields after filling to prevent modification"
+
+      - name: "Signature Insertion"
+        complexity: 4
+        priority: medium
+        description: "Insert digital or image signatures"
+
+      - name: "Date Stamping"
+        complexity: 1
+        priority: high
+        description: "Auto-fill date fields with current or specified date"
+
+      - name: "PDF Compression"
+        complexity: 2
+        priority: low
+        description: "Compress output PDF for smaller file size"
+
+  - name: "GTD Filing"
+    features:
+      - name: "Auto-Categorization"
+        complexity: 3
+        priority: critical
+        description: "Determine category (medical, financial, legal, etc.)"
+
+      - name: "Date-Prefix Naming"
+        complexity: 1
+        priority: critical
+        description: "YYYY-MM-DD_description_source.pdf naming convention"
+
+      - name: "Metadata Sidecar"
+        complexity: 2
+        priority: high
+        description: "Generate .meta.yml with filing details and tags"
+
+      - name: "GTD Folder Structure"
+        complexity: 2
+        priority: critical
+        description: "@Inbox, @Action, @Reference, @Projects, @Archive"
+
+      - name: "Action Tracking"
+        complexity: 3
+        priority: medium
+        description: "Track @Action/Waiting-For items with reminders"
+
+      - name: "Inbox Processing"
+        complexity: 3
+        priority: medium
+        description: "Batch process ~/Downloads PDFs into GTD structure"
+
+  - name: "Filing Backends"
+    features:
+      - name: "Local Filesystem"
+        complexity: 1
+        priority: critical
+        description: "File to local GTD folder structure"
+
+      - name: "Nextcloud WebDAV"
+        complexity: 3
+        priority: critical
+        description: "Upload to Nextcloud via WebDAV with folder creation"
+
+      - name: "Google Drive"
+        complexity: 3
+        priority: medium
+        description: "Upload to Google Drive via API"
+
+      - name: "Email Attachment"
+        complexity: 2
+        priority: medium
+        description: "Send completed PDF via email/SKComm"
+
+  - name: "Integration"
+    features:
+      - name: "SKChat Plugin"
+        complexity: 4
+        priority: high
+        description: "Conversational form filling inside SKChat"
+
+      - name: "CLI Interface"
+        complexity: 3
+        priority: critical
+        description: "Command-line form filling and filing"
+
+      - name: "FastAPI Server"
+        complexity: 3
+        priority: medium
+        description: "HTTP API for programmatic form filling"
+
+      - name: "CapAuth Profile Reader"
+        complexity: 3
+        priority: critical
+        description: "Read profile data with PGP decryption support"
+
+  - name: "Advanced"
+    features:
+      - name: "Batch Fill"
+        complexity: 3
+        priority: low
+        description: "Fill multiple PDFs with same profile data"
+
+      - name: "Form Template Library"
+        complexity: 4
+        priority: medium
+        description: "Pre-mapped templates for IRS, SSA, DMV forms"
+
+      - name: "PDF to Structured Data"
+        complexity: 4
+        priority: low
+        description: "Export filled form data as JSON/YAML"
+
+      - name: "Digital Signature"
+        complexity: 5
+        priority: low
+        description: "PGP-based digital signature on completed forms"
+
+summary:
+  total_features: 36
+  groups: 7
+  critical: 12
+  high: 10
+  medium: 10
+  low: 4
