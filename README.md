@@ -243,4 +243,4 @@ No more:
 
 Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [smilinTux](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
 
-**Bing Chilling Nation** — Cool Heads. Warm Justice. Smart Systems. 👑
+**The Penguin Kingdom** — Cool Heads. Warm Justice. Smart Systems. 👑

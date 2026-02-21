@@ -296,7 +296,7 @@ This means every blueprint is designed to REPLACE not just installed software, b
 
 **"We don't sell software. We give everyone the blueprints to build their own."**
 
-*Bing Chilling Nation — Cool Heads. Warm Justice. Smart Systems.* 🐧👑
+*The Penguin Kingdom — Cool Heads. Warm Justice. Smart Systems.* 🐧👑
 
 ---
 
