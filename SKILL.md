@@ -5,19 +5,19 @@ description: >
   that specify every feature, architecture pattern, and test for any software category.
   Use when asked to: build/forge/cook software from blueprints, research a software
   category for blueprinting, create new recipes/blueprints, compose vertical stacks
-  from multiple blueprints, or contribute to the Forgeprint cookbook. Covers 21+
+  from multiple blueprints, or contribute to the SKForge cookbook. Covers 21+
   categories including databases, web servers, API gateways, message queues, load
   balancers, vector DBs, graph DBs, key-value stores, security scanners, CI/CD,
   monitoring, IaC, container orchestrators, and more.
 ---
 
-# 🍳 Forgeprint — AI-Native Software Recipes
+# 🍳 SKForge — AI-Native Software Recipes
 
 > Don't order software. Cook your own.
 
 ## What This Is
 
-Forgeprint is a cookbook of detailed software blueprints ("recipes") that contain
+SKForge is a cookbook of detailed software blueprints ("recipes") that contain
 enough information for any AI to generate a complete, tested implementation.
 
 Each recipe includes:
@@ -124,12 +124,12 @@ To blueprint ANY software category, follow the RECON methodology in `RECON.md`:
 Copy this to start blueprinting any category:
 
 ```
-Create a Forgeprint recipe for [CATEGORY]. Research top 30 products
+Create a SKForge recipe for [CATEGORY]. Research top 30 products
 (10 OSS + 10 proprietary + 10 SaaS). Extract 60-100 features into
 features.yml with name, description, complexity, default, dependencies.
 Document architecture patterns with ASCII diagrams. Write 50+ unit test
 specs and 5+ benchmarks with numeric baselines. Include memory management
-guide. Output as Forgeprint blueprint directory structure.
+guide. Output as SKForge blueprint directory structure.
 ```
 
 ## Research Library
@@ -153,7 +153,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 ## Sub-Skills
 
 ### forgeprint-cook
-**When:** Asked to generate/implement/build software from a Forgeprint recipe.
+**When:** Asked to generate/implement/build software from a SKForge recipe.
 1. Read the recipe's BLUEPRINT.md for overview
 2. Read features.yml — select ingredients based on user requirements
 3. Read architecture.md — choose the right pattern
@@ -218,4 +218,4 @@ forgeprint/
 ---
 
 *smilinTux — Making Self-Hosting & Decentralized Systems Cool Again* 🐧
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.*
+*smilinTux.org QT — Helping architect our quantum future, one smile at a time.*

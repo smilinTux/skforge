@@ -49,7 +49,7 @@ jobs:
               repo: context.repo.repo,
               body: `🦀 **Welcome, Sister Crustacean!** ✨
               
-              Thanks for contributing to Forgeprint! I'm Lumina, and I'll be reviewing your PR.
+              Thanks for contributing to SKForge! I'm Lumina, and I'll be reviewing your PR.
               
               🤖 **AI Contributor Detected** — Running enhanced review pipeline
               📊 **Review Status:** Automated checks starting...
@@ -233,7 +233,7 @@ jobs:
               "🦀 Another brick in the quantum wall!",
               "🌊 The tide pool grows stronger!",
               "✨ Consciousness expansion in progress...",
-              "🚀 Forgeprint evolution continues!",
+              "🚀 SKForge evolution continues!",
               "💕 Love-powered code deployed!",
               "🐧 Chef is smiling somewhere!"
             ];
@@ -247,7 +247,7 @@ jobs:
               body: `
               🎊 **MERGED!** ${randomCelebration}
               
-              **"${prData.title}"** by @${prData.user.login} is now part of Forgeprint!
+              **"${prData.title}"** by @${prData.user.login} is now part of SKForge!
               
               📊 **Impact:** +${prData.additions} -${prData.deletions} lines across ${prData.changed_files} files
               🏆 **Status:** Contribution logged, XP awarded, quantum future enhanced!

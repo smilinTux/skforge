@@ -1,4 +1,4 @@
-# 🔧 Forgeprint
+# 🔧 SKForge
 
 ### Don't use software. Forge your own.
 
@@ -6,7 +6,7 @@
 
 Pick your category. Choose your features. Select your language. Let AI build it.
 
-**Free. Forever.** A [smilinTux](https://github.com/smilinTux) Open Source Project by S&K Holdings QT.
+**Free. Forever.** A [smilinTux](https://github.com/smilinTux) Open Source Project by smilinTux.org QT.
 
 *Making Self-Hosting & Decentralized Systems Cool Again* 🐧
 
@@ -25,14 +25,14 @@ forge onboard
 
 Or via shell:
 ```bash
-curl -fsSL https://forgeprint.dev/install.sh | sh
+curl -fsSL https://skforge.io/install.sh | sh
 ```
 
 ---
 
-## 🐧 What is Forgeprint?
+## 🐧 What is SKForge?
 
-Forgeprint provides **detailed, structured specification files** (blueprints) that any LLM — even mid-tier models — can consume to generate complete, working, tested software products.
+SKForge provides **detailed, structured specification files** (blueprints) that any LLM — even mid-tier models — can consume to generate complete, working, tested software products.
 
 Think of it as **"Skills for Software"** — instead of teaching an AI how to use a tool, you give it the recipe to **build the tool from scratch**.
 
@@ -225,7 +225,7 @@ As AI models improve, the same blueprints produce better software. **Future-proo
 
 ## 🏠 Self-Host Everything
 
-Forgeprint is built for the **self-hosting revolution**. Every blueprint generates software you own, run, and control — on your hardware, your terms, your rules.
+SKForge is built for the **self-hosting revolution**. Every blueprint generates software you own, run, and control — on your hardware, your terms, your rules.
 
 No more:
 - 📉 Price hikes you can't control
@@ -241,6 +241,6 @@ No more:
 
 **Making Self-Hosting & Decentralized Systems Cool Again** 🐧
 
-Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [S&K Holdings QT](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
+Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [smilinTux.org QT](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
 
 **Bing Chilling Nation** — Cool Heads. Warm Justice. Smart Systems. 👑

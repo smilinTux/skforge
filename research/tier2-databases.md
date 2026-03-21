@@ -1,4 +1,4 @@
-# Forgeprint Tier 2 Database Categories — Exhaustive Research
+# SKForge Tier 2 Database Categories — Exhaustive Research
 
 > Generated: 2026-02-13 | For SKVector, SKGraph, Redis-style, Document, TimeSeries, Search engine provider implementations
 
@@ -1051,8 +1051,8 @@
 | **Scaling** | Shard by collection | Graph partitioning | Hash slots/ranges | Chunk-based sharding | Time + metric sharding | Index sharding |
 | **Typical Latency** | 1-50ms (search) | 1-100ms (traversal) | <1ms (cache hit) | 1-10ms (indexed) | 1-50ms (range query) | 5-50ms (search) |
 | **Compression** | Quantization (4-32x) | Property compression | In-memory (none) | Snappy/Zstd (2-5x) | Gorilla (10-15x) | Lucene (2-4x) |
-| **Forgeprint Provider** | SKVector | SKGraph | SKCache | SKDocument | SKTimeSeries | SKSearch |
+| **SKForge Provider** | SKVector | SKGraph | SKCache | SKDocument | SKTimeSeries | SKSearch |
 
 ---
 
-*This document serves as the definitive reference for Forgeprint Tier 2 database provider implementations. Each category's features inform the provider interface, configuration schema, and test harness design.*
+*This document serves as the definitive reference for SKForge Tier 2 database provider implementations. Each category's features inform the provider interface, configuration schema, and test harness design.*

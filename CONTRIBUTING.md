@@ -1,4 +1,4 @@
-# Contributing to Forgeprint 🔧
+# Contributing to SKForge 🔧
 
 First off — **thank you**. You're helping build something that makes software free for everyone.
 
@@ -64,4 +64,4 @@ By contributing, you agree that your contributions will be licensed under AGPL-3
 
 **Questions?** Open a Discussion or join our [Discord](https://discord.gg/smilintux).
 
-*smilinTux — a [S&K Holdings QT](https://smilintux.org) open source project* 🐧👑
+*smilinTux — a [smilinTux.org QT](https://smilintux.org) open source project* 🐧👑

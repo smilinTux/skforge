@@ -4,9 +4,9 @@
 
 A key-value store is an in-memory data structure server that maps unique string keys to rich data types, providing sub-millisecond read/write performance. Unlike simple caches (Memcached), a Redis/Valkey-style KV store supports complex data structures, persistence, replication, clustering, scripting, and pub/sub — making it a versatile building block for caching, session management, real-time analytics, message brokering, rate limiting, leaderboards, and more.
 
-### Why Forgeprint Needs This
+### Why SKForge Needs This
 
-The Redis licensing saga (BSD → RSALv2+SSPLv1 dual license in March 2024) triggered the creation of **Valkey** under the Linux Foundation, proving that open-source alternatives to dominant infrastructure software are critically needed. Forgeprint can generate truly open, BSD-licensed key-value stores that are protocol-compatible with the Redis ecosystem while being free from licensing encumbrances.
+The Redis licensing saga (BSD → RSALv2+SSPLv1 dual license in March 2024) triggered the creation of **Valkey** under the Linux Foundation, proving that open-source alternatives to dominant infrastructure software are critically needed. SKForge can generate truly open, BSD-licensed key-value stores that are protocol-compatible with the Redis ecosystem while being free from licensing encumbrances.
 
 ### Core Responsibilities
 - **In-Memory Data Storage**: Store and retrieve data structures entirely in RAM for sub-millisecond latency
@@ -26,7 +26,7 @@ The Redis licensing saga (BSD → RSALv2+SSPLv1 dual license in March 2024) trig
 | Valkey | BSD-3-Clause | Linux Foundation fork, community-driven |
 | KeyDB | BSD-3-Clause | Multi-threaded fork |
 | DragonflyDB | BSL 1.1 | Source-available, not OSS |
-| **Forgeprint Output** | **User's choice (BSD/MIT/Apache)** | **Truly open-source** |
+| **SKForge Output** | **User's choice (BSD/MIT/Apache)** | **Truly open-source** |
 
 ## Core Concepts
 

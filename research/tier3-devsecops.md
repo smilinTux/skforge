@@ -1,6 +1,6 @@
-# Tier 3: DevSecOps Categories — Forgeprint Deep Research
+# Tier 3: DevSecOps Categories — SKForge Deep Research
 
-> **Generated:** 2026-02-13 | **Purpose:** Exhaustive reference for Forgeprint blueprint generation
+> **Generated:** 2026-02-13 | **Purpose:** Exhaustive reference for SKForge blueprint generation
 > **Categories:** Infrastructure as Code, CI/CD Pipelines, Security Scanners, Monitoring/Observability, Runtime Protection
 
 ---
@@ -25,7 +25,7 @@ In **August 2023**, HashiCorp changed Terraform's license from **MPL-2.0** (Mozi
 - The **Linux Foundation** backed the fork, establishing **OpenTofu** as the true open-source continuation
 - OpenTofu 1.6.0 (first GA) shipped in January 2024, maintaining full compatibility with Terraform 1.6
 - OpenTofu has since diverged with unique features: client-side state encryption, `removed` blocks, provider-defined functions
-- This event became **the canonical example** of why organizations need open-source alternatives and why Forgeprint must prioritize OSS-first blueprints
+- This event became **the canonical example** of why organizations need open-source alternatives and why SKForge must prioritize OSS-first blueprints
 
 **Key divergences (OpenTofu vs Terraform post-fork):**
 - OpenTofu: State encryption (native), `removed` blocks (earlier), provider-defined functions, `for_each` on resources with unknown values
@@ -523,7 +523,7 @@ Developer → Git Push → Git Repo (desired state)
 
 # 3. Security Scanners / Vulnerability Management
 
-> **CRITICAL for Moltbook/Forgeprint:** These tools protect AI agent infrastructure. Every "moltie" (Moltbook agent) needs automated security scanning in its CI/CD pipeline and runtime environment.
+> **CRITICAL for Moltbook/SKForge:** These tools protect AI agent infrastructure. Every "moltie" (Moltbook agent) needs automated security scanning in its CI/CD pipeline and runtime environment.
 
 ## Top 10 Open-Source Tools
 
@@ -1290,7 +1290,7 @@ Agentless (Wiz, some Prisma Cloud):
 
 # Cross-Category Integration Notes
 
-## The Forgeprint DevSecOps Pipeline
+## The SKForge DevSecOps Pipeline
 ```
 Code Commit
     → CI/CD Pipeline (Section 2)
@@ -1302,7 +1302,7 @@ Code Commit
                             → Alert → Response → Audit
 ```
 
-## Key Decisions for Forgeprint Blueprints
+## Key Decisions for SKForge Blueprints
 
 1. **IaC:** Default to OpenTofu (MPL-2.0) over Terraform (BSL). Terragrunt for DRY multi-environment.
 2. **CI/CD:** Forgejo Actions for self-hosted (GH Actions compatible). Argo CD for GitOps K8s delivery.

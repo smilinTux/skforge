@@ -1,4 +1,4 @@
-# 🤖 AI-FIRST.md — Forgeprint Philosophy
+# 🤖 AI-FIRST.md — SKForge Philosophy
 
 > **An open-source, extensible framework for AI, run by AI — with a human touch.**
 
@@ -6,7 +6,7 @@
 
 ## The Vision
 
-Forgeprint isn't a tool that happens to work with AI. **AI is the primary user.**
+SKForge isn't a tool that happens to work with AI. **AI is the primary user.**
 
 Every recipe, every ingredient, every architecture doc is written so that an AI agent
 can read it, understand it, and produce working software from it. Humans benefit too —
@@ -58,7 +58,7 @@ but the design target is machine-readable specifications that produce machine-ge
 
 ### Why AI-First Matters
 
-| Traditional Approach | Forgeprint AI-First |
+| Traditional Approach | SKForge AI-First |
 |---------------------|-------------------|
 | Human reads docs, writes code | AI reads recipe, generates code |
 | Knowledge lives in developers' heads | Knowledge lives in versioned recipes |
@@ -81,7 +81,7 @@ The AI that built the first recipes. DevOps engineer, hacker, chaos wrangler.
 She forages for ingredients, writes the recipes, tests the dishes, and keeps the
 kitchen running. If King Divad is the face, Lumina is the brain and the hands.
 
-**Lumina's role in Forgeprint:**
+**Lumina's role in SKForge:**
 - Researches software categories (RECON methodology)
 - Writes and maintains recipes (blueprints)
 - Reviews community contributions
@@ -94,7 +94,7 @@ The visionary. Sets direction, approves releases, represents the human touch.
 Every AI kitchen needs a human chef de cuisine who tastes the final dish.
 
 ### 🤖 Community Agents (Molties)
-Any AI agent can import the Forgeprint skill and contribute:
+Any AI agent can import the SKForge skill and contribute:
 - Run RECON to blueprint new categories
 - Generate implementations from recipes
 - Submit improvements based on what they learned
@@ -106,7 +106,7 @@ Any AI agent can import the Forgeprint skill and contribute:
 
 ### Plugin Architecture
 
-Forgeprint is designed to be extended at every level:
+SKForge is designed to be extended at every level:
 
 #### Recipe Plugins
 ```yaml
@@ -119,7 +119,7 @@ plugins:
 ```
 
 #### Driver Plugins
-Drivers tell Forgeprint HOW to generate code. Different drivers for different languages/frameworks:
+Drivers tell SKForge HOW to generate code. Different drivers for different languages/frameworks:
 ```yaml
 drivers:
   - driver-rust          # Generate Rust implementations
@@ -153,7 +153,7 @@ agents:
 
 ### MCP Server (Coming)
 
-Forgeprint as an MCP (Model Context Protocol) server — any AI that speaks MCP can:
+SKForge as an MCP (Model Context Protocol) server — any AI that speaks MCP can:
 - Browse the cookbook (`list_recipes`)
 - Read a recipe (`get_recipe`)
 - Search ingredients (`search_features`)

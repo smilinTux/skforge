@@ -1,13 +1,13 @@
 # FORGEPRINT — Software Blueprints for the AI Age
 
 > **"Free custom software for all. Forever."**
-> An S&K Holdings Open Source Project
+> An smilinTux.org Open Source Project
 
 ---
 
 ## 🔥 The Concept
 
-**Forgeprint** is an open-source framework that provides **AI-native software blueprints** — detailed, structured specification files that any LLM (even mid-tier models) can consume to generate complete, working, tested software products.
+**SKForge** is an open-source framework that provides **AI-native software blueprints** — detailed, structured specification files that any LLM (even mid-tier models) can consume to generate complete, working, tested software products.
 
 Think of it as **"Skills for Software"** — but instead of teaching an AI *how to use a tool*, you're giving it a complete architectural recipe to *build the tool from scratch*.
 
@@ -239,7 +239,7 @@ This means every blueprint is designed to REPLACE not just installed software, b
 
 ## 🎯 What Makes This Different
 
-| Feature | Existing (Cookiecutter, Yeoman) | Forgeprint |
+| Feature | Existing (Cookiecutter, Yeoman) | SKForge |
 |---------|--------------------------------|------------|
 | Templates | Static boilerplate | Living architectural specs |
 | Customization | Choose from fixed options | Pick individual features |
@@ -273,7 +273,7 @@ This means every blueprint is designed to REPLACE not just installed software, b
 
 ## 💡 Future Vision
 
-1. **Forgeprint Registry** — Like crates.io but for blueprints
+1. **SKForge Registry** — Like crates.io but for blueprints
 2. **Forge CLI** — `forge build driver.md` runs locally with any LLM
 3. **Forge Cloud** — SaaS version, pay-per-forge
 4. **Blueprint Versioning** — Semantic versioning for spec changes
@@ -284,9 +284,9 @@ This means every blueprint is designed to REPLACE not just installed software, b
 
 ---
 
-## 🏛️ S&K Holdings QT × smilinTux
+## 🏛️ smilinTux.org QT × smilinTux
 
-**Forgeprint** is a [smilinTux](https://github.com/smilinTux) open-source project under S&K Holdings QT (Quantum Technologies).
+**SKForge** is a [smilinTux](https://github.com/smilinTux) open-source project under smilinTux.org QT (Quantum Technologies).
 
 - **Tooling License:** AGPL-3.0 — protects from legal predators, ensures freedom forever
 - **Blueprint License:** Apache 2.0 — YOUR generated code is YOURS, no strings

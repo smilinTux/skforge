@@ -3,7 +3,7 @@
 > **The Recipe for Making Recipes**
 > 
 > This guide teaches any AI (or human) how to research, analyze, and document
-> any software category into a Forgeprint blueprint. Follow these steps and
+> any software category into a SKForge blueprint. Follow these steps and
 > you can blueprint ANYTHING — from a database to a social media platform.
 >
 > *Royalty-free. No proprietary code copied. Only patterns, features, and architecture documented.*
@@ -12,7 +12,7 @@
 
 ## What This Is
 
-Forgeprint blueprints are **architectural specifications** — not source code copies. We document:
+SKForge blueprints are **architectural specifications** — not source code copies. We document:
 - ✅ What features exist across all products in a category
 - ✅ How those features work architecturally
 - ✅ What tests validate correct implementation
@@ -25,7 +25,7 @@ This is legal. This is ethical. This is how engineering has always worked — st
 
 ## 🤖 AI Recon Instructions
 
-**If you are an AI agent tasked with creating a Forgeprint blueprint, follow these steps exactly.**
+**If you are an AI agent tasked with creating a SKForge blueprint, follow these steps exactly.**
 
 ### Phase 1: Market Research (30 min)
 
@@ -314,9 +314,9 @@ Before submitting, verify:
 Copy this prompt to any AI to start a new blueprint:
 
 ```
-You are creating a Forgeprint blueprint for [CATEGORY NAME].
+You are creating a SKForge blueprint for [CATEGORY NAME].
 
-Forgeprint blueprints are AI-native software specifications — detailed enough 
+SKForge blueprints are AI-native software specifications — detailed enough 
 that a mid-tier LLM can generate a complete, working, tested implementation 
 from them.
 
@@ -338,7 +338,7 @@ Follow the RECON methodology:
 5. MEMORY: Document buffer management, connection overhead, cache sizing, 
    memory limits, and backpressure mechanisms.
 
-Output as markdown files following the Forgeprint blueprint structure.
+Output as markdown files following the SKForge blueprint structure.
 All specifications must be detailed enough for GPT-3.5 to implement.
 No proprietary code — only patterns and architectural specifications.
 ```
@@ -384,4 +384,4 @@ Every blueprint you contribute helps someone cancel a SaaS subscription.
 
 *Don't use software. Forge your own.* 🐧
 *smilinTux — Making Self-Hosting & Decentralized Systems Cool Again*
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.*
+*smilinTux.org QT — Helping architect our quantum future, one smile at a time.*

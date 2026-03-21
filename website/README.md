@@ -1,10 +1,10 @@
-# Forgeprint Website
+# SKForge Website
 
-Official landing page for [Forgeprint](https://forgeprint.dev) - AI-native software blueprints by S&K Holdings.
+Official landing page for [SKForge](https://skforge.io) - AI-native software blueprints by smilinTux.org.
 
 ## 🌐 Live Site
 
-Visit: [https://forgeprint.dev](https://forgeprint.dev)
+Visit: [https://skforge.io](https://skforge.io)
 
 ## 📁 Structure
 
@@ -28,9 +28,9 @@ website/
 - **How It Works**: 3-step process visualization
 - **Categories**: Grid of software categories with icons
 - **Example**: Interactive code demo showing blueprint → generated code
-- **Why Forgeprint**: Key differentiators and benefits
+- **Why SKForge**: Key differentiators and benefits
 - **Community**: Links to GitHub, Discord, contributing
-- **Footer**: S&K Holdings info, links, Apache 2.0 license
+- **Footer**: smilinTux.org info, links, Apache 2.0 license
 
 ### Interactive Elements
 - Smooth scroll navigation
@@ -58,9 +58,9 @@ Deploy the `index.html` file to any static hosting service:
 - AWS S3 + CloudFront
 - Any CDN or web server
 
-## 🎯 About Forgeprint
+## 🎯 About SKForge
 
-Forgeprint is an open-source project that generates complete, tested software from AI-native blueprint specifications. Users pick a software category (load balancer, database, web server, etc.), configure features, select a language, and AI builds production-ready code.
+SKForge is an open-source project that generates complete, tested software from AI-native blueprint specifications. Users pick a software category (load balancer, database, web server, etc.), configure features, select a language, and AI builds production-ready code.
 
 **Key Benefits:**
 - Purpose-built for specific use cases
@@ -71,11 +71,11 @@ Forgeprint is an open-source project that generates complete, tested software fr
 
 ## 📧 Contact
 
-- **Company**: S&K Holdings
+- **Company**: smilinTux.org
 - **Project**: https://github.com/skholdings/forgeprint
 - **Community**: https://discord.gg/forgeprint
 - **Support**: hello@skholdings.com
 
 ---
 
-Built with ❤️ by S&K Holdings for the developer community.
+Built with ❤️ by smilinTux.org for the developer community.

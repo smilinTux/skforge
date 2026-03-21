@@ -3,12 +3,12 @@
 ## The Stack
 
 ```
-S&K Holdings QT (parent trust)
+smilinTux.org QT (parent trust)
   "Helping architect our quantum future, one smile at a time."
   │
   └── smilinTux (GitHub org) — "Making Self-Hosting & Decentralized Cool Again"
        │
-       ├── 🍳 Forgeprint              LIVE     — AI-native software recipes
+       ├── 🍳 SKForge              LIVE     — AI-native software recipes
        │   └── The Cookbook: blueprints for every software category
        │   └── Stack Composer: forge entire vertical stacks
        │   └── RECON: methodology to blueprint ANY software
@@ -20,7 +20,7 @@ S&K Holdings QT (parent trust)
        │
        ├── 🧠 SKMemory                LIVE     — AI memory system
        │   └── Vector + Graph memory for AI agents
-       │   └── Also a Forgeprint recipe category!
+       │   └── Also a SKForge recipe category!
        │
        ├── 🌟 SKyForge                LIVE     — Alignment calendar
        │
@@ -29,32 +29,32 @@ S&K Holdings QT (parent trust)
 
 ## The Relationship
 
-**Forgeprint** = The cookbook (recipes for building software)
+**SKForge** = The cookbook (recipes for building software)
 **SKStacks** = The restaurant (recipes put into production)
 
-Forgeprint tells you HOW to build. SKStacks shows you it WORKS.
+SKForge tells you HOW to build. SKStacks shows you it WORKS.
 
 ```
-Forgeprint Recipe: "databases"
+SKForge Recipe: "databases"
   → SKStacks runs PostgreSQL in production using these exact patterns
 
-Forgeprint Recipe: "vector-databases"  
+SKForge Recipe: "vector-databases"  
   → SKStacks runs SKVector (Qdrant) in production
 
-Forgeprint Recipe: "graph-databases"
+SKForge Recipe: "graph-databases"
   → SKStacks runs SKGraph (FalkorDB) in production
 
-Forgeprint Recipe: "container-orchestrators"
+SKForge Recipe: "container-orchestrators"
   → SKStacks runs Docker Swarm + K8s in production
 
-Forgeprint Recipe: "secret-management"
+SKForge Recipe: "secret-management"
   → SKStacks runs zero-trust secret injection in production
 
-Forgeprint Recipe: "api-gateways"
+SKForge Recipe: "api-gateways"
   → SKStacks runs Traefik with mTLS in production
 ```
 
-Every Forgeprint recipe has a battle-tested reference in SKStacks.
+Every SKForge recipe has a battle-tested reference in SKStacks.
 
 ## SKStacks Public Release Plan
 
@@ -99,14 +99,14 @@ Before any SKStacks code goes public:
 4. **Code Review**
    - [ ] Every file reviewed for accidental PII
    - [ ] README explains what this is and isn't
-   - [ ] License: AGPL-3.0 (same as Forgeprint tooling)
+   - [ ] License: AGPL-3.0 (same as SKForge tooling)
    - [ ] Contributing guide with security reporting process
 
 ### Release Strategy
 - **Phase 1:** Architecture docs + deployment patterns (no code)
 - **Phase 2:** Generic Ansible playbooks + Docker stack templates
 - **Phase 3:** Full framework with example deployments
-- **Phase 4:** Integration guides with Forgeprint recipes
+- **Phase 4:** Integration guides with SKForge recipes
 
 ## The Marketing Story
 
@@ -115,20 +115,20 @@ Before any SKStacks code goes public:
 
 SKStacks is the production infrastructure behind smilinTux — 
 running Docker Swarm, AI agents, vector databases, graph databases, 
-and zero-trust security. Every Forgeprint recipe was extracted from 
+and zero-trust security. Every SKForge recipe was extracted from 
 real production patterns.
 
-Forgeprint gives you the cookbook.
+SKForge gives you the cookbook.
 SKStacks shows you the kitchen.
 Coming soon — open source."
 ```
 
 ## Timeline
-- **Now:** Forgeprint launches with 10+ recipe categories
+- **Now:** SKForge launches with 10+ recipe categories
 - **Next:** SKStacks architecture docs (sanitized)
 - **Then:** SKStacks code (decoupled, sanitized, open source)
 - **Vision:** Anyone can `forge menu zero-trust` and get a SKStacks-grade infrastructure
 
 ---
 
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.* 🐧👑
+*smilinTux.org QT — Helping architect our quantum future, one smile at a time.* 🐧👑

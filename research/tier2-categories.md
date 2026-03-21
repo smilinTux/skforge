@@ -1,4 +1,4 @@
-# Forgeprint Tier 2 — Software Category Research
+# SKForge Tier 2 — Software Category Research
 
 > Generated: 2026-02-13 | Status: Comprehensive draft (web search unavailable — star counts approximate as of late 2025)
 
@@ -879,7 +879,7 @@
 
 ---
 
-## Appendix: Cross-Category Considerations for Forgeprint Blueprints
+## Appendix: Cross-Category Considerations for SKForge Blueprints
 
 ### Common Blueprint Requirements
 - **Configuration templating:** All categories need parameterized configuration (database URLs, API keys, ports, resource limits).

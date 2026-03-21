@@ -5,7 +5,7 @@
 A full-text search engine indexes, stores, and retrieves documents based on textual relevance, structured filters, and statistical scoring. Unlike traditional databases optimized for exact lookups, search engines excel at **fuzzy, ranked retrieval** — returning the most relevant results from millions of documents in milliseconds. This blueprint covers Elasticsearch/OpenSearch/Solr-class systems built on inverted index foundations.
 
 ### Why Build This?
-The Elasticsearch SSPL license change (2021) and subsequent Elastic License 2.0 restrictions made the most popular search engine effectively proprietary for cloud providers. OpenSearch (AWS fork) exists but carries its own ecosystem baggage. A Forgeprint-generated search engine provides:
+The Elasticsearch SSPL license change (2021) and subsequent Elastic License 2.0 restrictions made the most popular search engine effectively proprietary for cloud providers. OpenSearch (AWS fork) exists but carries its own ecosystem baggage. A SKForge-generated search engine provides:
 - **True open-source** full-text search with no licensing ambiguity
 - **Modular architecture** — swap scoring algorithms, analyzers, storage backends
 - **Cloud-native design** — sharding, replication, and lifecycle management built-in
@@ -1210,4 +1210,4 @@ This enables drop-in replacement for applications using standard Elasticsearch c
 
 ---
 
-*This blueprint serves as the definitive specification for generating search engine implementations via the Forgeprint system. All features, APIs, and architectural decisions are codified here for reproducible, high-quality code generation.*
+*This blueprint serves as the definitive specification for generating search engine implementations via the SKForge system. All features, APIs, and architectural decisions are codified here for reproducible, high-quality code generation.*

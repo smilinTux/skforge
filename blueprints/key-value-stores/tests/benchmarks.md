@@ -594,7 +594,7 @@ expired_keys_per_second
 - **Duration**: 300 seconds
 - **Hardware**: 4-core 3.2GHz, 32GB RAM, NVMe SSD
 - **Tool**: redis-benchmark 7.0
-- **Implementation**: Forgeprint KV Store v1.0
+- **Implementation**: SKForge KV Store v1.0
 
 ## Performance Summary
 | Operation | RPS | P99 Latency | Memory/Key | Status |

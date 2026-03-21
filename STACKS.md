@@ -21,7 +21,7 @@ That's **7 different technologies**, 7 sets of documentation, 7 configuration la
 
 ## Stack Composer
 
-A **Forgeprint Stack** is a `stack.yml` file that selects one blueprint from each layer and defines how they connect:
+A **SKForge Stack** is a `stack.yml` file that selects one blueprint from each layer and defines how they connect:
 
 ```yaml
 # stack.yml — My Production Stack
@@ -392,5 +392,5 @@ Every SaaS product is just a stack of open patterns with a UI on top. We documen
 
 ---
 
-*Forgeprint Stacks — A smilinTux project*
-*S&K Holdings QT — Helping architect our quantum future, one smile at a time.*
+*SKForge Stacks — A smilinTux project*
+*smilinTux.org QT — Helping architect our quantum future, one smile at a time.*
