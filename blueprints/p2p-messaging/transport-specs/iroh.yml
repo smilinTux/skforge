@@ -1,0 +1,101 @@
+name: Iroh Transport
+protocol_version: "iroh 0.x (active development)"
+created_by: "n0 (number zero), the team behind Delta Chat's transport layer"
+website: "https://iroh.computer"
+documentation: "https://docs.iroh.computer"
+license: "MIT / Apache-2.0"
+
+overview: >
+  Iroh is a peer-to-peer networking library built in Rust that provides reliable
+  direct connections between peers. It achieves ~90% NAT hole-punching success
+  (vs ~70% for libp2p) by using QUIC protocol with relay fallback. Currently
+  powers millions of devices in production via Delta Chat. Designed for simplicity
+  and reliability over maximum decentralization.
+
+architecture:
+  model: direct peer-to-peer with relay fallback
+  transport: QUIC (UDP-based, multiplexed, 0-RTT, built-in encryption)
+  identity: Ed25519 keypairs → NodeIDs
+  nat_traversal:
+    method: "QUIC hole-punching (adapted from Tailscale techniques)"
+    success_rate: "~90%+"
+    fallback: "relay servers (transparent to application)"
+  relay_servers:
+    default: ["https://relay.iroh.network"]
+    self_hosted: true
+    note: "Relays see only encrypted blobs — E2E encryption always active"
+  protocols:
+    iroh_net: "Core networking: connections, NAT traversal, relay"
+    iroh_blobs: "Content-addressed data transfer (like IPFS but simpler)"
+    iroh_gossip: "Gossip-based group messaging (pub-sub)"
+    iroh_docs: "Collaborative document sync (CRDT-based)"
+
+skcomm_integration:
+  how_it_works:
+    - Each SKComm node runs an embedded Iroh endpoint (lightweight)
+    - Peers exchange Iroh NodeIDs (derived from Ed25519 keys)
+    - Connection: attempt QUIC hole-punch → relay fallback if needed
+    - SKComm envelope sent as encrypted byte stream
+    - Double encryption: Iroh QUIC layer + PGP application layer
+  identity_mapping:
+    - Iroh NodeID derivable from CapAuth Ed25519 key
+    - Or generate separate Iroh identity linked in CapAuth profile
+  group_messaging:
+    - iroh-gossip enables efficient one-to-many communication
+    - Named topics for SKComm channels
+  recommended_as: "PRIMARY internet P2P transport for SKComm"
+
+properties:
+  requires_internet: true
+  supports_offline: false
+  max_payload_size: unlimited (streaming)
+  typical_latency_ms: "10-100 (direct), 50-500 (relayed)"
+  stealth: medium
+  censorship_resistance: high
+  offline_capable: false
+  bidirectional: true
+
+strengths:
+  - Highest NAT traversal success rate among P2P libraries (~90%)
+  - Production-proven (millions of devices via Delta Chat)
+  - QUIC protocol: multiplexed streams, 0-RTT reconnection, congestion control
+  - Self-hostable relay servers for full sovereignty
+  - Relay servers cannot read traffic (E2E encrypted)
+  - Lightweight enough for embedded devices and mobile
+  - Simple API compared to libp2p (lower barrier to entry)
+  - iroh-gossip for efficient group messaging
+  - Rust core with Python bindings available
+
+weaknesses:
+  - Requires internet connectivity (no offline/BLE)
+  - Uses default relay servers (slight centralization, mitigated by self-hosting)
+  - Younger project than libp2p (less battle-tested at massive scale)
+  - Not as privacy-focused as Veilid (peers know each other's IPs)
+
+python_libraries:
+  - name: iroh
+    url: "https://pypi.org/project/iroh/"
+    note: "Official Python bindings via PyO3"
+
+why_iroh_over_libp2p: >
+  libp2p has ~70% NAT hole-punching success vs Iroh's ~90%+. For SKComm,
+  reliable delivery to specific peers is critical. Iroh trades some
+  decentralization for practical reliability — the right tradeoff for a
+  messaging system where you NEED the message to arrive.
+
+configuration_example:
+  node_id: auto
+  bind_port: 0
+  relay_servers:
+    - "https://relay.iroh.network"
+    - "https://relay.smilintux.org"
+  peers:
+    lumina:
+      node_id: "iroh_abc..."
+      addrs: ["192.168.0.158:4433"]
+    chef:
+      node_id: "iroh_def..."
+  gossip:
+    enabled: true
+    topics:
+      skcomm: "crustacean-penguin-alliance"

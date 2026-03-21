@@ -1,0 +1,295 @@
+# 3D Printing Features Catalog
+# SKForge Blueprint — Physical Fabrication (Phase 1: FDM/Resin)
+#
+# Each feature needs:
+#   name: Human-readable feature name
+#   description: 1-2 sentence description
+#   complexity: low | medium | high
+#   default: true | false (included in simple mode?)
+#   dependencies: [] (list of other feature names this requires)
+#   group: Feature group/category name
+
+groups:
+  - name: Geometry
+    description: 3D model format and mesh specifications
+    features:
+      - name: STL Export
+        description: Binary STL mesh output with manifold validation and triangle optimization
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: 3MF Export
+        description: 3MF format with embedded color, material metadata, and build instructions
+        complexity: medium
+        default: false
+        dependencies:
+          - STL Export
+
+      - name: STEP Export
+        description: STEP solid model for CNC machining and advanced manufacturing workflows
+        complexity: high
+        default: false
+        dependencies: []
+
+      - name: Parametric Design
+        description: OpenSCAD or CadQuery parametric models accepting dimensions as input variables
+        complexity: high
+        default: false
+        dependencies: []
+
+      - name: Multi-Part Assembly
+        description: Generate multiple STL files with assembly instructions and alignment features
+        complexity: high
+        default: false
+        dependencies:
+          - STL Export
+
+  - name: Materials
+    description: Print material specifications, constraints, and temperature profiles
+    features:
+      - name: PLA Support
+        description: Polylactic Acid — biodegradable, low temp (190-220°C), minimal odor, easiest to print
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: PETG Support
+        description: Chemical resistant, strong layer adhesion, moisture sensitive, good all-rounder
+        complexity: medium
+        default: true
+        dependencies: []
+
+      - name: ABS Support
+        description: High temp resistant, requires enclosed printer, acetone smoothable, prone to warping
+        complexity: high
+        default: false
+        dependencies: []
+
+      - name: TPU Support
+        description: Flexible/elastic filament, requires direct drive extruder, high retraction settings
+        complexity: high
+        default: false
+        dependencies: []
+
+      - name: ASA Support
+        description: UV-resistant alternative to ABS for outdoor use, requires enclosure
+        complexity: high
+        default: false
+        dependencies:
+          - ABS Support
+
+      - name: Composite Support
+        description: Carbon fiber, glass fiber, or wood-fill composites — requires hardened nozzle
+        complexity: high
+        default: false
+        dependencies: []
+
+  - name: Slicer Integration
+    description: Slicer profile generation and G-code output for major slicing software
+    features:
+      - name: PrusaSlicer Profile
+        description: Generate PrusaSlicer .ini config with layer, infill, speed, and cooling settings
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Cura Profile
+        description: Generate CuraEngine .curaprofile with matching print parameters
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Bambu Studio Profile
+        description: Generate Bambu Studio .json config with speed tiers (Silent/Standard/Sport/Ludicrous)
+        complexity: medium
+        default: false
+        dependencies: []
+
+      - name: OrcaSlicer Profile
+        description: Generate OrcaSlicer config compatible with Klipper-based printers
+        complexity: medium
+        default: false
+        dependencies: []
+
+  - name: Quality
+    description: Print quality validation, mesh integrity, and structural analysis
+    features:
+      - name: Manifold Check
+        description: Validate mesh is watertight — no holes, no inverted normals, no non-manifold edges
+        complexity: low
+        default: true
+        dependencies:
+          - STL Export
+
+      - name: Wall Thickness Validation
+        description: Enforce minimum wall thickness per material (typically 0.8mm+ for FDM)
+        complexity: medium
+        default: true
+        dependencies: []
+
+      - name: Build Volume Check
+        description: Verify object fits within target printer build volume including brim/raft
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Overhang Analysis
+        description: Detect overhangs exceeding 45° and flag for support generation
+        complexity: medium
+        default: true
+        dependencies:
+          - STL Export
+
+      - name: Tolerance Engineering
+        description: Dimensional accuracy compensation for press-fit holes, clearance gaps, and threads
+        complexity: high
+        default: false
+        dependencies:
+          - Wall Thickness Validation
+
+      - name: Waterproofing
+        description: Sealed enclosure design validation — watertight walls, gasket channels, drain paths
+        complexity: high
+        default: false
+        dependencies:
+          - Wall Thickness Validation
+          - PETG Support
+
+      - name: Stress Analysis
+        description: Basic FEA-lite stress estimation based on layer orientation and infill density
+        complexity: high
+        default: false
+        dependencies:
+          - Wall Thickness Validation
+
+  - name: Infill
+    description: Internal structure patterns and density configurations
+    features:
+      - name: Grid Infill
+        description: Simple rectilinear grid — fast to print, adequate strength for non-structural parts
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Gyroid Infill
+        description: Triply periodic minimal surface — isotropic strength, excellent for functional parts
+        complexity: medium
+        default: false
+        dependencies: []
+
+      - name: Honeycomb Infill
+        description: Hexagonal pattern — high strength-to-weight ratio, slower to print
+        complexity: medium
+        default: false
+        dependencies: []
+
+      - name: Adaptive Cubic Infill
+        description: Variable density cubic — dense near walls, sparse in center, saves material
+        complexity: medium
+        default: false
+        dependencies: []
+
+      - name: Lightning Infill
+        description: Minimal tree-like structure — fastest print, only supports top surfaces
+        complexity: low
+        default: false
+        dependencies: []
+
+  - name: Support Structures
+    description: Support generation for overhangs and bridges
+    features:
+      - name: Normal Supports
+        description: Grid/line pattern support pillars for overhangs exceeding threshold angle
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Tree Supports
+        description: Organic branching supports — less material waste, easier removal, less scarring
+        complexity: medium
+        default: false
+        dependencies: []
+
+      - name: Support Interface
+        description: Dense interface layers between support and model for cleaner separation
+        complexity: medium
+        default: false
+        dependencies:
+          - Normal Supports
+
+      - name: Soluble Supports
+        description: PVA or HIPS dissolvable support material for dual-extrusion printers
+        complexity: high
+        default: false
+        dependencies: []
+
+  - name: Post-Processing
+    description: Post-print finishing, assembly, and surface treatment steps
+    features:
+      - name: Sanding Guide
+        description: Grit progression (120→220→400→800) and technique recommendations per material
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Acetone Smoothing
+        description: Vapor bath smoothing instructions for ABS and ASA prints
+        complexity: medium
+        default: false
+        dependencies:
+          - ABS Support
+
+      - name: Heat-Set Inserts
+        description: Brass threaded insert installation guide — iron temp, technique, hole sizing
+        complexity: medium
+        default: false
+        dependencies: []
+
+      - name: Assembly Instructions
+        description: Step-by-step multi-part assembly with fastener specs (M2, M2.5, M3 screws)
+        complexity: medium
+        default: false
+        dependencies:
+          - Multi-Part Assembly
+
+      - name: Painting Guide
+        description: Primer, paint type, and finishing coat recommendations per material
+        complexity: low
+        default: false
+        dependencies: []
+
+      - name: Annealing
+        description: Heat treatment to improve crystallinity and strength (PLA, PETG)
+        complexity: high
+        default: false
+        dependencies: []
+
+  - name: Documentation
+    description: Generated documentation and build guides
+    features:
+      - name: Bill of Materials
+        description: Complete BOM including filament weight, fasteners, inserts, and accessories
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Print Time Estimate
+        description: Estimated print duration at draft, standard, and fine quality settings
+        complexity: low
+        default: true
+        dependencies: []
+
+      - name: Cost Estimate
+        description: Material cost calculation based on filament weight and current market pricing
+        complexity: medium
+        default: false
+        dependencies:
+          - Bill of Materials
+
+      - name: Build Guide
+        description: Illustrated step-by-step guide from print setup through assembly and QA
+        complexity: medium
+        default: false
+        dependencies:
+          - Bill of Materials

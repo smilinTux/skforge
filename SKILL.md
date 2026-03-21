@@ -1,5 +1,5 @@
 ---
-name: forgeprint
+name: skforge
 description: >
   AI-native software blueprints — research, create, and build from detailed recipes
   that specify every feature, architecture pattern, and test for any software category.
@@ -161,7 +161,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 5. Generate tests from tests/unit-tests.md specs
 6. Validate against benchmarks.md targets
 
-### forgeprint-recon
+### skforge-recon
 **When:** Asked to research/blueprint a new software category.
 1. Read RECON.md for the full methodology
 2. Check if research already exists in `research/` directory
@@ -169,7 +169,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 4. Output a complete blueprint directory with all 6 files
 5. Run the quality checklist from RECON.md before submitting
 
-### forgeprint-stack
+### skforge-stack
 **When:** Asked to compose a full stack or multi-service architecture.
 1. Read STACKS.md for composition patterns
 2. Identify which recipe covers each layer
@@ -177,7 +177,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 4. Generate integrated deployment configs (docker-compose, k8s, etc.)
 5. Wire inter-service connections using standard interfaces
 
-### forgeprint-contribute
+### skforge-contribute
 **When:** Asked to improve existing recipes or add features.
 1. Read CONTRIBUTING.md for guidelines
 2. Read the target recipe's current features.yml
@@ -188,7 +188,7 @@ to create a complete blueprint directory under blueprints/<category>/.
 ## File Structure
 
 ```
-forgeprint/
+skforge/
 ├── SKILL.md              ← You are here
 ├── forge.mjs             ← CLI tool (Node.js)
 ├── RECON.md              ← How to blueprint anything
@@ -211,7 +211,7 @@ forgeprint/
 
 ## Links
 
-- **GitHub:** https://github.com/smilinTux/forgeprint
+- **GitHub:** https://github.com/smilinTux/skforge
 - **Org:** https://github.com/smilinTux
 - **License:** AGPL-3.0 (tooling), Apache 2.0 (recipes)
 

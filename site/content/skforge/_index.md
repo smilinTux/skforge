@@ -9,7 +9,7 @@ title: "SKForge"
 ### Install
 
 ```bash
-npm install -g forgeprint
+npm install -g skforge
 forge onboard
 ```
 
@@ -39,9 +39,9 @@ forge build                  # AI generates your code
 
 ### Links
 
-- [GitHub](https://github.com/smilinTux/forgeprint)
-- [Blueprint Browser](https://github.com/smilinTux/forgeprint/tree/main/blueprints)
-- [Contributing](https://github.com/smilinTux/forgeprint/blob/main/CONTRIBUTING.md)
+- [GitHub](https://github.com/smilinTux/skforge)
+- [Blueprint Browser](https://github.com/smilinTux/skforge/tree/main/blueprints)
+- [Contributing](https://github.com/smilinTux/skforge/blob/main/CONTRIBUTING.md)
 
 ---
 

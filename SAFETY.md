@@ -16,7 +16,7 @@ Every recipe cook goes through this pipeline automatically:
          │
          ▼
   ┌─────────────────────────────────────────────┐
-  │            FORGEPRINT SAFETY PIPELINE         │
+  │            SKFORGE SAFETY PIPELINE         │
   │                                               │
   │  Stage 1: 🔍 STATIC ANALYSIS                 │
   │  ├─ Lint (language-specific)                  │
@@ -84,7 +84,7 @@ framework itself — it should file a structured bug report automatically.
 ### Bug Report Format (AI-Generated)
 
 ```yaml
-# .forgeprint/bug-report.yml
+# .skforge/bug-report.yml
 type: bug
 source: ai-agent
 agent:
@@ -169,7 +169,7 @@ AI agents can submit improvements directly via structured PRs.
 ### PR Submission Format
 
 ```yaml
-# .forgeprint/pr-submission.yml
+# .skforge/pr-submission.yml
 type: improvement
 source: ai-agent
 agent:
@@ -233,7 +233,7 @@ The SKForge CI bot automatically reviews every PR:
 
 ```
 ┌─────────────────────────────────────────────┐
-│          FORGEPRINT REVIEW BOT 🐧            │
+│          SKFORGE REVIEW BOT 🐧            │
 │                                              │
 │  ✅ YAML syntax valid                        │
 │  ✅ Feature schema matches template          │
@@ -298,7 +298,7 @@ Every generated project gets a safety score:
 
 ```
 ┌─────────────────────────────────────────┐
-│     FORGEPRINT SAFETY SCORE 🛡️           │
+│     SKFORGE SAFETY SCORE 🛡️           │
 │                                          │
 │  Project: my-database                    │
 │  Recipe: databases                       │
@@ -319,7 +319,7 @@ Every generated project gets a safety score:
 │  ⚠️ Container: Consider read-only rootfs │
 │  ⚠️ Security: Update openssl to 3.2.1   │
 │                                          │
-│  Badge: [FORGEPRINT SAFE ✅ 92/100]      │
+│  Badge: [SKFORGE SAFE ✅ 92/100]      │
 │                                          │
 └─────────────────────────────────────────┘
 ```

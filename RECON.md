@@ -372,7 +372,7 @@ This is exactly how every software engineer has always learned and built — stu
 
 Found a software category we haven't covered? Use this RECON guide to create a blueprint and submit a PR!
 
-1. Fork `smilinTux/forgeprint`
+1. Fork `smilinTux/skforge`
 2. Follow the RECON process above
 3. Create your blueprint directory under `blueprints/`
 4. Run the quality checklist

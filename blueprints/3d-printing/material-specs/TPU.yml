@@ -1,0 +1,128 @@
+# TPU (Thermoplastic Polyurethane) Material Specification
+# SKForge 3D Printing Blueprint
+#
+# Flexible/elastic filament for parts that need to bend, compress,
+# or absorb impact. Requires direct drive extruder and slow print
+# speeds. Shore hardness ranges from 85A (very flexible) to 98A
+# (semi-rigid).
+
+material:
+  name: TPU
+  full_name: Thermoplastic Polyurethane
+  type: thermoplastic_elastomer
+  category: polyurethane
+
+properties:
+  density_g_cm3: 1.21
+  tensile_strength_mpa: 40
+  elongation_at_break_pct: 450  # Extremely elastic
+  flexural_modulus_mpa: 100
+  impact_strength_kj_m2: 50  # Absorbs impact by deforming
+  shore_hardness: 95A  # Typical for 3D printing grades
+  hardness_range: "85A (very flexible) to 98A (semi-rigid)"
+  heat_deflection_c: 60
+  glass_transition_c: -40  # Stays flexible in cold
+  melting_point_c: 220
+  moisture_absorption: medium
+  uv_resistance: fair
+  chemical_resistance:
+    - water (excellent)
+    - oils/greases (excellent)
+    - fuels (good)
+    - alcohol (good)
+    - dilute acids (fair)
+    - acetone (poor)
+  food_safe: false  # Some specialty grades are, but not standard
+  biodegradable: false
+
+print_settings:
+  nozzle_temp_c:
+    min: 210
+    recommended: 230
+    max: 250
+  bed_temp_c:
+    min: 0  # Often prints fine without heated bed
+    recommended: 50
+    max: 60
+  enclosure_required: false
+  bed_adhesion:
+    recommended: PEI
+    alternatives: [glass, BuildTak, painters_tape]
+    note: "TPU sticks well to most surfaces. May stick TOO well — use release agent."
+  cooling_fan_pct:
+    first_layer: 0
+    second_layer: 30
+    other_layers: 50
+  max_print_speed_mm_s: 30  # SLOW — critical for TPU
+  recommended_speed_mm_s: 25
+  speed_note: "TPU buckles in the extruder at high speeds. 20-30mm/s is safe."
+  retraction:
+    distance_mm: 0.5  # Minimal — TPU compresses in feed path
+    bowden_distance_mm: 0  # DO NOT use with bowden — highly recommended direct drive
+    speed_mm_s: 25
+    note: "Minimize retraction. TPU compresses and jams easily. Direct drive strongly recommended."
+  extruder_requirement: "Direct drive REQUIRED. Bowden tube causes buckling and jams."
+  layer_height:
+    min_mm: 0.15
+    recommended_mm: 0.2
+    max_mm: 0.3
+  wall_thickness:
+    minimum_mm: 1.2
+    recommended_mm: 1.6
+    note: "Thick walls give rigidity. Thin walls maximize flexibility."
+  infill_note: "Higher infill = more rigid. Lower infill = more flexible. Gyroid pattern best."
+
+post_processing:
+  sandable: false  # Rubber-like surface resists sanding
+  acetone_smoothable: false
+  paintable: false  # Flexible surface rejects most paints
+  paint_note: "Specialty flexible paints (Plasti Dip, flexible automotive paint) may work"
+  glueable_with:
+    - cyanoacrylate (super glue) — flexible CA works best
+    - contact cement — good for rubber-like bonds
+    - hot glue — adequate
+  annealable: false
+
+storage:
+  humidity_sensitive: true
+  max_humidity_pct: 30
+  drying_temp_c: 50
+  drying_hours: 6
+  shelf_life_months: 6
+  storage_note: "TPU absorbs moisture readily. Wet TPU produces bubbles and poor surface quality."
+
+strengths:
+  - Extreme flexibility — bends, compresses, and returns to shape
+  - Excellent impact absorption — ideal for protective cases
+  - Resistant to abrasion and wear
+  - Oil and grease resistant — survives mechanical environments
+  - Maintains flexibility at low temperatures (down to -40°C)
+  - Good vibration dampening properties
+  - Layer adhesion is excellent — strong in all orientations
+
+weaknesses:
+  - Requires direct drive extruder — not compatible with bowden setups
+  - Must print very slowly (20-30mm/s) — long print times
+  - Stringing issues — retraction is limited
+  - Cannot be easily post-processed (sanding, painting)
+  - Dimensionally less precise — elastic nature causes slight deformation
+  - Higher cost than rigid filaments
+  - Detail resolution limited at flexible durometers
+
+best_for:
+  - Phone cases and protective bumpers
+  - Gaskets, seals, and O-ring replacements
+  - Vibration dampening mounts (motor mounts, camera gimbals)
+  - Flexible hinges (living hinges)
+  - Shoe insoles and orthotics
+  - Wheels and tires for robots/RC vehicles
+  - Wearable accessories (watch bands, bracelets)
+  - Grips and handles
+
+avoid_for:
+  - Structural/load-bearing parts (too flexible)
+  - High-precision dimensional parts
+  - Printers with bowden extruders
+  - Jobs requiring fast print times
+  - Parts that need painting or smooth surface finish
+  - Anything requiring rigidity

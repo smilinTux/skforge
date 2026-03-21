@@ -1,4 +1,4 @@
-# FORGEPRINT VIRAL MARKETING PACKAGE
+# SKFORGE VIRAL MARKETING PACKAGE
 **Complete Launch Strategy for AI-Native Software Blueprints**
 
 ---
@@ -446,7 +446,7 @@ What self-hosted tools would you love to have custom-built?
 
 ## 5. LAUNCH ONE-PAGER (PDF-Ready)
 
-# FORGEPRINT
+# SKFORGE
 ## AI-Native Software Blueprints
 *Don't use software. Forge your own.*
 

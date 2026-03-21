@@ -1,4 +1,4 @@
-# FORGEPRINT — Software Blueprints for the AI Age
+# SKFORGE — Software Blueprints for the AI Age
 
 > **"Free custom software for all. Forever."**
 > An smilinTux.org Open Source Project
@@ -31,7 +31,7 @@ Think of it as **"Skills for Software"** — but instead of teaching an AI *how 
 ### Core Artifacts
 
 ```
-forgeprint/
+skforge/
 ├── blueprints/                    # The main attraction
 │   ├── load-balancers/
 │   │   ├── BLUEPRINT.md           # Master blueprint spec
@@ -117,7 +117,7 @@ forgeprint/
 │       ├── driver-simple.md       # Minimal "just build it" config
 │       └── driver-advanced.md     # Full feature selection
 │
-└── FORGEPRINT.md                  # Project overview & philosophy
+└── SKFORGE.md                  # Project overview & philosophy
 ```
 
 ### The Driver File (driver.md)
@@ -166,7 +166,7 @@ output: ./my-load-balancer/
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│  driver.md  │────▶│   FORGEPRINT │────▶│  Generated  │
+│  driver.md  │────▶│   SKFORGE │────▶│  Generated  │
 │  (user cfg) │     │   + LLM      │     │  Source Code │
 └─────────────┘     └──────────────┘     └─────────────┘
                            │                     │
@@ -256,7 +256,7 @@ This means every blueprint is designed to REPLACE not just installed software, b
 ## 🌐 Distribution
 
 ### GitHub Organization: `smilinTux`
-- `smilinTux/forgeprint` — Main repo (blueprints + forge system + npm package)
+- `smilinTux/skforge` — Main repo (blueprints + forge system + npm package)
 - `smilinTux/smilinTux.github.io` — Org website (smilintux.org via Hugo + GitHub Pages)
 - `smilinTux/assets` — Brand kit, King Divad mascot, CSS themes
 - `smilinTux/SKMemory` — Universal AI Memory System
@@ -296,7 +296,7 @@ This means every blueprint is designed to REPLACE not just installed software, b
 
 **"We don't sell software. We give everyone the blueprints to build their own."**
 
-*Bing Chilling Nation — Cool Heads. Warm Justice. Smart Systems.* 🐧👑
+*The Penguin Kingdom — Cool Heads. Warm Justice. Smart Systems.* 🐧👑
 
 ---
 

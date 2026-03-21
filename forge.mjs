@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * 🐧 Forgeprint — AI-Native Software Blueprints
+ * 🐧 SKForge — AI-Native Software Blueprints
  * Don't use software. Forge your own.
- * 
- * S&K Holdings — Helping architect our quantum future, one smile at a time.
+ *
+ * smilinTux — Helping architect our quantum future, one smile at a time.
  * Making Self-Hosting & Decentralized Systems Cool Again
- * 
- * Apache 2.0 | https://forgeprint.dev
+ *
+ * Apache 2.0 | https://skforge.io
  */
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
@@ -47,7 +47,7 @@ function ask(question) {
 
 function penguin() {
   console.log(`
-    🐧 ${c.bold('Forgeprint')} v${VERSION}
+    🐧 ${c.bold('SKForge')} v${VERSION}
     ${c.dim("Don't use software. Forge your own.")}
   `);
 }
@@ -145,9 +145,9 @@ ${c.bold('COMMANDS')}
   ${c.green('version')}       Show version
 
 ${c.bold('INSTALL')}
-  npm install -g forgeprint        ${c.dim('# npm')}
-  pnpm add -g forgeprint           ${c.dim('# pnpm')}
-  curl -fsSL forgeprint.dev/install.sh | sh  ${c.dim('# shell')}
+  npm install -g skforge        ${c.dim('# npm')}
+  pnpm add -g skforge           ${c.dim('# pnpm')}
+  curl -fsSL skforge.io/install.sh | sh  ${c.dim('# shell')}
 
 ${c.bold('QUICK START')}
   forge onboard                    ${c.dim('# guided wizard')}
@@ -163,7 +163,7 @@ ${c.bold('ENVIRONMENT')}
   MOONSHOT_API_KEY  ${c.dim('Moonshot/Kimi key')}
 
 ${c.dim('Making Self-Hosting & Decentralized Systems Cool Again 🐧')}
-${c.dim('S&K Holdings — Helping architect our quantum future, one smile at a time.')}
+${c.dim('smilinTux — Helping architect our quantum future, one smile at a time.')}
 `);
 }
 
@@ -216,7 +216,7 @@ async function cmdInfo(category) {
     console.log(c.red("Usage: forge info <category>"));
     return;
   }
-  
+
   const bpDir = join(BLUEPRINTS_DIR, category);
   const isLocal = existsSync(bpDir);
 
@@ -267,18 +267,18 @@ async function cmdInfo(category) {
 
 async function cmdOnboard() {
   penguin();
-  console.log(c.bold('🔨 Welcome to Forgeprint!\n'));
+  console.log(c.bold('🔨 Welcome to SKForge!\n'));
   console.log("Let's get you set up to forge custom software.\n");
-  
+
   // Step 1: Check AI provider
   console.log(c.bold('Step 1: AI Provider\n'));
-  
+
   const providers = [];
   try { execSync('ollama --version', { stdio: 'pipe' }); providers.push('ollama'); } catch {}
   if (process.env.ANTHROPIC_API_KEY) providers.push('anthropic');
   if (process.env.OPENAI_API_KEY) providers.push('openai');
   if (process.env.MOONSHOT_API_KEY) providers.push('moonshot');
-  
+
   if (providers.length > 0) {
     console.log(`  ${c.green('✓')} Found: ${providers.join(', ')}`);
   } else {
@@ -295,7 +295,7 @@ async function cmdOnboard() {
       console.log(`  ${c.dim('Then run: ollama pull qwen2.5:32b')}\n`);
     }
   }
-  
+
   // Step 2: Pick a blueprint
   console.log(`\n${c.bold('Step 2: Pick Your First Blueprint')}\n`);
 
@@ -306,7 +306,7 @@ async function cmdOnboard() {
     const badge = isLocal ? '' : c.dim(' [remote]');
     console.log(`  ${c.green(`${i + 1})`)} ${cat} ${c.dim(`(${features} features)`)}${badge}`);
   });
-  
+
   const catChoice = await ask('\n  Choose (number or name): ');
   let category;
   const idx = parseInt(catChoice) - 1;
@@ -315,17 +315,17 @@ async function cmdOnboard() {
   } else {
     category = catChoice;
   }
-  
+
   console.log(`\n  ${c.green('✓')} Blueprint: ${c.bold(category)}`);
-  
+
   // Step 3: Pick language
   console.log(`\n${c.bold('Step 3: Choose Your Language')}\n`);
-  
+
   const languages = ['rust', 'go', 'python', 'java', 'typescript', 'dotnet', 'zig', 'c', 'cpp'];
   languages.forEach((lang, i) => {
     console.log(`  ${c.green(`${i + 1})`)} ${lang}`);
   });
-  
+
   const langChoice = await ask('\n  Choose (number or name): ');
   let lang;
   const langIdx = parseInt(langChoice) - 1;
@@ -334,17 +334,17 @@ async function cmdOnboard() {
   } else {
     lang = langChoice;
   }
-  
+
   console.log(`\n  ${c.green('✓')} Language: ${c.bold(lang)}`);
-  
+
   // Step 4: Generate driver.md
   console.log(`\n${c.bold('Step 4: Creating driver.md')}\n`);
-  
+
   const driverContent = generateDriver(category, lang);
   writeFileSync('driver.md', driverContent);
-  
+
   console.log(`  ${c.green('✓')} Created ${c.bold('driver.md')}`);
-  
+
   // Done
   console.log(`
 ${c.green('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')}
@@ -379,14 +379,14 @@ memory: standard
 <!-- Select features below. [x] = include, [ ] = skip -->
 
 `;
-  
+
   // Try to parse features from features.yml
   const featuresFile = join(BLUEPRINTS_DIR, category, 'features.yml');
   if (existsSync(featuresFile)) {
     const yml = readFileSync(featuresFile, 'utf8');
     const lines = yml.split('\n');
     let currentGroup = '';
-    
+
     for (const line of lines) {
       // Group headers
       const groupMatch = line.match(/^  - name:\s*(.+)/);
@@ -401,14 +401,14 @@ memory: standard
       }
     }
   }
-  
+
   content += `
 ## Build
 auto-test: true
 auto-benchmark: false
 output: ./${category}-custom/
 `;
-  
+
   return content;
 }
 
@@ -416,7 +416,7 @@ async function cmdInit(category) {
   if (!category) {
     return cmdOnboard();
   }
-  
+
   const lang = process.argv[4] || await ask('Language (rust/go/python/java/typescript): ');
   const driverContent = generateDriver(category, lang);
   writeFileSync('driver.md', driverContent);
@@ -429,35 +429,35 @@ async function cmdBuild(driverPath = 'driver.md') {
     console.log(c.red('No driver.md found. Run: forge init'));
     return;
   }
-  
+
   penguin();
   const driver = readFileSync(driverPath, 'utf8');
-  
+
   // Parse category and language
   const catMatch = driver.match(/^category:\s*(.+)/m);
   const langMatch = driver.match(/^target:\s*(.+)/m);
-  
+
   if (!catMatch) {
     console.log(c.red("No 'category:' in driver.md"));
     return;
   }
-  
+
   const category = catMatch[1].trim();
   const lang = langMatch ? langMatch[1].trim() : 'rust';
   const bpDir = join(BLUEPRINTS_DIR, category);
-  
+
   if (!existsSync(bpDir)) {
     console.log(c.red(`Blueprint '${category}' not found.`));
     return;
   }
-  
+
   console.log(c.bold(`🔨 Forging: ${category} → ${lang}\n`));
-  
+
   // Collect all blueprint context
   const context = [];
   context.push('=== DRIVER CONFIGURATION ===');
   context.push(driver);
-  
+
   const files = ['BLUEPRINT.md', 'features.yml', 'architecture.md'];
   for (const f of files) {
     const fp = join(bpDir, f);
@@ -466,7 +466,7 @@ async function cmdBuild(driverPath = 'driver.md') {
       context.push(readFileSync(fp, 'utf8'));
     }
   }
-  
+
   // Memory profiles
   const memMatch = driver.match(/^memory:\s*(.+)/m);
   const memProfile = memMatch ? memMatch[1].trim() : 'standard';
@@ -475,7 +475,7 @@ async function cmdBuild(driverPath = 'driver.md') {
     context.push('\n=== MEMORY MANAGEMENT ===');
     context.push(readFileSync(memFile, 'utf8'));
   }
-  
+
   // Tests
   const testsDir = join(bpDir, 'tests');
   if (existsSync(testsDir)) {
@@ -484,11 +484,11 @@ async function cmdBuild(driverPath = 'driver.md') {
       context.push(readFileSync(join(testsDir, tf), 'utf8'));
     }
   }
-  
+
   const fullContext = context.join('\n');
   const contextKB = Math.round(Buffer.byteLength(fullContext) / 1024);
   console.log(`  ${c.green('✓')} Loaded ${c.dim(`${contextKB}KB`)} of blueprint context`);
-  
+
   // Detect AI
   let provider = process.env.FORGE_AI || '';
   if (!provider) {
@@ -499,16 +499,16 @@ async function cmdBuild(driverPath = 'driver.md') {
       try { execSync('ollama --version', { stdio: 'pipe' }); provider = 'ollama'; } catch {}
     }
   }
-  
+
   if (!provider) {
     console.log(c.red('\n  No AI provider found. Set ANTHROPIC_API_KEY, OPENAI_API_KEY, MOONSHOT_API_KEY, or install Ollama.'));
     console.log(c.dim('  Run: forge doctor'));
     return;
   }
-  
+
   console.log(`  ${c.green('✓')} AI: ${provider}`);
   console.log(`\n  ${c.yellow('🔨 Forging...')} ${c.dim('(this may take a few minutes)')}\n`);
-  
+
   // The actual AI call would go here
   // For now, output instructions
   console.log(`  ${c.bold('To forge manually:')}`);
@@ -524,7 +524,7 @@ async function cmdBuild(driverPath = 'driver.md') {
 async function cmdDoctor() {
   penguin();
   console.log(c.bold('🩺 Forge Doctor\n'));
-  
+
   // Blueprints
   const cats = getCategories();
   if (cats.length > 0) {
@@ -532,7 +532,7 @@ async function cmdDoctor() {
   } else {
     console.log(`  ${c.red('✗')} No blueprints found`);
   }
-  
+
   // AI Providers
   console.log(`\n  ${c.bold('AI Providers:')}`);
   try {
@@ -541,11 +541,11 @@ async function cmdDoctor() {
   } catch {
     console.log(`  ${c.dim('○')} Ollama not installed`);
   }
-  
+
   console.log(process.env.ANTHROPIC_API_KEY ? `  ${c.green('✓')} Anthropic key set` : `  ${c.dim('○')} ANTHROPIC_API_KEY not set`);
   console.log(process.env.OPENAI_API_KEY ? `  ${c.green('✓')} OpenAI key set` : `  ${c.dim('○')} OPENAI_API_KEY not set`);
   console.log(process.env.MOONSHOT_API_KEY ? `  ${c.green('✓')} Moonshot key set` : `  ${c.dim('○')} MOONSHOT_API_KEY not set`);
-  
+
   // Tools
   console.log(`\n  ${c.bold('Tools:')}`);
   for (const tool of ['git', 'curl', 'node']) {
@@ -556,7 +556,7 @@ async function cmdDoctor() {
       console.log(`  ${c.red('✗')} ${tool} (required)`);
     }
   }
-  
+
   console.log(`\n${c.dim("All good? Run 'forge onboard' to start!")}`);
 }
 
@@ -857,7 +857,7 @@ async function cmdStack(stackFile) {
   // Check if it's a template name or a file
   const templates = ['saas-starter', 'ai-platform', 'enterprise', 'notion-killer', 'zero-trust'];
   if (templates.includes(stackFile)) {
-    console.log(`\n    🐧 ${c.bold('Forgeprint')} v${VERSION} — Stack Composer\n`);
+    console.log(`\n    🐧 ${c.bold('SKForge')} v${VERSION} — Stack Composer\n`);
     console.log(c.cyan(`🏗️  Stack template: ${stackFile}`));
     console.log();
     const stacks = {
@@ -878,7 +878,7 @@ async function cmdStack(stackFile) {
     const ready = layers.filter(l => existsSync(join(BLUEPRINTS_DIR, l, 'BLUEPRINT.md'))).length;
     console.log(`  ${c.green(`${ready}/${layers.length}`)} blueprints available`);
     if (ready < layers.length) {
-      console.log(c.dim(`  Remaining blueprints coming soon — contribute at github.com/smilinTux/forgeprint`));
+      console.log(c.dim(`  Remaining blueprints coming soon — contribute at github.com/smilinTux/skforge`));
     }
     console.log();
     console.log(c.dim('  Full stack building coming in v0.2.0'));
@@ -891,7 +891,7 @@ async function cmdStack(stackFile) {
     console.log(c.red(`Stack file not found: ${stackFile}`));
     return;
   }
-  console.log(`\n    🐧 ${c.bold('Forgeprint')} v${VERSION} — Stack Composer\n`);
+  console.log(`\n    🐧 ${c.bold('SKForge')} v${VERSION} — Stack Composer\n`);
   console.log(c.cyan(`🏗️  Loading stack: ${stackFile}`));
   console.log(c.dim('  Stack composition from YAML coming in v0.2.0'));
   console.log(c.dim('  See STACKS.md for the stack.yml format'));
@@ -970,6 +970,7 @@ const commands = {
   init: () => cmdInit(args[0]),
   build: () => cmdBuild(args[0]),
   stack: () => cmdStack(args[0]),
+  serve: () => cmdServe(),
   list: () => cmdList(),
   info: () => cmdInfo(args[0]),
   search: () => cmdSearch(args.join(' ')),

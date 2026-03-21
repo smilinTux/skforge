@@ -1,0 +1,93 @@
+name: BitChat Transport
+protocol_version: "BitChat 1.x"
+created_by: "Jack Dorsey (Block, Inc.)"
+website: "https://www.bit-chat.xyz"
+app_store: "iOS App Store + Google Play"
+license: "Open source (in progress)"
+
+overview: >
+  BitChat is a decentralized peer-to-peer messaging app that operates over
+  Bluetooth Low Energy (BLE) mesh networks. Created by Jack Dorsey as a
+  "weekend project," it enables encrypted communication WITHOUT internet,
+  cellular service, phone numbers, email addresses, or central servers.
+  Messages hop across devices within ~300m range using store-and-forward.
+
+architecture:
+  model: "Bluetooth Low Energy mesh with store-and-forward"
+  transport: "Bluetooth Low Energy (BLE)"
+  range: "~300m per hop (extended through relay devices)"
+  identity: "Device-based keypairs"
+  encryption: "Native encryption (details being hardened)"
+  online_fallback: "Nostr protocol for internet-connected global reach"
+  features:
+    - ephemeral messages (disappear by default)
+    - group chats called "rooms"
+    - store-and-forward for offline devices
+    - no registration required
+    - no phone number, no email
+
+skcomm_integration:
+  how_it_works:
+    - SKComm envelope PGP-encrypted before entering BitChat
+    - Message sent via BLE mesh to nearby devices
+    - Devices relay message hop-by-hop until reaching recipient
+    - If recipient is out of BLE range, message stored at intermediate nodes
+    - When recipient comes within range, message delivered
+    - If internet available, falls back to Nostr relay for global reach
+    - Double encryption: PGP (mandatory) + BitChat native
+  identity_mapping:
+    - BitChat device identity separate from CapAuth PGP key
+    - CapAuth profile links BitChat device for trust verification
+  recommended_as: "OFFLINE transport — the only option when there is NO internet"
+
+properties:
+  requires_internet: false
+  supports_offline: true
+  max_payload_size: "small (BLE packet size constraints, chunking needed)"
+  typical_latency_ms: "1000-30000 (depends on hop count and device density)"
+  stealth: very_high
+  censorship_resistance: very_high
+  offline_capable: true
+  bidirectional: true
+
+strengths:
+  - Works with ZERO internet connectivity
+  - Works with ZERO cellular service
+  - No central server of any kind
+  - Physical proximity required (inherent security property)
+  - Low power consumption (BLE)
+  - Mesh extends through all nearby devices running BitChat
+  - Nostr fallback for global reach when internet available
+  - Jack Dorsey backing provides credibility and resources
+  - Mobile apps available (iOS + Android)
+
+weaknesses:
+  - Limited range (~300m per hop, needs device density for longer distances)
+  - Small payload capacity (BLE packet constraints)
+  - Security model still being hardened (Block devs acknowledged gaps)
+  - Not suitable for high-bandwidth communication
+  - Requires nearby devices running BitChat for relay
+  - Relatively new — less battle-tested than established protocols
+
+security_notes: >
+  Block developers have acknowledged that BitChat doesn't yet meet all stated
+  security goals. It lacks standard approaches like Signal-style X3DH + double
+  ratchet. For SKComm, this is mitigated by mandatory PGP encryption on top of
+  BitChat's native layer — even if BitChat's encryption is broken, PGP holds.
+
+use_cases:
+  - Air-gapped environments
+  - Festivals and concerts (no cell signal)
+  - Natural disaster zones (infrastructure down)
+  - Field operations (remote areas)
+  - Protest communication (censorship-resistant)
+  - Emergency alerts between nearby agents
+
+configuration_example:
+  mode: ble_mesh
+  nostr_fallback: true
+  max_hops: 10
+  message_ttl: 3600
+  encryption: pgp
+  rooms:
+    skcomm: "crustacean-penguin-alliance"

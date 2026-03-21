@@ -1,0 +1,115 @@
+# PLA (Polylactic Acid) Material Specification
+# SKForge 3D Printing Blueprint
+#
+# The most beginner-friendly FDM filament. Biodegradable, low-odor,
+# and requires minimal printer setup. Best for prototypes, decorative
+# items, and low-stress functional parts.
+
+material:
+  name: PLA
+  full_name: Polylactic Acid
+  type: thermoplastic
+  category: biodegradable_polyester
+
+properties:
+  density_g_cm3: 1.24
+  tensile_strength_mpa: 50
+  elongation_at_break_pct: 6
+  flexural_modulus_mpa: 3500
+  impact_strength_kj_m2: 3.5
+  heat_deflection_c: 55
+  glass_transition_c: 60
+  melting_point_c: 175
+  moisture_absorption: low
+  uv_resistance: poor
+  chemical_resistance:
+    - water (good)
+    - alcohol (fair)
+    - acetone (poor — dissolves)
+    - strong acids (poor)
+  food_safe: true  # FDA/EU approved grades available
+  biodegradable: true  # Industrial composting conditions
+
+print_settings:
+  nozzle_temp_c:
+    min: 190
+    recommended: 210
+    max: 230
+  bed_temp_c:
+    min: 0   # Can print without heated bed
+    recommended: 60
+    max: 70
+  enclosure_required: false
+  bed_adhesion:
+    recommended: PEI
+    alternatives: [glass_with_glue, BuildTak, painters_tape]
+  cooling_fan_pct:
+    first_layer: 0
+    second_layer: 50
+    other_layers: 100  # PLA loves cooling
+  max_print_speed_mm_s: 100  # Higher with input shaping
+  recommended_speed_mm_s: 60
+  retraction:
+    distance_mm: 0.8  # Direct drive
+    bowden_distance_mm: 4.0  # Bowden tube
+    speed_mm_s: 45
+  layer_height:
+    min_mm: 0.06
+    recommended_mm: 0.2
+    max_mm: 0.32
+  wall_thickness:
+    minimum_mm: 0.8  # 2 walls at 0.4mm nozzle
+    recommended_mm: 1.2  # 3 walls
+
+post_processing:
+  sandable: true
+  sand_grit_progression: [120, 220, 400, 800]
+  acetone_smoothable: false  # Use other solvents or skip
+  paintable: true
+  paint_prep: "Light sanding (220 grit), primer recommended"
+  glueable_with:
+    - cyanoacrylate (super glue) — best bond
+    - epoxy — structural
+    - hot glue — quick but weak
+  annealable: true
+  annealing_temp_c: 70
+  annealing_duration_min: 60
+  annealing_note: "Improves heat resistance to ~80°C but causes ~2-5% dimensional shrinkage"
+
+storage:
+  humidity_sensitive: true  # Mild sensitivity
+  max_humidity_pct: 40
+  drying_temp_c: 45
+  drying_hours: 4
+  shelf_life_months: 12  # Sealed with desiccant
+  storage_note: "Keep sealed with desiccant. Wet PLA produces popping sounds and stringing."
+
+strengths:
+  - Easiest material to print — minimal calibration needed
+  - Low odor — safe for home/office use without ventilation
+  - Wide color selection including silk, matte, and translucent
+  - Biodegradable under industrial composting conditions
+  - Sharp detail — excellent for miniatures and fine features
+  - FDA-approved grades available for food contact
+
+weaknesses:
+  - Low heat resistance — deforms above 55-60°C (car dashboards, direct sunlight)
+  - Brittle — snaps under impact rather than flexing
+  - Poor UV resistance — degrades outdoors over months
+  - Not suitable for structural/load-bearing applications
+  - Limited chemical resistance
+
+best_for:
+  - Prototyping and fit checks
+  - Decorative items and display models
+  - Miniatures and tabletop gaming pieces
+  - Educational projects
+  - Low-stress functional parts (cord organizers, desk accessories)
+  - Food-contact items (with certified grades)
+
+avoid_for:
+  - Outdoor/UV-exposed parts
+  - High-temperature environments (near heat sources)
+  - Impact-resistant parts (cases that might be dropped)
+  - Mechanical load-bearing components
+  - Chemical exposure environments

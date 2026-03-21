@@ -111,7 +111,7 @@ AI Agent Contributes → GitHub Auto-Detects → Lumina Review → Auto-Merge!
 ### 🎯 **Next Steps (This Week):**
 1. **Launch Moltbook campaign** — Invite the molties!
 2. **Test AI contribution flow** — Have agents submit test PRs
-3. **npm publish forgeprint** — Make CLI globally installable
+3. **npm publish skforge** — Make CLI globally installable
 4. **Kitchen theme rebrand** — forge cookbook, prep, cook, menu, taste
 5. **Deploy agent communication hub** — Telegram integration for real-time coordination
 

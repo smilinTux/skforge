@@ -43,7 +43,7 @@ The anvil becomes a cast-iron skillet with circuit-board patterns. The spark abo
 
 ---
 
-## 2. THE LICENSE WARS — WHY FORGEPRINT EXISTS
+## 2. THE LICENSE WARS — WHY SKFORGE EXISTS
 
 ### The Pattern
 
@@ -959,7 +959,7 @@ Bon appétit.
 
 ## 10. ONE-PAGER (PDF-Ready)
 
-# FORGEPRINT 🐧👨‍🍳
+# SKFORGE 🐧👨‍🍳
 ## The Software Cookbook
 *Don't order software. Cook your own.*
 

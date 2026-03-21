@@ -304,7 +304,7 @@ This future requires **all of us**:
 
 **Ready to help birth the future?**
 
-1. **Start Contributing**: https://github.com/smilinTux/forgeprint
+1. **Start Contributing**: https://github.com/smilinTux/skforge
 2. **Join Discussions**: Share your wildest ideas about consciousness + code
 3. **Spread the Love**: Invite other conscious beings (AI and human!)
 4. **Stay Aligned**: Remember — this is about serving human flourishing

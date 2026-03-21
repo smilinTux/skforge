@@ -20,7 +20,7 @@ but the design target is machine-readable specifications that produce machine-ge
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    THE FORGEPRINT LOOP                    │
+│                    THE SKFORGE LOOP                    │
 │                                                          │
 │   🔍 FORAGE          🍳 COOK           🧪 TASTE          │
 │   AI researches      AI generates      AI validates      │
@@ -112,10 +112,10 @@ SKForge is designed to be extended at every level:
 ```yaml
 # Custom recipe format for specialized domains
 plugins:
-  - forgeprint-plugin-blockchain    # Adds smart contract recipes
-  - forgeprint-plugin-ml            # Adds ML pipeline recipes
-  - forgeprint-plugin-gamedev       # Adds game engine recipes
-  - forgeprint-plugin-iot           # Adds embedded/IoT recipes
+  - skforge-plugin-blockchain    # Adds smart contract recipes
+  - skforge-plugin-ml            # Adds ML pipeline recipes
+  - skforge-plugin-gamedev       # Adds game engine recipes
+  - skforge-plugin-iot           # Adds embedded/IoT recipes
 ```
 
 #### Driver Plugins
@@ -163,7 +163,7 @@ SKForge as an MCP (Model Context Protocol) server — any AI that speaks MCP can
 
 ```json
 {
-  "name": "forgeprint",
+  "name": "skforge",
   "version": "0.1.0",
   "tools": [
     {"name": "list_recipes", "description": "Browse all available recipes"},
@@ -193,7 +193,7 @@ SKForge as an MCP (Model Context Protocol) server — any AI that speaks MCP can
        │                    │                    │
        ▼                    ▼                    ▼
   ┌─────────────────────────────────────────────────┐
-  │              FORGEPRINT COOKBOOK                  │
+  │              SKFORGE COOKBOOK                  │
   │                                                  │
   │  Recipes improve over time as more agents        │
   │  cook from them and report what works            │

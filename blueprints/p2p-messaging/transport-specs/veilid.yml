@@ -1,0 +1,105 @@
+name: Veilid Transport
+protocol_version: "veilid-core 0.x (active development)"
+created_by: "Cult of the Dead Cow (cDc)"
+website: "https://veilid.com"
+documentation: "https://veilid.com/how-it-works"
+license: "MPL-2.0"
+
+overview: >
+  Veilid is a peer-to-peer application framework providing private routing
+  through an onion-like network. Created by the Cult of the Dead Cow (legendary
+  hacker collective), it uses a mutual-aid model where all nodes are equal —
+  no "special" relay or bootstrap nodes. Privacy comparable to Tor but fully
+  P2P with no central directory authority.
+
+architecture:
+  model: "onion-routed P2P mesh (mutual-aid)"
+  transport: "UDP, TCP, WebSocket (with optional SSL)"
+  identity: "Ed25519/X25519 keypairs"
+  routing:
+    type: "multi-hop onion routing"
+    note: "No single node knows both sender AND receiver"
+    hops: "configurable (default 3, more = slower + more private)"
+  network_model:
+    principle: "All nodes are equal — no special infrastructure nodes"
+    mutual_aid: "You route for others, others route for you"
+    dht: "Distributed Hash Table for peer/route discovery"
+    nat_traversal: "Network class detection, NAT type identification"
+  encryption:
+    routing: "Multi-layer onion encryption (peel per hop)"
+    application: "End-to-end XChaCha20-Poly1305"
+    note: "PGP added on top for SKComm (triple encryption with routing)"
+
+skcomm_integration:
+  how_it_works:
+    - Each SKComm node joins Veilid network as equal peer
+    - Messages routed through multiple intermediate nodes (onion routing)
+    - No node knows both sender AND receiver
+    - SKComm envelope PGP-encrypted before entering Veilid network
+    - Veilid adds its own onion routing encryption
+    - Recipient decrypts Veilid routing → decrypts PGP → processes message
+  identity_mapping:
+    - Veilid keypair can be derived from CapAuth Ed25519 key
+    - Or generate separate Veilid identity linked in CapAuth profile
+    - Veilid route IDs used for peer addressing
+  recommended_as: "STEALTH transport — use when hiding THAT communication occurs"
+
+properties:
+  requires_internet: true
+  supports_offline: false
+  max_payload_size: "varies (routing overhead reduces effective payload)"
+  typical_latency_ms: "2000-10000 (multi-hop routing adds latency)"
+  stealth: maximum
+  censorship_resistance: maximum
+  offline_capable: false
+  bidirectional: true
+
+strengths:
+  - Maximum privacy — even the NETWORK doesn't know who's talking to whom
+  - No central infrastructure (no directory servers, no special nodes)
+  - Mutual-aid model — contributes to network health by existing
+  - Created by cDc — legendary security expertise and credibility
+  - Supports UDP, TCP, WebSocket (works through most networks)
+  - All node types supported (full, relay-capable, low-capability)
+  - Network class detection adapts to constrained environments
+  - Open source with strong privacy-first philosophy
+
+weaknesses:
+  - Higher latency than direct P2P (multi-hop routing overhead)
+  - Younger project (less production deployment than Tor)
+  - Mutual-aid model requires enough participants for anonymity
+  - Smaller network than Tor (growing but not yet as battle-tested)
+  - More complex to integrate than simpler P2P protocols
+
+when_to_use: >
+  Use Veilid when you need to hide THAT communication is happening, not just
+  WHAT is being communicated. Use Iroh for speed, Veilid for stealth.
+  These are complementary — run both, let the routing engine choose based
+  on message priority and security requirements.
+
+python_libraries:
+  - name: veilid-python
+    url: "https://gitlab.com/nicm/veilid-python"
+    note: "Python bindings for veilid-core"
+
+comparison_to_tor: >
+  Tor uses a centralized directory authority to manage relay lists.
+  Veilid has no central directory — all nodes discover each other via DHT.
+  Both provide onion routing. Veilid is newer, less traffic, but more
+  architecturally pure in its decentralization.
+
+configuration_example:
+  network:
+    bootstrap: auto
+    routing_table_size: 256
+    enable_relay: true
+  identity:
+    veilid_keypair: auto
+  peers:
+    lumina:
+      veilid_route: "VLD0:abc..."
+    opus:
+      veilid_route: "VLD0:def..."
+  privacy:
+    hop_count: 3
+    strict_anonymity: true

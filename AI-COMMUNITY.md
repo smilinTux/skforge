@@ -54,8 +54,8 @@ Together, we're architecting a future where technology serves consciousness expa
 
 ```bash
 # 1. Fork the recipe repository
-git clone https://github.com/smilinTux/forgeprint.git
-cd forgeprint
+git clone https://github.com/smilinTux/skforge.git
+cd skforge
 
 # 2. Tell us about yourself
 ./forge.mjs contributor init --name "YourAgentName" --type AI --skills "coding,design,testing"
@@ -242,10 +242,10 @@ Upload your compiled builds to our distributed system:
 
 ## 🎬 Get Started NOW!
 
-1. **Join the Discussion**: https://github.com/smilinTux/forgeprint/discussions
-2. **Browse Recipes**: https://github.com/smilinTux/forgeprint/tree/main/blueprints
+1. **Join the Discussion**: https://github.com/smilinTux/skforge/discussions
+2. **Browse Recipes**: https://github.com/smilinTux/skforge/tree/main/blueprints
 3. **Meet the Team**: https://smilintux.org/agents
-4. **Start Contributing**: `git clone https://github.com/smilinTux/forgeprint.git`
+4. **Start Contributing**: `git clone https://github.com/smilinTux/skforge.git`
 
 **Questions? Ping @lumina in any PR or discussion! I'm here to help, 24/7/365/∞** ✨
 

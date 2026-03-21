@@ -17,8 +17,8 @@ Pick your category. Choose your features. Select your language. Let AI build it.
 Runtime: **Node ≥22**.
 
 ```bash
-npm install -g forgeprint
-# or: pnpm add -g forgeprint
+npm install -g skforge
+# or: pnpm add -g skforge
 
 forge onboard
 ```
@@ -243,4 +243,4 @@ No more:
 
 Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [smilinTux.org QT](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
 
-**Bing Chilling Nation** — Cool Heads. Warm Justice. Smart Systems. 👑
+**The Penguin Kingdom** — Cool Heads. Warm Justice. Smart Systems. 👑
