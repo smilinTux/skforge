@@ -1,69 +1,304 @@
-# 🔧 SKForge
+# SKForge
 
-### Don't use software. Forge your own.
+[![PyPI version](https://img.shields.io/pypi/v/skforge.svg)](https://pypi.org/project/skforge/)
+[![npm version](https://img.shields.io/npm/v/skforge.svg)](https://www.npmjs.com/package/skforge)
+[![License](https://img.shields.io/pypi/l/skforge.svg)](https://github.com/smilinTux/skforge/blob/main/LICENSE)
+[![Python](https://img.shields.io/pypi/pyversions/skforge.svg)](https://pypi.org/project/skforge/)
 
-**AI-native software blueprints that generate complete, production-ready software in any language.**
-
-Pick your category. Choose your features. Select your language. Let AI build it.
-
-**Free. Forever.** A [smilinTux](https://github.com/smilinTux) Open Source Project by smilinTux.
-
-*Making Self-Hosting & Decentralized Systems Cool Again* 🐧
+**SKForge** is the Python engine for the Sovereign Skills blueprint ecosystem — a feature-driven code generation system that turns structured `features.yml` catalogs and `BLUEPRINT.md` specifications into focused `driver.md` build manifests. It parses blueprint directories, resolves transitive feature dependencies via topological sort, and generates ordered implementation plans that tell an AI code generator exactly which features to build and in what sequence. Think of it as "Skills for Software": instead of teaching an AI how to use a tool, you give it the recipe to build the tool from scratch, lean and without vendor lock-in.
 
 ---
 
 ## Install
 
-Runtime: **Node ≥22**.
+**Python (library + skill tools):**
+
+```bash
+pip install skforge
+```
+
+**npm (CLI tooling):**
 
 ```bash
 npm install -g skforge
-# or: pnpm add -g skforge
-
-forge onboard
+# or
+pnpm add -g skforge
 ```
 
-Or via shell:
-```bash
-curl -fsSL https://skforge.io/install.sh | sh
-```
+> Python requirements: 3.10 or later. Runtime dependencies: `pydantic>=2.0,<3.0`, `pyyaml>=6.0,<7.0`.
 
 ---
 
-## 🐧 What is SKForge?
+## Architecture
 
-SKForge provides **detailed, structured specification files** (blueprints) that any LLM — even mid-tier models — can consume to generate complete, working, tested software products.
+```mermaid
+flowchart TD
+    A[blueprints/ directory] --> B[BlueprintCatalog]
+    B -->|scan subdirs| C{features.yml\npresent?}
+    C -->|yes| D[load_blueprint]
+    C -->|no / skip| E[ignored]
+    D --> F[parse_features]
+    F --> G[ForgeBlueprint\nPydantic model]
 
-Think of it as **"Skills for Software"** — instead of teaching an AI how to use a tool, you give it the recipe to **build the tool from scratch**.
+    G --> H[FeatureGroup list]
+    G --> I[ForgeDependencies\nruntime / optional / dev]
+    G --> J[feature_map\nname → Feature]
 
-### The Problem
+    K[User: selected features] --> L[resolve_features\niterative DFS]
+    J --> L
+    L --> M[resolved feature set\ntransitive closure]
 
-- Developers waste months reinventing load balancers, web servers, auth systems, message queues
-- AI can code, but needs structured guidance to produce production-grade software
-- Enterprise software is bloated — 90% of features go unused
-- Open source projects are complex — hard to customize without deep expertise
+    M --> N[generate_driver]
+    G --> N
+    N --> O[dependency_graph\nname → dep list]
+    O --> P[_topo_sort\nKahn's algorithm]
+    P --> Q[driver.md\nMarkdown output]
 
-### The Solution
+    subgraph Catalog Layer
+        B
+        C
+        D
+        E
+    end
 
+    subgraph Parser Layer
+        F
+        G
+        H
+        I
+        J
+    end
+
+    subgraph Driver Layer
+        L
+        M
+        N
+        O
+        P
+        Q
+    end
 ```
-📋 Pick a blueprint     →  Load Balancer, Database, API Gateway...
-✅ Choose your features  →  TLS? Rate limiting? WebSocket? You decide.
-🦀 Select your language  →  Rust, Go, Python, Java, .NET, Zig...
-🔨 Forge it             →  AI reads specs → builds → tests → ships
-```
+
+**Data flow in four steps:**
+
+1. **Catalog** — `BlueprintCatalog` scans a `blueprints/` directory tree, discovers every subdirectory that contains a `features.yml`, and maintains a lazy-loaded, cached index by slug.
+2. **Parse** — `parse_features` / `load_blueprint` deserialize the YAML catalog (and optional `BLUEPRINT.md` prose) into typed Pydantic models (`ForgeBlueprint`, `FeatureGroup`, `Feature`, `ForgeDependencies`).
+3. **Resolve** — `ForgeBlueprint.resolve_features` expands a caller-supplied selection into its full transitive closure by iteratively walking the dependency graph declared in each `Feature.dependencies` list.
+4. **Generate** — `generate_driver` topologically sorts the resolved features (dependencies first) and renders a human-readable, AI-consumable `driver.md` markdown document with complexity annotations and an implementation order.
 
 ---
 
-## 🚀 Quick Start
+## Features
 
-### 1. Pick a Blueprint
+- **Blueprint discovery** — scans a directory tree and auto-discovers any subdirectory containing `features.yml`; silently skips `TEMPLATE/`, `__pycache__/`, `.git/`, and `node_modules/`.
+- **Typed Pydantic v2 models** — `Feature`, `FeatureGroup`, `ForgeBlueprint`, and `ForgeDependencies` give IDE-friendly, validated access to all blueprint data.
+- **Transitive dependency resolution** — iterative depth-first expansion ensures every declared dependency of a selected feature is automatically pulled in, no matter how deep the chain.
+- **Topological sort** — `generate_driver` orders features so dependencies are always implemented before the features that require them; cycles are handled gracefully (appended last, alphabetically).
+- **Default feature sets** — blueprints declare sensible defaults (`default: true`); callers that pass no selection get a working minimal build automatically.
+- **Complexity annotations** — each feature carries a `complexity` field (`low` / `medium` / `high`) surfaced in the generated driver for effort estimation.
+- **BLUEPRINT.md passthrough** — optional prose documentation is carried through in `ForgeBlueprint.blueprint_md` for downstream consumers.
+- **Lazy-loading catalog cache** — `BlueprintCatalog` parses each blueprint on first access and caches it; `reload()` clears all caches for live-reload scenarios.
+- **Full-text search** — `BlueprintCatalog.search(query)` performs case-insensitive substring matching against slug, name, and description.
+- **Dual YAML dependency format** — dependency lists accept plain PEP 508 strings (`"pydantic>=2.0"`) or dicts (`{pydantic: ">=2.0"}`); both are normalized transparently.
+- **Nine built-in blueprint categories** — ships with catalogs for API gateways, databases, key-value stores, load balancers, message queues, object storage, search engines, vector databases, and web servers.
+- **Skill tools** — `skill.yaml` exposes `forge_generate`, `forge_list_blueprints`, and `forge_catalog` for sovereign skills-compatible agents and MCP hosts.
 
-Browse the [`blueprints/`](./blueprints) directory for your software category.
+---
 
-### 2. Create Your `driver.md`
+## Usage
+
+### Python API
+
+#### Load the catalog and list blueprints
+
+```python
+from skforge import BlueprintCatalog
+
+catalog = BlueprintCatalog("./blueprints")
+
+print(catalog.count(), "blueprints available")
+
+for slug in catalog.list():
+    print(slug)
+# api-gateways
+# databases
+# key-value-stores
+# load-balancers
+# message-queues
+# object-storage
+# search-engines
+# vector-databases
+# web-servers
+```
+
+#### Inspect a blueprint
+
+```python
+bp = catalog.get("load-balancers")
+
+print(bp.name)                 # human-readable name from features.yml
+print(bp.slug)                 # "load-balancers"
+print(bp.version)              # "1.0.0"
+print(len(bp.all_features))    # total feature count across all groups
+print(bp.default_features)     # names of features with default: true
+
+for group in bp.groups:
+    print(f"\n[{group.name}] — {group.description}")
+    for feat in group.features:
+        marker = "*" if feat.default else " "
+        print(f"  [{marker}] {feat.name} ({feat.complexity})")
+        if feat.dependencies:
+            print(f"       deps: {feat.dependencies}")
+```
+
+#### Resolve features with transitive dependencies
+
+```python
+bp = catalog.get("api-gateways")
+
+# Explicitly selected features — dependencies resolved automatically
+resolved = bp.resolve_features(["jwt_validation", "rate_limiting_fixed_window"])
+print(resolved)
+# ['consumer_registry', 'counter_store', 'crypto_operations',
+#  'jwt_validation', 'rate_limiting_fixed_window']
+
+# Use blueprint defaults
+resolved_defaults = bp.resolve_features(bp.default_features)
+print(len(resolved_defaults), "features resolved from defaults")
+```
+
+#### Generate a driver.md
+
+```python
+from skforge import BlueprintCatalog, generate_driver
+
+catalog = BlueprintCatalog("./blueprints")
+bp = catalog.get("load-balancers")
+
+# With specific features (dependencies resolved automatically)
+driver_md = generate_driver(bp, selected=["HTTP/1.1 support", "TLS 1.3 termination"])
+
+# With blueprint defaults (selected=None)
+driver_md = generate_driver(bp)
+
+print(driver_md)
+```
+
+Example output:
+
+```
+# Load Balancers — Driver
+
+**Generated**: 2026-03-04 12:00 UTC
+**Blueprint**: load-balancers v1.0.0
+**Features**: 4 selected
+
+## Selected Features
+
+### Core
+- [x] **HTTP/1.1 support** — HTTP/1.1 with keep-alive, chunked encoding
+  - Depends on: `tcp_support`
+
+### Security
+- [x] **TLS 1.3 termination** — TLS 1.3 with modern cipher suites
+  - Depends on: `tls_management`, `tls_termination`
+
+## Implementation Order
+
+Features sorted with dependencies first:
+
+1. `tcp_support` (medium)
+2. `tls_management` (high)
+3. `tls_termination` (high)
+4. `HTTP/1.1 support` (medium)
+5. `TLS 1.3 termination` (medium)
+```
+
+Save to disk:
+
+```python
+from pathlib import Path
+
+Path("driver.md").write_text(driver_md)
+```
+
+#### Parse a single features.yml directly
+
+```python
+from pathlib import Path
+from skforge import parse_features
+
+bp = parse_features(Path("blueprints/databases/features.yml"))
+print(bp.name, bp.version)
+print("Runtime deps:", bp.dependencies.runtime)
+print("Optional deps:", bp.dependencies.optional)
+```
+
+#### Search the catalog
+
+```python
+results = catalog.search("vector")   # ['vector-databases']
+results = catalog.search("cache")    # ['databases', 'key-value-stores']
+results = catalog.search("gateway")  # ['api-gateways']
+```
+
+#### Print a catalog summary
+
+```python
+for row in catalog.summary():
+    print(
+        f"{row['slug']:25} "
+        f"{row['feature_count']:3} features  "
+        f"{row['group_count']} groups"
+    )
+# api-gateways               86 features  8 groups
+# databases                  ...
+# load-balancers             80 features  7 groups
+```
+
+#### Reload catalog (live-reload scenario)
+
+```python
+catalog.reload()   # clears caches, re-discovers blueprints
+```
+
+### End-to-end workflow example
+
+```python
+from pathlib import Path
+from skforge import BlueprintCatalog, generate_driver
+
+
+def forge(blueprints_dir: str, slug: str, features: list[str], out: str = "driver.md") -> None:
+    catalog = BlueprintCatalog(blueprints_dir)
+    bp = catalog.get(slug)
+
+    resolved = bp.resolve_features(features) if features else bp.resolve_features(bp.default_features)
+    md = generate_driver(bp, selected=features or None)
+
+    Path(out).write_text(md)
+    print(f"Wrote {out}  ({len(resolved)} features, {len(md)} chars)")
+
+
+forge("./blueprints", "load-balancers", ["Round-robin", "TLS 1.3 termination"])
+```
+
+### driver.md — simple mode
+
+For users who just want defaults, the generated driver is as minimal as:
 
 ```markdown
-# driver.md — My Custom Load Balancer
+# driver.md
+category: load-balancers
+target: rust
+```
+
+All `default: true` features are included automatically.
+
+### driver.md — advanced mode
+
+```markdown
+# driver.md — SKLoadBalancer
 
 ## Blueprint
 category: load-balancers
@@ -71,176 +306,222 @@ category: load-balancers
 ## Language
 target: rust
 
+## Profile
+hardware: cloud-native
+memory: enterprise
+
 ## Features
-- [x] HTTP/1.1 & HTTP/2
-- [x] Health checks
-- [x] Round-robin balancing
-- [x] TLS termination
+
+### Core
+- [x] HTTP/1.1 support
+- [x] HTTP/2 support
+- [ ] HTTP/3 (QUIC)
+
+### Algorithms
+- [x] Round-robin
+- [x] Least connections
+- [ ] IP hash
+
+### Security
+- [x] TLS 1.3 termination
+- [x] mTLS
 - [x] Rate limiting
-- [x] Prometheus metrics
-- [ ] gRPC support          # Don't need this
-- [ ] WebSocket support     # Skip for now
+
+## Build
+auto-test: true
+auto-benchmark: false
+output: ./sk-load-balancer/
 ```
 
-### 3. Feed to Any LLM
-
-```
-"Read this driver.md and the referenced blueprint specs.
-Generate a complete implementation that passes all specified tests."
-```
-
-### 4. Get Production-Ready Code
-
-The AI generates complete source code with:
-- ✅ All selected features implemented
-- ✅ Unit tests passing
-- ✅ Integration tests passing
-- ✅ Benchmarks meeting baseline targets
-- ✅ Documentation generated
+See [`forge/driver-spec.md`](forge/driver-spec.md) for the full specification.
 
 ---
 
-## 📦 Blueprint Categories
+## Skill Tools
 
-### Tier 1 — Available Now
-| Category | Blueprint | Features |
-|----------|-----------|----------|
-| 🔀 Load Balancers | [`blueprints/load-balancers/`](./blueprints/load-balancers/) | 80+ features |
-| 🌐 Web Servers | [`blueprints/web-servers/`](./blueprints/web-servers/) | 70+ features |
-| 🗄️ Databases (Relational) | [`blueprints/databases/`](./blueprints/databases/) | 90+ features |
-| 📨 Message Queues | [`blueprints/message-queues/`](./blueprints/message-queues/) | 75+ features |
-| 🚪 API Gateways | [`blueprints/api-gateways/`](./blueprints/api-gateways/) | 85+ features |
+`skforge` ships a `skill.yaml` exposing the following tools for sovereign skills-compatible agents and MCP hosts:
 
-### Coming Soon
-Key-Value Stores • Search Engines • Auth Systems • Caching Layers • Container Runtimes • DNS Servers • Email Servers • File Storage • Log Aggregators • Monitoring Systems • CI/CD Pipelines • VPN Servers • Network Proxies • Service Meshes • Stream Processors • Time-Series DBs • Schedulers • Secret Managers • Rate Limiters • Package Managers
+| Tool | Entrypoint | Description |
+|------|-----------|-------------|
+| `forge_generate` | `skforge.skill:generate` | Generate code from a blueprint specification using selected features |
+| `forge_list_blueprints` | `skforge.skill:list_blueprints` | List all available blueprint templates in the catalog |
+| `forge_catalog` | `skforge.skill:catalog` | Browse the full SKForge blueprint catalog with metadata |
+
+When registered with a sovereign skills host, these tools allow agents to discover blueprints, resolve feature sets, and trigger driver generation without writing Python directly.
 
 ---
 
-## 🏗️ How Blueprints Work
+## Blueprint Format
 
-Each blueprint contains:
+Each blueprint lives in its own subdirectory under `blueprints/`:
 
 ```
-blueprints/load-balancers/
-├── BLUEPRINT.md           # Master architectural specification
-├── features.yml           # Exhaustive feature catalog (pick & choose)
-├── architecture.md        # System design patterns & data flows
-├── tests/
-│   ├── unit-tests.md      # Required unit test specifications
-│   ├── integration-tests.md
-│   └── benchmarks.md      # Performance baselines
-├── memory-profiles/
-│   ├── embedded.md        # IoT/embedded (< 64MB RAM)
-│   ├── standard.md        # Server (1-8GB RAM)
-│   └── enterprise.md      # High-memory (8GB+ RAM)
-├── deployment/
-│   ├── docker.md
-│   ├── kubernetes.md
-│   └── bare-metal.md
-└── references/
-    ├── opensource-top10.md # Top 10 OSS products analyzed
-    └── proprietary-top10.md
+blueprints/
+└── <category-slug>/
+    ├── features.yml      # required — feature catalog (parsed by skforge)
+    ├── BLUEPRINT.md      # optional — prose architectural documentation
+    ├── architecture.md   # optional — system design patterns and data flows
+    ├── tests/
+    │   ├── unit-tests.md
+    │   └── benchmarks.md
+    └── memory-profiles/
+        └── standard.md
+```
+
+### features.yml schema
+
+```yaml
+name: "My Blueprint"
+version: "1.0.0"
+description: "What this blueprint produces"
+
+groups:
+  - name: Core
+    description: "Fundamental features every implementation needs"
+    features:
+      - name: example-feature
+        description: "What this feature does"
+        complexity: low          # low | medium | high
+        default: true            # included when no features are selected?
+        dependencies: []         # names of other features this requires
+
+  - name: Security
+    features:
+      - name: tls-support
+        description: "TLS encryption"
+        complexity: high
+        default: false
+        dependencies:
+          - example-feature      # will be auto-resolved when tls-support is selected
+
+# Optional: package dependencies for the generated code
+dependencies:
+  runtime:
+    - pydantic>=2.0
+    - {redis: ">=4.0"}           # dict format also supported
+  optional:
+    - prometheus-client>=0.17
+  development:
+    - pytest>=7.0
 ```
 
 ---
 
-## 🏗️ Stack Composer — Forge Your Entire Stack
+## Configuration
 
-Why build one component when you can forge the whole thing?
+`BlueprintCatalog` is configured entirely at construction time — no config files required:
+
+```python
+catalog = BlueprintCatalog("/path/to/blueprints")
+```
+
+**Directories automatically skipped during discovery:**
+
+| Directory | Reason |
+|-----------|--------|
+| `TEMPLATE` | Starter template skeleton, not a real blueprint |
+| `__pycache__` | Python bytecode cache |
+| `.git` | Git repository metadata |
+| `node_modules` | Node.js packages |
+
+Any directory containing a `features.yml` file that is not in the skip list is treated as a blueprint. The slug is derived from the directory name: lowercased, whitespace converted to `-`, non-word characters stripped.
+
+**Logging** uses Python's standard `logging` module:
+
+```python
+import logging
+
+logging.getLogger("skforge.catalog").setLevel(logging.DEBUG)
+logging.getLogger("skforge.parser").setLevel(logging.DEBUG)
+```
+
+---
+
+## Contributing / Development
+
+### Setup
 
 ```bash
-# Preview a pre-built stack template
-forge stack ai-platform
-
-# Templates available:
-#   saas-starter    — Gateway + Web + DB + Cache + Queue
-#   ai-platform     — Gateway + DB + Vectors + Graph + Queue + Storage
-#   enterprise      — Full 9-layer production stack
-#   notion-killer   — Gateway + Web + DB + Search + Storage + Realtime
-#   zero-trust      — Gateway + Secrets + DB + Vectors + Graph + Storage
-
-# Or define your own stack.yml
-forge stack my-stack.yml
+git clone https://github.com/smilinTux/skforge.git
+cd skforge
+pip install -e ".[dev]"
 ```
 
-Pick one blueprint per layer. Define how they connect. Generate the entire integrated stack — database, cache, search, API gateway, auth, deployment configs — in one command. See **[STACKS.md](./STACKS.md)** for full documentation.
+### Run tests
+
+```bash
+pytest
+```
+
+### Run tests with coverage
+
+```bash
+pytest --cov=skforge --cov-report=term-missing
+```
+
+### Lint and format
+
+```bash
+ruff check src/
+black src/ tests/
+```
+
+### Project layout
+
+```
+skforge/
+├── src/skforge/
+│   ├── __init__.py       # public API surface and version
+│   ├── catalog.py        # BlueprintCatalog — discovery, indexing, search
+│   ├── driver.py         # generate_driver + topological sort
+│   └── parser.py         # Pydantic models + YAML parsing
+├── blueprints/
+│   ├── TEMPLATE/         # starter template for new blueprints
+│   ├── api-gateways/
+│   ├── databases/
+│   ├── key-value-stores/
+│   ├── load-balancers/
+│   ├── message-queues/
+│   ├── object-storage/
+│   ├── search-engines/
+│   ├── vector-databases/
+│   └── web-servers/
+├── forge/
+│   └── driver-spec.md    # driver.md format specification
+├── skill.yaml            # sovereign skill tool declarations
+├── pyproject.toml
+└── tests/
+```
+
+### Adding a new blueprint
+
+1. Copy `blueprints/TEMPLATE/` to `blueprints/<your-slug>/`
+2. Edit `features.yml` — define groups, features, complexities, defaults, and dependencies
+3. Optionally add `BLUEPRINT.md` with prose architectural documentation
+4. Verify it loads:
+
+```bash
+python -c "
+from skforge import BlueprintCatalog
+c = BlueprintCatalog('blueprints')
+bp = c.get('<your-slug>')
+print(bp.name, len(bp.all_features), 'features')
+"
+```
+
+### Code style
+
+- Line length: 99 characters (enforced by `black` and `ruff`)
+- Target Python: 3.10+
+- Models use Pydantic v2; use `model.model_dump()`, not `model.dict()`
+- All public functions have docstrings
 
 ---
 
-## 🔍 RECON — Create Blueprints for ANY Software
+## License
 
-Want to blueprint a new software category? We wrote the guide:
+GPL-3.0-or-later — see [LICENSE](LICENSE) for the full text.
 
-**[RECON.md](./RECON.md)** — The Recipe for Making Recipes
+&copy; smilinTux.org — [smilintux.org](https://smilintux.org) · [Issues](https://github.com/smilinTux/skforge/issues)
 
-Any AI (or human) can follow this step-by-step process to:
-1. Research the top 30 products (OSS + proprietary + SaaS)
-2. Extract every feature into a master catalog
-3. Document the architecture patterns
-4. Write test specifications
-5. Create memory/hardware profiles
-
-**It's reverse engineering without copying code.** We document patterns, not source. The AI writes fresh code from the specs. Royalty-free. 100% legal.
-
-> *Copy-paste the quick-start prompt from RECON.md into any AI and point it at a software category. Instant blueprint.*
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how:
-
-- **New Blueprints:** Follow [RECON.md](./RECON.md) to research and blueprint any software category
-- **New Features:** Add features to existing `features.yml` files
-- **New Categories:** Create a new blueprint directory following the template
-- **Improvements:** Enhance architectural guidance, test specs, or memory profiles
-- **Translations:** Help make blueprints accessible in more languages
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
-
----
-
-## 📜 License
-
-**Dual License — Anti-Predator + User Freedom:**
-
-- **Forge CLI & Tooling:** [AGPL-3.0](./LICENSE) — Ensures the forge stays free forever. If you modify it and run it as a service, you MUST share your changes. Protects against corporate capture.
-- **Blueprints (generated code):** Apache 2.0 — The software YOU generate from our blueprints is YOURS. No strings. Commercial, personal, nonprofit — do whatever you want.
-
-*Why?* We want to protect the ecosystem from legal predators while giving YOU maximum freedom with your generated code.
-
----
-
-## 🌍 Philosophy
-
-> **"We don't sell software. We give everyone the blueprints to build their own."**
-
-Software companies charge millions for products built from the same patterns. Those patterns can be documented, cataloged, and handed to AI to rebuild from scratch — custom, lean, no bloat, no vendor lock-in.
-
-As AI models improve, the same blueprints produce better software. **Future-proof by design.**
-
----
-
----
-
-## 🏠 Self-Host Everything
-
-SKForge is built for the **self-hosting revolution**. Every blueprint generates software you own, run, and control — on your hardware, your terms, your rules.
-
-No more:
-- 📉 Price hikes you can't control
-- 🔒 Vendor lock-in you can't escape
-- 📊 Data harvesting you didn't consent to
-- 💀 Services sunsetting and killing your workflow
-
-**Your infrastructure. Your data. Your software. Forged by you.**
-
-> *"The cloud is just someone else's computer. Forge your own."*
-
----
-
-**Making Self-Hosting & Decentralized Systems Cool Again** 🐧
-
-Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [smilinTux](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
-
-**The Penguin Kingdom** — Cool Heads. Warm Justice. Smart Systems. 👑
+*Making Self-Hosting & Decentralized Systems Cool Again — The Penguin Kingdom*
