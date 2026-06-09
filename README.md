@@ -239,6 +239,55 @@ No more:
 
 ---
 
+## First Principles & The Full Vertical
+
+> **Get back to first principles.**
+> Developers waste years renting software — SaaS subscriptions, vendor lock-in, black-box middle layers. The patterns that power every load balancer, every API gateway, every database are documentable. SKForge documents them, then hands them to AI so you can build your own.
+>
+> **Own the full vertical** — silicon, OS, identity, data, models, security, comms, apps, soul. Every layer open. Every layer swappable. Every layer **yours**.
+
+**SKForge is your Apps layer.** Don't rent SaaS — forge your own software. Every blueprint generates code that runs on your hardware under your terms. No price hikes, no sunsetting, no vendor extracting rent from patterns that were always public. The cloud is just someone else's computer. Forge your own.
+
+### Where SKForge sits in the vertical
+
+```mermaid
+flowchart TD
+    Silicon["🖥️ Silicon\nyour hardware"]
+    OS["🐧 OS / skos\nsovereign agent OS"]
+    Identity["🔑 Identity\ncapauth · skaid"]
+    Security["🛡️ Security\nsksecurity · skwaf"]
+    Data["💾 Data\nskmemory · skdata · skvector"]
+    Models["🤖 Models\nskmodel · Ollama / vLLM"]
+    Comms["📡 Comms\nskcomm · skchat · skvoice"]
+    Apps["🔧 Apps  ◄── YOU ARE HERE\nskforge · skarchitect\n(forge your own software)"]
+    Soul["✨ Soul\nsoul blueprints · cloud9"]
+
+    Silicon --> OS --> Identity --> Security --> Data --> Models --> Comms --> Apps --> Soul
+
+    SKCap["SKCapstone\n(agent platform)"]
+    SKCap -. "BlueprintManifest\ndeployment target" .-> Apps
+    SKCap -. "AI runtime that\nexecutes forge builds" .-> Apps
+
+    Forge["SKForge\nblueprint engine"]
+    Forge -- "generates" --> YourSoftware["Your Software\n(owned, self-hosted)"]
+    Forge -- "Stack Composer" --> FullStack["Your Full Stack\n(gateway+DB+cache+queue…)"]
+```
+
+### SKCapstone alignment
+
+SKForge is a **loosely coupled but ecosystem-aware** layer — it sits at the Apps tier of the vertical and is independent enough to be used standalone, but aware of the SKCapstone deployment target.
+
+The evidence:
+
+- `src/skforge/__init__.py` documents SKForge's role as converting blueprints into `skcapstone BlueprintManifest` for deployment — making SKCapstone the natural runtime that executes forge builds.
+- The Stack Composer templates (`zero-trust`, `ai-platform`, `enterprise`) map directly to the SKCapstone vertical layers — generate the infrastructure, then hand it to SKCapstone agents to run it.
+- The philosophy is identical: no vendor lock-in, no cloud landlord, your hardware, your rules. SKForge generates the software; the rest of the vertical (skmemory, cloud9, skcapstone) runs it.
+- Unlike skmemory or skvoice, SKForge does not import SKCapstone at runtime — it's the **construction layer**, not the **runtime layer**. You forge the software first; the SKCapstone ecosystem runs it.
+
+**Sovereignty isn't a feature — it's the foundation.** Own the full vertical. 🐧
+
+---
+
 **Making Self-Hosting & Decentralized Systems Cool Again** 🐧
 
 Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [smilinTux](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
