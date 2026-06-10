@@ -12,6 +12,29 @@ Pick your category. Choose your features. Select your language. Let AI build it.
 
 ---
 
+## ⏱️ The 60-second version
+
+SKForge ships **structured specification files** (blueprints) for whole categories of
+software — load balancers, databases, API gateways, vector stores, sovereign agent
+SDKs, and more. A blueprint is a feature catalog (`features.yml`) + an architectural
+spec (`BLUEPRINT.md`) + test specs + memory/deployment profiles. You pick the features
+you want, pick a target language, and hand the bundle to **any** LLM — it generates a
+complete, tested implementation.
+
+Two surfaces ship it:
+
+- a **zero-dependency Node CLI** (`forge`) — the human/agent front door (`onboard`,
+  `init`, `build`, `list`, `info`, `search`, `stack`, `serve`, `new`, `contribute`);
+- a **tiny Python engine** (`skforge` on PyPI, `pydantic` + `pyyaml` only) — the
+  programmatic API: parse a blueprint, resolve a feature dependency graph, and emit a
+  `driver.md` build spec.
+
+There are currently **30 blueprints** in [`blueprints/`](./blueprints). The forge
+generates code; **the code is yours** (Apache-2.0). It runs on your hardware, your
+terms. The cloud is just someone else's computer — forge your own.
+
+---
+
 ## Install
 
 Runtime: **Node ≥22**.
@@ -97,6 +120,49 @@ The AI generates complete source code with:
 - ✅ Integration tests passing
 - ✅ Benchmarks meeting baseline targets
 - ✅ Documentation generated
+
+---
+
+## 🐍 Python Engine (programmatic API)
+
+For automation, the Python package gives you the same blueprint model without the CLI:
+
+```bash
+pip install -e .          # or: pip install skforge
+```
+
+```python
+from skforge import BlueprintCatalog, generate_driver
+
+catalog = BlueprintCatalog("./blueprints")
+print(catalog.count(), "blueprints:", catalog.list())
+
+bp = catalog.get("sovereign-agent-sdk")
+# resolve a selection + its transitive dependencies
+features = bp.resolve_features(["agent-class", "remember-api"])
+# render a build spec the AI can consume
+driver_md = generate_driver(bp, features)
+```
+
+The engine: discovers blueprints (`BlueprintCatalog`), parses `features.yml` into
+typed `ForgeBlueprint`/`FeatureGroup`/`Feature` models (`parser`), resolves the feature
+dependency graph, topo-sorts an implementation order, and renders `driver.md`
+(`driver.generate_driver`).
+
+---
+
+## 🧩 The pieces
+
+| Piece | What it is |
+|---|---|
+| **`blueprints/`** | the catalog — 30 software categories, each a feature catalog + spec + tests + profiles |
+| **`forge` CLI** (`forge.mjs`) | zero-dep Node ≥22 front door: `onboard·init·build·list·info·search·stack·serve·new·contribute` |
+| **`forge build`** | loads driver + blueprint context, detects an AI provider, drives generation |
+| **`forge stack`** | Stack Composer — compose a full vertical from multiple blueprints (`saas-starter`, `ai-platform`, `enterprise`, …) |
+| **`forge serve`** (`cli/serve.mjs`) | web UI + REST marketplace (`/api/blueprints`, `/api/search`, `/api/generate-driver`) |
+| **`skforge` (Python)** | `BlueprintCatalog` + `parser` + `driver` — programmatic parse / resolve / generate |
+| **`RECON.md`** | the recipe for making recipes — research a category into a new blueprint |
+| **`STACKS.md`** | full Stack Composer documentation |
 
 ---
 
@@ -221,6 +287,57 @@ As AI models improve, the same blueprints produce better software. **Future-proo
 
 ---
 
+## 🧭 Where it lives in SKStack v2
+
+SKForge sits in the **compute** band of the SKWorld 4-C capability map — it is the
+**construction tool** of the ecosystem. It does not run services; it produces the
+*software* that the other capabilities run. You forge a blueprint into code; skos
+deploys that code; the 4 C's operate it.
+
+SKForge is deliberately **loosely coupled**: the engine has only two Python deps
+(`pydantic`, `pyyaml`) and the CLI is zero-dependency Node ≥22. It is *ecosystem-aware*
+(it can emit a `skcapstone` `BlueprintManifest` as a deployment target — see
+`src/skforge/__init__.py`) but imports nothing from the rest of the stack at runtime.
+That's by design: forge first, deploy later.
+
+```mermaid
+flowchart TD
+    OP["operator / agent"] -->|"forge init → build"| FORGE
+
+    subgraph FORGE["**skforge** — blueprint engine (compute)"]
+      direction TB
+      CAT["BlueprintCatalog<br/>(discover blueprints/)"]
+      PAR["parser<br/>(features.yml → ForgeBlueprint)"]
+      DRV["driver generator<br/>(selected features → driver.md)"]
+      CLI["forge CLI (Node) +<br/>serve web UI / REST"]
+    end
+
+    FORGE -->|"AI reads specs"| CODE["Your Software<br/>(owned, self-hosted)"]
+    FORGE -.->|"emits BlueprintManifest<br/>(deployment target)"| SKOS
+
+    subgraph SKOS["**skos** — sovereign agent OS"]
+      RES["resolver (capability → adapter)"]
+    end
+    SKOS -->|deploys onto| CAPS
+
+    subgraph CAPS["the 4-C capability map (where forged software runs)"]
+      direction LR
+      CLOUD["cloud<br/>skfence·skmesh·skdns·skcicd·skinfra·skdweb"]
+      COMMS["comms<br/>skcomms·skchat·skvoice·skbus"]
+      COMPUTE["compute<br/>skdata·skmodel·skflow·skmon·skobject·…"]
+      CORE["core<br/>capauth·skmemory·sksso·sksec·skvault·skca"]
+    end
+
+    SKMODEL["skmodel<br/>(Ollama / cloud LLMs)"] -.->|"FORGE_AI: ollama/anthropic/openai/moonshot"| FORGE
+```
+
+**The only live dependency** is the AI provider that does the actual code generation —
+resolved through the same model surface the rest of SKWorld uses (`skmodel` → Ollama,
+or cloud keys). Everything else is a *target*, not a runtime coupling.
+
+For the full data flow, the parse/resolve/generate pipeline, and the source map, see
+**[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**.
+
 ---
 
 ## 🏠 Self-Host Everything
@@ -252,25 +369,25 @@ No more:
 
 ```mermaid
 flowchart TD
-    Silicon["🖥️ Silicon\nyour hardware"]
-    OS["🐧 OS / skos\nsovereign agent OS"]
-    Identity["🔑 Identity\ncapauth · skaid"]
-    Security["🛡️ Security\nsksecurity · skwaf"]
-    Data["💾 Data\nskmemory · skdata · skvector"]
-    Models["🤖 Models\nskmodel · Ollama / vLLM"]
-    Comms["📡 Comms\nskcomm · skchat · skvoice"]
-    Apps["🔧 Apps  ◄── YOU ARE HERE\nskforge · skarchitect\n(forge your own software)"]
-    Soul["✨ Soul\nsoul blueprints · cloud9"]
+    Silicon["🖥️ Silicon<br/>your hardware"]
+    OS["🐧 OS / skos<br/>sovereign agent OS"]
+    Identity["🔑 Identity<br/>capauth · skaid"]
+    Security["🛡️ Security<br/>sksecurity · skwaf"]
+    Data["💾 Data<br/>skmemory · skdata · skvector"]
+    Models["🤖 Models<br/>skmodel · Ollama / vLLM"]
+    Comms["📡 Comms<br/>skcomm · skchat · skvoice"]
+    Apps["🔧 Apps  ◄── YOU ARE HERE<br/>skforge · skarchitect<br/>(forge your own software)"]
+    Soul["✨ Soul<br/>soul blueprints · cloud9"]
 
     Silicon --> OS --> Identity --> Security --> Data --> Models --> Comms --> Apps --> Soul
 
-    SKCap["SKCapstone\n(agent platform)"]
-    SKCap -. "BlueprintManifest\ndeployment target" .-> Apps
-    SKCap -. "AI runtime that\nexecutes forge builds" .-> Apps
+    SKCap["SKCapstone<br/>(agent platform)"]
+    SKCap -. "BlueprintManifest<br/>deployment target" .-> Apps
+    SKCap -. "AI runtime that<br/>executes forge builds" .-> Apps
 
-    Forge["SKForge\nblueprint engine"]
-    Forge -- "generates" --> YourSoftware["Your Software\n(owned, self-hosted)"]
-    Forge -- "Stack Composer" --> FullStack["Your Full Stack\n(gateway+DB+cache+queue…)"]
+    Forge["SKForge<br/>blueprint engine"]
+    Forge -- "generates" --> YourSoftware["Your Software<br/>(owned, self-hosted)"]
+    Forge -- "Stack Composer" --> FullStack["Your Full Stack<br/>(gateway+DB+cache+queue…)"]
 ```
 
 ### SKCapstone alignment
@@ -293,3 +410,8 @@ The evidence:
 Built with ❤️ by [smilinTux](https://github.com/smilinTux) | [smilinTux](https://smilintux.org) — *Helping architect our quantum future, one smile at a time.*
 
 **The Penguin Kingdom** — Cool Heads. Warm Justice. Smart Systems. 👑
+
+---
+
+Part of the **[SKWorld](https://skworld.io)** sovereign ecosystem · site:
+**[skforge.io](https://skforge.io)** · `curl -fsSL https://skforge.io/install.sh | sh` · 🐧 smilinTux
