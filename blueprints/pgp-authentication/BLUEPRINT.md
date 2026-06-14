@@ -113,7 +113,7 @@ AIAdvocate {
 
     EscalationRule {
         condition: expression
-        channel: email | sms | push | skcomm
+        channel: email | sms | push | skcomms
         timeout: auto-deny after duration
         fallback: approve | deny
     }
@@ -200,7 +200,7 @@ Layer Stack:
 +-- Transport Layer
     +-- HTTP challenge-response endpoints
     +-- WebSocket real-time auth events
-    +-- SKComm P2P authentication
+    +-- SKComms P2P authentication
 
 Benefits:
 + Clean separation of concerns
@@ -395,7 +395,7 @@ capauth:
   advocate:
     enabled: true
     auto_approve_threshold: "low"
-    escalation_channels: ["skcomm", "email"]
+    escalation_channels: ["skcomms", "email"]
     escalation_timeout: "24h"
     auto_deny_on_timeout: true
 

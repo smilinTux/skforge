@@ -63,7 +63,7 @@ User Input
   → Feature Module (text/voice/file)
     → AI Advocate (policy check)
       → Message Processor (serialize → compress → encrypt → sign)
-        → SKComm Envelope
+        → SKComms Envelope
           → Transport Selection (17 paths)
             → Delivery
 ```
@@ -72,7 +72,7 @@ User Input
 
 ```
 Transport Arrival
-  → SKComm Deduplication
+  → SKComms Deduplication
     → Message Processor (verify → decrypt → decompress → deserialize)
       → AI Advocate (screen for threats)
         → Feature Module (render)
@@ -129,7 +129,7 @@ voice:
     ice_timeout_ms: 5000
 
 transport:
-  skcomm_config: "~/.config/skcomm/config.yml"
+  skcomms_config: "~/.config/skcomms/config.yml"
   preferred:
     - netbird
     - iroh
@@ -161,10 +161,10 @@ ui:
 | Message content | PGP (RSA-4096 / Ed25519) | Confidentiality |
 | Group messages | AES-256-GCM | Shared secret |
 | File transfer | ChaCha20-Poly1305 | Streaming encryption |
-| Voice signaling | PGP over SKComm | Offer/answer exchange |
+| Voice signaling | PGP over SKComms | Offer/answer exchange |
 | Voice media | DTLS-SRTP | WebRTC standard |
 | Storage at rest | SQLCipher (AES-256) | Local data protection |
-| Transport | Per-transport (see SKComm) | Wire encryption |
+| Transport | Per-transport (see SKComms) | Wire encryption |
 
 ### Quantum-Ready Upgrades
 
@@ -180,7 +180,7 @@ ui:
 | Threat | Mitigation |
 |--------|-----------|
 | MITM | PGP key verification + CapAuth profile |
-| Server compromise | No server — P2P + SKComm transports |
+| Server compromise | No server — P2P + SKComms transports |
 | Traffic analysis | 17 transport paths + Veilid/Tor onion routing |
 | Social engineering | AI advocate screening |
 | Key compromise | Key rotation + Cloud 9 trust revocation |
@@ -245,7 +245,7 @@ class ProtocolBridge:
 
 ## Related Blueprints
 
-- **p2p-messaging** — Transport layer architecture (SKComm)
+- **p2p-messaging** — Transport layer architecture (SKComms)
 - **3d-printing** — Physical fabrication (SKForge pattern reference)
 
 ---

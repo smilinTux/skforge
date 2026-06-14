@@ -2,7 +2,7 @@
 
 ## Overview & Purpose
 
-SKSovereign-Agent is a unified Python SDK that packages the entire sovereign infrastructure stack into a single import. Instead of wiring together CapAuth, SKMemory, SKChat, and SKComm separately, developers import `sksovereign` and get identity, emotional memory, encrypted messaging, and peer-to-peer transport in one coherent API. The SDK follows an agent-centric lifecycle: init an agent, remember things, send messages, receive responses -- all with sovereign identity baked in.
+SKSovereign-Agent is a unified Python SDK that packages the entire sovereign infrastructure stack into a single import. Instead of wiring together CapAuth, SKMemory, SKChat, and SKComms separately, developers import `sksovereign` and get identity, emotional memory, encrypted messaging, and peer-to-peer transport in one coherent API. The SDK follows an agent-centric lifecycle: init an agent, remember things, send messages, receive responses -- all with sovereign identity baked in.
 
 ### Core Responsibilities
 - **Unified Entry Point**: Single `Agent` class that orchestrates all subsystems
@@ -10,7 +10,7 @@ SKSovereign-Agent is a unified Python SDK that packages the entire sovereign inf
 - **Identity Management**: CapAuth key creation, loading, and delegation via SDK
 - **Emotional Memory**: SKMemory integration for persistent, emotionally-weighted recall
 - **Encrypted Messaging**: SKChat P2P messaging with full E2E encryption
-- **Transport Abstraction**: SKComm multi-transport routing without manual configuration
+- **Transport Abstraction**: SKComms multi-transport routing without manual configuration
 - **Quick Helpers**: Module-level functions for one-liner operations
 - **Home Directory Convention**: All state lives under `~/.skcapstone/` by default
 - **Re-exported APIs**: Full access to subsystem internals when needed
@@ -28,7 +28,7 @@ Agent {
     identity: CapAuth identity (lazy-loaded)
     memory: SKMemory instance (lazy-loaded)
     chat: SKChat messenger (lazy-loaded)
-    transport: SKComm router (lazy-loaded)
+    transport: SKComms router (lazy-loaded)
     soul: Optional soul blueprint overlay
     config: AgentConfig (from YAML or code)
     state: initializing | ready | running | paused | shutdown
@@ -66,7 +66,7 @@ LazySubsystem {
 Subsystem load order (when triggered):
   1. Identity (CapAuth) -- required by all others
   2. Memory (SKMemory) -- independent after identity
-  3. Transport (SKComm) -- independent after identity
+  3. Transport (SKComms) -- independent after identity
   4. Chat (SKChat) -- requires transport + identity
 ```
 
@@ -181,7 +181,7 @@ sksovereign.Agent
         |-- .identity  ──>  CapAuth (loaded on first access)
         |-- .memory     ──>  SKMemory (loaded on first access)
         |-- .chat       ──>  SKChat (loaded on first access)
-        |-- .transport  ──>  SKComm (loaded on first access)
+        |-- .transport  ──>  SKComms (loaded on first access)
         |-- .events     ──>  EventBus (always loaded)
 ```
 
@@ -202,7 +202,7 @@ Entry points (pyproject.toml):
   identity = "capauth:CapAuthIdentity"
   memory = "skmemory:SKMemoryBackend"
   chat = "skchat:SKChatMessenger"
-  transport = "skcomm:SKCommRouter"
+  transport = "skcomms:SKCommsRouter"
 
 Agent.__init__():
   for ep in entry_points(group="sksovereign.subsystems"):
@@ -282,7 +282,7 @@ First call to agent.memory:
 First call to agent.send() or agent.receive():
         |
         v
-  SKComm: initialize enabled transports
+  SKComms: initialize enabled transports
   ├── Start listeners (if config.transport.listen)
   └── Load peer registry
 ```
@@ -304,7 +304,7 @@ Create SKChat message:
   └── Attach metadata (timestamp, thread, priority)
         |
         v
-Route via SKComm:
+Route via SKComms:
   transport.route(envelope) -> DeliveryResult
   ├── Select transport (priority failover)
   ├── Send via selected transport
@@ -529,7 +529,7 @@ sksovereign/
     identity.py             # CapAuth wrapper subsystem
     memory.py               # SKMemory wrapper subsystem
     chat.py                 # SKChat wrapper subsystem
-    transport.py            # SKComm wrapper subsystem
+    transport.py            # SKComms wrapper subsystem
   cli/
     __init__.py
     main.py                 # Click CLI entry point

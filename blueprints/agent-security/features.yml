@@ -210,7 +210,7 @@ groups:
         complexity: medium
         default: true
       - name: moltbook-security-feed
-        description: Sovereign threat intelligence via Moltbook Security over SKComm
+        description: Sovereign threat intelligence via Moltbook Security over SKComms
         complexity: medium
         default: true
       - name: ai-pattern-generation
@@ -218,7 +218,7 @@ groups:
         complexity: high
         default: true
       - name: community-intelligence
-        description: P2P threat intelligence sharing between sovereign nodes via SKComm
+        description: P2P threat intelligence sharing between sovereign nodes via SKComms
         complexity: medium
         default: false
       - name: feed-normalization
@@ -249,8 +249,8 @@ groups:
         description: Send security alerts via SMTP email
         complexity: low
         default: true
-      - name: skcomm-alerts
-        description: Send alerts via sovereign SKComm P2P messaging
+      - name: skcomms-alerts
+        description: Send alerts via sovereign SKComms P2P messaging
         complexity: medium
         default: true
       - name: pagerduty-integration
@@ -388,8 +388,8 @@ groups:
         description: CapAuth-based identity and token validation for all operations
         complexity: high
         default: true
-      - name: skcomm-transport
-        description: Receive threat intelligence and send alerts via SKComm
+      - name: skcomms-transport
+        description: Receive threat intelligence and send alerts via SKComms
         complexity: medium
         default: true
       - name: skcapstone-agent
@@ -429,7 +429,7 @@ dependencies:
   optional:
     - docker: ">=7.0.0"
     - scapy: ">=2.5.0"
-    - skcomm: ">=0.1.0"
+    - skcomms: ">=0.1.0"
     - capauth-sdk: ">=0.1.0"
     - skcapstone-sdk: ">=0.1.0"
     - prometheus-client: ">=0.20.0"

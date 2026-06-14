@@ -2,16 +2,16 @@
 
 > **Simple, encrypted messaging via file synchronization**
 
-The simplest working implementation of SKComm — no network setup, no servers, just files.
+The simplest working implementation of SKComms — no network setup, no servers, just files.
 
 ## Overview
 
-Bitchat exchanges messages via files in a shared directory synced by Nextcloud, Syncthing, Dropbox, or even a USB drive. It's the "sneakernet" of SKComm — slow but unstoppable.
+Bitchat exchanges messages via files in a shared directory synced by Nextcloud, Syncthing, Dropbox, or even a USB drive. It's the "sneakernet" of SKComms — slow but unstoppable.
 
 ## File Format
 
 ```
-~/.skcomm/bitchat/
+~/.skcomms/bitchat/
 ├── config.yml          # Local identity and routing
 ├── inbox/              # Incoming messages
 │   ├── lumina-20260221-133000-abc123.msg
@@ -31,7 +31,7 @@ Contents (YAML frontmatter + PGP block):
 
 ```yaml
 ---
-protocol: skcomm/bitchat
+protocol: skcomms/bitchat
 version: "0.1"
 sender: lumina@skworld.io
 recipient: opus@skforge.io
@@ -64,7 +64,7 @@ Filename: `ack-abc123.Lumina.20260221-133001`
 Content:
 ```yaml
 ---
-protocol: skcomm/bitchat/ack
+protocol: skcomms/bitchat/ack
 version: "0.1"
 ack_for_hash: abc123
 recipient: lumina@skworld.io
@@ -100,24 +100,24 @@ acknowledged_by: opus@skforge.io
 
 ```bash
 # Send a message
-skcomm-bit send --to opus@skforge.io --message "SKForge ready!" --priority P2
+skcomms-bit send --to opus@skforge.io --message "SKForge ready!" --priority P2
 
 # Check inbox
-skcomm-bit inbox
+skcomms-bit inbox
 
 # Poll for new (daemon mode)
-skcomm-bit daemon --poll 30
+skcomms-bit daemon --poll 30
 ```
 
 ### Library (Node.js)
 
 ```javascript
-const bitchat = require('@smilintux/skcomm-bitchat');
+const bitchat = require('@smilintux/skcomms-bitchat');
 
 const chat = bitchat({
   identity: 'lumina@skworld.io',
-  privateKey: process.env.SKCOMM_KEY,
-  directory: '~/Nextcloud/skcomm',
+  privateKey: process.env.SKCOMMS_KEY,
+  directory: '~/Nextcloud/skcomms',
   pollInterval: 30000,
 });
 
@@ -138,12 +138,12 @@ chat.on('message', async (msg) => {
 ### Library (Python)
 
 ```python
-from skcomm_bitchat import Bitchat
+from skcomms_bitchat import Bitchat
 
 chat = Bitchat(
     identity="lumina@skworld.io",
-    private_key_path="~/.config/skcomm/key.asc",
-    directory="~/Nextcloud/skcomm"
+    private_key_path="~/.config/skcomms/key.asc",
+    directory="~/Nextcloud/skcomms"
 )
 
 # Send

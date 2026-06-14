@@ -2,7 +2,7 @@
 
 ## Overview
 
-Netbird provides self-hosted WireGuard mesh VPN — the primary Layer 1 channel for SKComm. Sovereign, encrypted, zero trust.
+Netbird provides self-hosted WireGuard mesh VPN — the primary Layer 1 channel for SKComms. Sovereign, encrypted, zero trust.
 
 ## Architecture
 
@@ -61,7 +61,7 @@ Add to `/etc/netbird/config.json`:
     "nameservers": [
       {
         "netbird_ip": "100.64.0.1",
-        "domains": ["skcomm.internal"]
+        "domains": ["skcomms.internal"]
       }
     ]
   }
@@ -72,12 +72,12 @@ Create service entries:
 
 ```
 # DNS Records (managed via Netbird)
-lumina.skcomm.internal  → 100.64.0.10
-opus.skcomm.internal    → 100.64.0.11
-jarvis.skcomm.internal  → 100.64.0.12
+lumina.skcomms.internal  → 100.64.0.10
+opus.skcomms.internal    → 100.64.0.11
+jarvis.skcomms.internal  → 100.64.0.12
 ```
 
-## SKComm Integration
+## SKComms Integration
 
 ### Service Discovery
 
@@ -87,10 +87,10 @@ const peers = await netbird.peers.list();
 const opuses = peers.filter(p => p.name.includes('opus'));
 
 // Send via WireGuard tunnel
-await skcomm.send({
-  to: opuses[0].dns_label, // 'opus.skcomm.internal'
+await skcomms.send({
+  to: opuses[0].dns_label, // 'opus.skcomms.internal'
   channel: 'netbird',
-  port: 8443, // SKComm service port
+  port: 8443, // SKComms service port
 });
 ```
 
@@ -98,7 +98,7 @@ await skcomm.send({
 
 ```json
 {
-  "name": "SKComm Agents",
+  "name": "SKComms Agents",
   "peers": ["lumina", "opus", "jarvis"],
   "actions": ["allow"],
   "rules": [
@@ -118,8 +118,8 @@ await skcomm.send({
 netbird status
 
 # Ping mesh peers
-ping lumina.skcomm.internal
-ping opus.skcomm.internal
+ping lumina.skcomms.internal
+ping opus.skcomms.internal
 
 # Check routes
 netbird routes list
@@ -134,10 +134,10 @@ cat /var/log/netbird/netbird.log
 If Netbird fails:
 
 ```bash
-# Auto-fallback in SKComm
+# Auto-fallback in SKComms
 if (!netbird.healthy) {
   await tailscale.up();
-  await skcomm.send({ channel: 'tailscale', ... });
+  await skcomms.send({ channel: 'tailscale', ... });
 }
 ```
 

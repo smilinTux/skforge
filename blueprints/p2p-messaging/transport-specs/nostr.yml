@@ -25,9 +25,9 @@ architecture:
     - kind_15: private file message (NIP-17)
     - kind_1059: gift wrap (NIP-59)
 
-skcomm_integration:
+skcomms_integration:
   how_it_works:
-    - SKComm envelope serialized to JSON
+    - SKComms envelope serialized to JSON
     - PGP-encrypted payload placed in Nostr event content field
     - Event wrapped with NIP-59 gift wrap to hide metadata from relays
     - Published to configured relays via WebSocket

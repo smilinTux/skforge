@@ -297,8 +297,8 @@ groups:
         description: Emit events on sign, countersign, verify, revoke operations
         complexity: medium
         default: true
-      - name: skcomm-notifications
-        description: Send signing notifications via SKComm P2P transport
+      - name: skcomms-notifications
+        description: Send signing notifications via SKComms P2P transport
         complexity: medium
         default: false
         dependencies: [notification-events]
@@ -344,8 +344,8 @@ groups:
         description: Run as SKCapstone MCP skill providing signing tools to agents
         complexity: high
         default: false
-      - name: skcomm-transport
-        description: Receive signing requests and deliver signatures via SKComm
+      - name: skcomms-transport
+        description: Receive signing requests and deliver signatures via SKComms
         complexity: high
         default: false
       - name: skmemory-audit-sync
@@ -374,7 +374,7 @@ dependencies:
     - aiosqlite: ">=0.20.0"
     - pillow: ">=10.0.0"
   optional:
-    - skcomm: ">=0.1.0"
+    - skcomms: ">=0.1.0"
     - capauth-sdk: ">=0.1.0"
     - skcapstone-sdk: ">=0.1.0"
     - prometheus-client: ">=0.20.0"

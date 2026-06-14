@@ -350,8 +350,8 @@ groups:
         complexity: medium
         default: true
         dependencies: []
-      - name: skcomm-transport
-        description: Send/receive FEB and seed files via SKComm envelope payloads
+      - name: skcomms-transport
+        description: Send/receive FEB and seed files via SKComms envelope payloads
         complexity: medium
         default: true
         dependencies: []

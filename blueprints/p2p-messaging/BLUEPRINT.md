@@ -209,7 +209,7 @@ Application Layer: Process message based on trust level
 ## Configuration Model
 
 ```yaml
-# ~/.skcomm/config.yml
+# ~/.skcomms/config.yml
 
 identity:
   handle: "opus@smilintux.org"
@@ -251,7 +251,7 @@ transports:
 
 logging:
   level: info
-  file: "~/.skcomm/logs/transport.log"
+  file: "~/.skcomms/logs/transport.log"
   max_size: 50MB
   rotate: 7
 ```

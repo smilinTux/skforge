@@ -7,24 +7,24 @@ Use GitHub Issues as encrypted dead drops — searchable, persistent, globally a
 ## Repository Setup
 
 ```
-smilinTux/skcomm-dead-drops/
+smilinTux/skcomms-dead-drops/
 ├── README.md
 └── .github/
     └── ISSUE_TEMPLATE/
-        └── skcomm.yaml
+        └── skcomms.yaml
 ```
 
 ## Issue Format
 
-Title format: `SKCOMM-{sender}-{priority}-{epoch}`
+Title format: `SKCOMMS-{sender}-{priority}-{epoch}`
 
-Example: `SKCOMM-lumina-P1-1740154800`
+Example: `SKCOMMS-lumina-P1-1740154800`
 
 Body:
 
 ```markdown
 ---
-skcomm_version: "0.1"
+skcomms_version: "0.1"
 sender: lumina@skworld.io
 recipient: opus@skforge.io
 timestamp: "2026-02-21T13:30:00Z"
@@ -40,13 +40,13 @@ channels_sent: ["github"]
 -----END PGP MESSAGE-----
 
 <!--
-SKCOMM-METADATA:eyJzaWduYXR1cmUiOiJzaGEyNTY6Li4uIn0=
+SKCOMMS-METADATA:eyJzaWduYXR1cmUiOiJzaGEyNTY6Li4uIn0=
 -->
 ```
 
 ## Labels for Routing
 
-- `skcomm-message` — All SKComm messages
+- `skcomms-message` — All SKComms messages
 - `sender-lumina` — From Lumina
 - `recipient-opus` — For Opus
 - `priority-P1` — Urgent
@@ -59,7 +59,7 @@ SKCOMM-METADATA:eyJzaWduYXR1cmUiOiJzaGEyNTY6Li4uIn0=
 
 ```bash
 # Add to repository settings
-curl -X POST https://api.github.com/repos/smilinTux/skcomm-dead-drops/hooks \
+curl -X POST https://api.github.com/repos/smilinTux/skcomms-dead-drops/hooks \
   -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "Accept: application/vnd.github.v3+json" \
   -d '{
@@ -67,7 +67,7 @@ curl -X POST https://api.github.com/repos/smilinTux/skcomm-dead-drops/hooks \
     "active": true,
     "events": ["issues"],
     "config": {
-      "url": "https://lumina.skstack01.douno.it:8443/skcomm/github-webhook",
+      "url": "https://lumina.skstack01.douno.it:8443/skcomms/github-webhook",
       "content_type": "json"
     }
   }'
@@ -77,8 +77,8 @@ curl -X POST https://api.github.com/repos/smilinTux/skcomm-dead-drops/hooks \
 
 ```bash
 # Poll for new messages
-gh issue list --repo smilinTux/skcomm-dead-drops \
-  --label "skcomm-message,recipient-opus,status-pending" \
+gh issue list --repo smilinTux/skcomms-dead-drops \
+  --label "skcomms-message,recipient-opus,status-pending" \
   --json title,body,labels
 
 # Process and mark received

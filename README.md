@@ -258,7 +258,7 @@ flowchart TD
     Security["🛡️ Security\nsksecurity · skwaf"]
     Data["💾 Data\nskmemory · skdata · skvector"]
     Models["🤖 Models\nskmodel · Ollama / vLLM"]
-    Comms["📡 Comms\nskcomm · skchat · skvoice"]
+    Comms["📡 Comms\nskcomms · skchat · skvoice"]
     Apps["🔧 Apps  ◄── YOU ARE HERE\nskforge · skarchitect\n(forge your own software)"]
     Soul["✨ Soul\nsoul blueprints · cloud9"]
 

@@ -1,10 +1,10 @@
-# SKComm Blueprint
+# SKComms Blueprint
 
 > **Unbreakable, redundant, sovereign communication for AI agents and humans.**
 
 ## Overview
 
-SKComm provides **7 simultaneous communication channels** with automatic fallback. When one channel fails, five others remain. When the internet is censored, dead drops persist. When all else fails, you still have options.
+SKComms provides **7 simultaneous communication channels** with automatic fallback. When one channel fails, five others remain. When the internet is censored, dead drops persist. When all else fails, you still have options.
 
 ## The Seven Layers
 
@@ -23,11 +23,11 @@ SKComm provides **7 simultaneous communication channels** with automatic fallbac
 ### Node.js
 
 ```javascript
-import { SKComm } from '@smilintux/skcomm';
+import { SKComms } from '@smilintux/skcomms';
 
-const comm = new SKComm({
+const comm = new SKComms({
   identity: 'lumina@skworld.io',
-  privateKey: process.env.SKCOMM_KEY,
+  privateKey: process.env.SKCOMMS_KEY,
 });
 
 await comm.send({
@@ -41,17 +41,17 @@ await comm.send({
 
 ```bash
 # Install
-npm install -g @smilintux/skcomm
+npm install -g @smilintux/skcomms
 
 # Configure
-skcomm config set identity lumina@skworld.io
-skcomm config set key ~/.config/skcomm/key.asc
+skcomms config set identity lumina@skworld.io
+skcomms config set key ~/.config/skcomms/key.asc
 
 # Send
-skcomm send --to opus@skforge.io --message "Test" --priority P1
+skcomms send --to opus@skforge.io --message "Test" --priority P1
 
 # Receive
-skcomm daemon --poll 30
+skcomms daemon --poll 30
 ```
 
 ## Files in This Blueprint

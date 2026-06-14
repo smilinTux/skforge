@@ -579,7 +579,7 @@ class SessionCapturer:
             "trust": r'\b(trust|capability|token|feb|cloud.?9)\b',
             "security": r'\b(security|audit|encrypt|kms|access)\b',
             "sync": r'\b(sync|syncthing|seed|push|pull|mesh)\b',
-            "skchat": r'\b(chat|message|conversation|skcomm)\b',
+            "skchat": r'\b(chat|message|conversation|skcomms)\b',
             "capauth": r'\b(capauth|authentication|sovereign.?profile)\b',
             "architecture": r'\b(architecture|design|pattern|blueprint)\b',
         }

@@ -286,7 +286,7 @@ Template defines required signers and order
             Certain fields only fillable by specific roles
         │
         ▼
-Each signer receives notification (via SKComm or webhook)
+Each signer receives notification (via SKComms or webhook)
         │
         ▼
 Each signer signs their assigned fields
@@ -344,7 +344,7 @@ audit:
 
 notifications:
   enabled: false
-  transport: "skcomm"                    # skcomm | webhook | email
+  transport: "skcomms"                    # skcomms | webhook | email
   webhook_url: null
   on_events: ["signed", "countersigned", "revoked"]
 
@@ -461,7 +461,7 @@ class NotificationTransport(ABC):
 | `CapabilityGate` | CapAuth token validation middleware | CapAuth SDK |
 | `APIServer` | FastAPI REST endpoints | FastAPI, uvicorn |
 | `CLIApp` | Command-line interface | click, rich |
-| `NotificationService` | Event-driven signing notifications | SKComm client |
+| `NotificationService` | Event-driven signing notifications | SKComms client |
 
 ### Data Structures
 

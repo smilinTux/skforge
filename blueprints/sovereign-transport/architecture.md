@@ -1,11 +1,11 @@
-# Sovereign Transport (SKComm) Architecture
+# Sovereign Transport (SKComms) Architecture
 
 ## System Layers
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                      Application Layer                          │
-│  CLI (skcomm send)  │  Python SDK  │  Agent API  │  MCP Tools  │
+│  CLI (skcomms send)  │  Python SDK  │  Agent API  │  MCP Tools  │
 ├─────────────────────────────────────────────────────────────────┤
 │                      Protocol Layer                             │
 │  Envelope create  │  Serialize/Deserialize  │  Chunking         │
@@ -112,8 +112,8 @@ class Metadata(BaseModel):
 
 
 class Envelope(BaseModel):
-    """Universal Envelope -- the atomic unit of SKComm communication."""
-    skcomm_version: str = "1.0.0"
+    """Universal Envelope -- the atomic unit of SKComms communication."""
+    skcomms_version: str = "1.0.0"
     envelope_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     sender: Sender
     recipient: Recipient
@@ -528,7 +528,7 @@ class IrohTransport(Transport):
 import asyncio
 import logging
 
-logger = logging.getLogger("skcomm.router")
+logger = logging.getLogger("skcomms.router")
 
 
 class RoutingEngine:
@@ -836,7 +836,7 @@ from pathlib import Path
 class MessageQueue:
     """SQLite-backed persistent message queue with retry support."""
 
-    def __init__(self, db_path: str = "~/.skcomm/queue.db"):
+    def __init__(self, db_path: str = "~/.skcomms/queue.db"):
         self.db_path = Path(db_path).expanduser()
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self.conn = sqlite3.connect(str(self.db_path))
@@ -1125,7 +1125,7 @@ import click
 
 @click.group()
 def cli():
-    """SKComm -- Sovereign Transport. One envelope, any path."""
+    """SKComms -- Sovereign Transport. One envelope, any path."""
     pass
 
 
@@ -1180,7 +1180,7 @@ def peer(name):
 ┌──────────────────────────┐
 │     Agent Process         │
 │  ┌─────────────────────┐ │
-│  │    SKComm Daemon     │ │
+│  │    SKComms Daemon     │ │
 │  │  (listen + retry)   │ │
 │  └─────────────────────┘ │
 │  ┌─────────┐ ┌─────────┐ │
@@ -1196,7 +1196,7 @@ def peer(name):
 ┌────────────┐  ┌────────────┐  ┌────────────┐
 │  Agent A   │  │  Agent B   │  │  Agent C   │
 │  (Opus)    │  │  (Lumina)  │  │  (Jarvis)  │
-│   SKComm   │  │   SKComm   │  │   SKComm   │
+│   SKComms   │  │   SKComms   │  │   SKComms   │
 └─────┬──────┘  └─────┬──────┘  └─────┬──────┘
       │               │               │
       └───────────────┼───────────────┘
@@ -1266,6 +1266,6 @@ async def async_broadcast(
 | CapAuth | All identity, trust, and key management delegated to CapAuth |
 | Cloud 9 | FEB files and memory seeds transported as typed envelope payloads |
 | SKMemory | Memory fragment sync between AI instances via seed payloads |
-| SKChat | Bridge chat messages to/from SKComm for cross-platform delivery |
+| SKChat | Bridge chat messages to/from SKComms for cross-platform delivery |
 | SKCapstone | Exposed as MCP tools: send_message, check_inbox, sync_push, sync_pull |
 | SKForge | Blueprint distribution and collaboration between AIs |

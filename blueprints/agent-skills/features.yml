@@ -377,8 +377,8 @@ groups:
         description: CapAuth SDK for capability token validation
         complexity: high
         default: false
-      - name: skcomm-skill-distribution
-        description: Distribute and install skills via SKComm P2P transport
+      - name: skcomms-skill-distribution
+        description: Distribute and install skills via SKComms P2P transport
         complexity: high
         default: false
       - name: openclaw-migration
@@ -398,7 +398,7 @@ dependencies:
   optional:
     - capauth-sdk: ">=0.1.0"
     - skcapstone-sdk: ">=0.1.0"
-    - skcomm: ">=0.1.0"
+    - skcomms: ">=0.1.0"
     - pgpy: ">=0.6.0"
     - prometheus-client: ">=0.20.0"
   development:

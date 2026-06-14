@@ -12,13 +12,13 @@ Hide PGP-encrypted messages in plain sight — website HTML comments, CSS proper
 <div class="content">
   <p>Publicly visible website content here</p>
   <!--
-  SKCOMM:BEGIN:sha256(encrypted_content_hash)
+  SKCOMMS:BEGIN:sha256(encrypted_content_hash)
   
   Encrypted PGP block encoded in base64:
   
   eJw9kDEOwjAMRe8z... (truncated)
   
-  SKCOMM:END:sha256(encrypted_content_hash)
+  SKCOMMS:END:sha256(encrypted_content_hash)
   -->
 </div>
 ```
@@ -37,8 +37,8 @@ const comments = document.createTreeWalker(
 let message = '';
 while (comments.nextNode()) {
   const comment = comments.currentNode.nodeValue;
-  if (comment.includes('SKCOMM:BEGIN:')) {
-    message = comment.match(/SKCOMM:BEGIN:[\w]+\n(.+)SKCOMM:END:/s)[1].trim();
+  if (comment.includes('SKCOMMS:BEGIN:')) {
+    message = comment.match(/SKCOMMS:BEGIN:[\w]+\n(.+)SKCOMMS:END:/s)[1].trim();
     break;
   }
 }
@@ -88,7 +88,7 @@ const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 const data = imageData.data;
 
 // Embed message in LSB of red channel
-const message = "Encrypted SKComm payload...";
+const message = "Encrypted SKComms payload...";
 const binary = message.split('').map(c => c.charCodeAt(0).toString(2).padStart(8, '0')).join('');
 
 for (let i = 0; i < binary.length; i++) {
@@ -103,7 +103,7 @@ await saveImage(canvas.toDataURL());
 
 ```css
 /* Message hidden in unused CSS */
-.skcomm-dead-drop {
+.skcomms-dead-drop {
   content: "b64_encrypted_message_here_long_enough_for_pgp_block";
   /* This element never displays but CSS loads */
 }
@@ -112,7 +112,7 @@ await saveImage(canvas.toDataURL());
 Extraction:
 
 ```javascript
-const styles = getComputedStyle(document.querySelector('.skcomm-dead-drop'));
+const styles = getComputedStyle(document.querySelector('.skcomms-dead-drop'));
 const payload = styles.getPropertyValue('content').replace(/"/g, '');
 ```
 
@@ -128,7 +128,7 @@ cdn.skcty.io/
 ├── style.css       (steganographic CSS)
 ├── logo.png        (image with LSB)
 └── .well-known/
-    └── skcomm.json (discovery endpoint)
+    └── skcomms.json (discovery endpoint)
 ```
 
 ### Discovery
@@ -144,7 +144,7 @@ const mirrors = [
 
 for (const url of mirrors) {
   try {
-    const response = await fetch(`${url}/.well-known/skcomm.json`);
+    const response = await fetch(`${url}/.well-known/skcomms.json`);
     if (response.ok) {
       const { deadDropUrl, lastUpdated } = await response.json();
       if (new Date(lastUpdated) > new Date(Date.now() - 60000)) {

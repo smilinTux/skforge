@@ -1133,7 +1133,7 @@ class CurationEngine:
             "relationship": ["together", "we", "bond", "connection"],
             "skcapstone": ["skcapstone", "capstone", "mcp"],
             "skchat": ["skchat", "chat", "message"],
-            "skcomm": ["skcomm", "transport", "envelope"],
+            "skcomms": ["skcomms", "transport", "envelope"],
             "capauth": ["capauth", "pgp", "authentication"],
         }
         content_lower = content.lower()
@@ -1301,6 +1301,6 @@ FalkorDB (container):
 |--------|------------|
 | SKCapstone | Exposed as MCP tools: memory_store, memory_search, memory_recall, memory_curate |
 | Cloud 9 | Seed import/export for AI emotional continuity |
-| SKComm | Memory sync between instances via seed transport payloads |
+| SKComms | Memory sync between instances via seed transport payloads |
 | SKChat | Auto-capture chat conversations as session memories |
 | CapAuth | Authentication and soul context enforcement |

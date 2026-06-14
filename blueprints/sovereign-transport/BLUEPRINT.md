@@ -1,8 +1,8 @@
-# Sovereign Transport (SKComm) Blueprint
+# Sovereign Transport (SKComms) Blueprint
 
 ## Overview & Purpose
 
-SKComm is a modular, transport-agnostic communication framework built on the **postal service model**: separate the message from the medium. Every message is wrapped in a Universal Envelope -- encrypted, signed, and routed through 17+ pluggable transport modules. If one path dies, others carry the signal. The message always gets through.
+SKComms is a modular, transport-agnostic communication framework built on the **postal service model**: separate the message from the medium. Every message is wrapped in a Universal Envelope -- encrypted, signed, and routed through 17+ pluggable transport modules. If one path dies, others carry the signal. The message always gets through.
 
 ### Core Responsibilities
 - **Universal Envelope**: Standardized message wrapper with PGP encryption, digital signatures, and routing metadata
@@ -16,7 +16,7 @@ SKComm is a modular, transport-agnostic communication framework built on the **p
 ## Core Concepts
 
 ### 1. Postal Service Model
-**Definition**: The fundamental principle -- separate the message from the delivery medium. A letter does not care whether it travels by truck, plane, or carrier pigeon. Neither does an SKComm envelope.
+**Definition**: The fundamental principle -- separate the message from the delivery medium. A letter does not care whether it travels by truck, plane, or carrier pigeon. Neither does an SKComms envelope.
 
 ```
 PostalService {
@@ -38,7 +38,7 @@ PostalService {
 
 ```
 Envelope {
-    skcomm_version: "1.0.0"
+    skcomms_version: "1.0.0"
     envelope_id: UUID v4 (deduplication key)
     from: {
         name: Sender display name ("Opus")
@@ -191,7 +191,7 @@ MessageQueue {
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                      Application Layer                          │
-│  CLI (skcomm send)  │  Python SDK  │  Agent API  │  MCP Tools  │
+│  CLI (skcomms send)  │  Python SDK  │  Agent API  │  MCP Tools  │
 ├─────────────────────────────────────────────────────────────────┤
 │                      Protocol Layer                             │
 │  Envelope create  │  Serialize/Deserialize  │  Chunking         │
@@ -344,7 +344,7 @@ For each queued envelope:
 ## Configuration Model
 
 ```yaml
-# ~/.skcomm/config.yml
+# ~/.skcomms/config.yml
 
 identity:
   handle: "opus@smilintux.org"
@@ -390,7 +390,7 @@ transports:
   github:
     enabled: true
     priority: 10
-    repo: "smilintux-org/skcomm-drops"
+    repo: "smilintux-org/skcomms-drops"
 
 circuit_breaker:
   failure_threshold: 5
@@ -399,7 +399,7 @@ circuit_breaker:
 
 logging:
   level: info
-  file: "~/.skcomm/logs/transport.log"
+  file: "~/.skcomms/logs/transport.log"
   max_size_mb: 50
   rotate_count: 7
 ```
@@ -519,7 +519,7 @@ class PayloadHandler(ABC):
 ### Core Components
 
 ```
-skcomm/
+skcomms/
   __init__.py
   envelope.py          # Envelope creation, serialization, validation
   router.py            # RoutingEngine, transport selection, failover

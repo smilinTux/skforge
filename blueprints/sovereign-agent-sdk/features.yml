@@ -179,11 +179,11 @@ groups:
         default: false
         dependencies: [skchat-messenger]
 
-  - name: Transport (SKComm Integration)
+  - name: Transport (SKComms Integration)
     description: Multi-transport routing and delivery
     features:
-      - name: skcomm-router
-        description: SKComm multi-transport routing with priority failover
+      - name: skcomms-router
+        description: SKComms multi-transport routing with priority failover
         complexity: high
         default: true
         dependencies: [lazy-subsystem-loading]
@@ -191,37 +191,37 @@ groups:
         description: Shared filesystem transport for local and NFS messaging
         complexity: low
         default: true
-        dependencies: [skcomm-router]
+        dependencies: [skcomms-router]
       - name: iroh-transport
         description: Iroh QUIC-based P2P transport with NAT hole-punching
         complexity: medium
         default: true
-        dependencies: [skcomm-router]
+        dependencies: [skcomms-router]
       - name: nostr-transport
         description: Nostr relay network transport for global reach
         complexity: medium
         default: false
-        dependencies: [skcomm-router]
+        dependencies: [skcomms-router]
       - name: transport-failover
         description: Automatic fallback to next-priority transport on send failure
         complexity: medium
         default: true
-        dependencies: [skcomm-router]
+        dependencies: [skcomms-router]
       - name: transport-broadcast
         description: Send via all available transports for critical messages
         complexity: medium
         default: true
-        dependencies: [skcomm-router, transport-failover]
+        dependencies: [skcomms-router, transport-failover]
       - name: transport-listener
         description: Background listener loop for incoming messages across all transports
         complexity: medium
         default: true
-        dependencies: [skcomm-router]
+        dependencies: [skcomms-router]
       - name: transport-health
         description: Monitor transport connectivity and trigger circuit breaker on repeated failure
         complexity: medium
         default: true
-        dependencies: [skcomm-router]
+        dependencies: [skcomms-router]
 
   - name: Quick Helpers
     description: Module-level convenience functions for scripting
@@ -442,7 +442,7 @@ dependencies:
     - capauth>=0.1.0
     - skmemory>=0.1.0
     - skchat>=0.1.0
-    - skcomm>=0.1.0
+    - skcomms>=0.1.0
     - souls-blueprints>=0.1.0
   development:
     - pytest>=7.4

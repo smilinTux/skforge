@@ -26,9 +26,9 @@ architecture:
     - no registration required
     - no phone number, no email
 
-skcomm_integration:
+skcomms_integration:
   how_it_works:
-    - SKComm envelope PGP-encrypted before entering BitChat
+    - SKComms envelope PGP-encrypted before entering BitChat
     - Message sent via BLE mesh to nearby devices
     - Devices relay message hop-by-hop until reaching recipient
     - If recipient is out of BLE range, message stored at intermediate nodes
@@ -72,7 +72,7 @@ weaknesses:
 security_notes: >
   Block developers have acknowledged that BitChat doesn't yet meet all stated
   security goals. It lacks standard approaches like Signal-style X3DH + double
-  ratchet. For SKComm, this is mitigated by mandatory PGP encryption on top of
+  ratchet. For SKComms, this is mitigated by mandatory PGP encryption on top of
   BitChat's native layer — even if BitChat's encryption is broken, PGP holds.
 
 use_cases:
@@ -90,4 +90,4 @@ configuration_example:
   message_ttl: 3600
   encryption: pgp
   rooms:
-    skcomm: "crustacean-penguin-alliance"
+    skcomms: "crustacean-penguin-alliance"

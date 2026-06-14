@@ -494,7 +494,7 @@ class PolicyRule:
 
 @dataclass
 class EscalationConfig:
-    channels: list[str]      # ["skcomm", "email", "sms"]
+    channels: list[str]      # ["skcomms", "email", "sms"]
     timeout_seconds: int
     fallback_action: AdvocateDecision
     require_justification: bool = False

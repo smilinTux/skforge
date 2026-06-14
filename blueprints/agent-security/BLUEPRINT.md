@@ -82,7 +82,7 @@ ThreatIntelligence {
         {
             name: "Moltbook Security Feed"
             type: "sovereign_feed"
-            transport: "skcomm"
+            transport: "skcomms"
             refresh_interval: 300
             format: "envelope"
         },
@@ -96,7 +96,7 @@ ThreatIntelligence {
         {
             name: "Community Intelligence"
             type: "p2p_shared"
-            transport: "skcomm"
+            transport: "skcomms"
             refresh_interval: 600
             format: "envelope"
         }
@@ -408,9 +408,9 @@ Severity Check: Is auto-response configured for this severity?
         ▼
 Alert Routing: Notify based on severity and routing rules
         │
-        ├── CRITICAL → PagerDuty + Slack + Email + SKComm
-        ├── HIGH → Slack + Email + SKComm
-        ├── MEDIUM → Slack + SKComm
+        ├── CRITICAL → PagerDuty + Slack + Email + SKComms
+        ├── HIGH → Slack + Email + SKComms
+        ├── MEDIUM → Slack + SKComms
         └── LOW → Log only (visible in SOC dashboard)
         │
         ▼
@@ -454,11 +454,11 @@ layers:
         refresh_seconds: 1800
       moltbook:
         enabled: true
-        transport: "skcomm"
+        transport: "skcomms"
         refresh_seconds: 300
       community:
         enabled: true
-        transport: "skcomm"
+        transport: "skcomms"
         refresh_seconds: 600
 
   runtime_monitoring:
@@ -498,7 +498,7 @@ alerts:
       smtp_host: "smtp.example.com"
       recipients: ["soc@example.com"]
       min_severity: "HIGH"
-    skcomm:
+    skcomms:
       enabled: true
       recipient: "soc-agent@smilintux.org"
       min_severity: "MEDIUM"
@@ -547,7 +547,7 @@ logging:
 
 ### 2. Intelligence Feed Security
 - All external feeds fetched over TLS with certificate pinning
-- Moltbook and community feeds delivered via SKComm with PGP verification
+- Moltbook and community feeds delivered via SKComms with PGP verification
 - Feed data validated against schema before ingestion
 - Stale intelligence (past TTL) automatically demoted in scoring
 
@@ -659,7 +659,7 @@ class AlertChannel(ABC):
 | `RuntimeMonitor` | Real-time syscall, network, resource tracking | psutil, scapy |
 | `DataProtector` | Encryption enforcement, DLP, data classification | CapAuth SDK |
 | `IncidentResponder` | Quarantine, alerts, rollback, forensics | Docker SDK |
-| `IntelAggregator` | Threat feed ingestion and normalization | httpx, SKComm |
+| `IntelAggregator` | Threat feed ingestion and normalization | httpx, SKComms |
 | `EventBus` | In-memory pub/sub for security events | asyncio |
 | `EventStore` | Append-only security event persistence | SQLite |
 | `BaselineEngine` | Behavioral profile learning and comparison | numpy, scipy |

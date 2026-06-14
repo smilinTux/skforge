@@ -1,5 +1,5 @@
-# Sovereign Transport (SKComm) Features Catalog
-# Based on: SKComm postal service model, 17+ transport modules
+# Sovereign Transport (SKComms) Features Catalog
+# Based on: SKComms postal service model, 17+ transport modules
 # One message format, multiple delivery paths, always gets through
 
 name: Sovereign Transport
@@ -342,7 +342,7 @@ groups:
         default: false
         dependencies: []
       - name: transport-benchmarking
-        description: "Built-in latency and throughput benchmarks per transport: skcomm bench"
+        description: "Built-in latency and throughput benchmarks per transport: skcomms bench"
         complexity: medium
         default: false
         dependencies: []
@@ -371,7 +371,7 @@ groups:
         default: false
         dependencies: []
       - name: skchat-bridge
-        description: Bridge SKChat messages to/from SKComm for cross-platform delivery
+        description: Bridge SKChat messages to/from SKComms for cross-platform delivery
         complexity: medium
         default: false
         dependencies: []

@@ -28,14 +28,14 @@ architecture:
   encryption:
     routing: "Multi-layer onion encryption (peel per hop)"
     application: "End-to-end XChaCha20-Poly1305"
-    note: "PGP added on top for SKComm (triple encryption with routing)"
+    note: "PGP added on top for SKComms (triple encryption with routing)"
 
-skcomm_integration:
+skcomms_integration:
   how_it_works:
-    - Each SKComm node joins Veilid network as equal peer
+    - Each SKComms node joins Veilid network as equal peer
     - Messages routed through multiple intermediate nodes (onion routing)
     - No node knows both sender AND receiver
-    - SKComm envelope PGP-encrypted before entering Veilid network
+    - SKComms envelope PGP-encrypted before entering Veilid network
     - Veilid adds its own onion routing encryption
     - Recipient decrypts Veilid routing → decrypts PGP → processes message
   identity_mapping:

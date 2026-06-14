@@ -488,15 +488,15 @@ categories:
 
   messaging:
     name: "Inter-Agent Messaging"
-    description: "SKComm-based agent-to-agent communication"
+    description: "SKComms-based agent-to-agent communication"
     features:
-      - name: "skcomm_send"
+      - name: "skcomms_send"
         description: "Send messages to other agents via available transports"
         complexity: "medium"
         dependencies: ["pgp_identity", "trust_peer_registry"]
         default: "on"
 
-      - name: "skcomm_receive"
+      - name: "skcomms_receive"
         description: "Check inbox for incoming messages across all transports"
         complexity: "medium"
         dependencies: ["pgp_identity"]
@@ -505,25 +505,25 @@ categories:
       - name: "message_urgency"
         description: "Message priority levels: low, normal, high, critical"
         complexity: "low"
-        dependencies: ["skcomm_send"]
+        dependencies: ["skcomms_send"]
         default: "on"
 
       - name: "message_encryption"
         description: "GPG-encrypt messages per recipient for confidentiality"
         complexity: "medium"
-        dependencies: ["skcomm_send", "pgp_identity"]
+        dependencies: ["skcomms_send", "pgp_identity"]
         default: "on"
 
       - name: "file_transport_messaging"
         description: "File-based message transport for local multi-agent setups"
         complexity: "low"
-        dependencies: ["skcomm_send"]
+        dependencies: ["skcomms_send"]
         default: "on"
 
       - name: "syncthing_transport_messaging"
         description: "Syncthing-based message transport for remote P2P messaging"
         complexity: "medium"
-        dependencies: ["skcomm_send", "syncthing_transport"]
+        dependencies: ["skcomms_send", "syncthing_transport"]
         default: "on"
 
 # Feature dependencies mapping for validation

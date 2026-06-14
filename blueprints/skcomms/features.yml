@@ -1,6 +1,6 @@
-category: skcomm
+category: skcomms
 description: Sovereign multi-layer communication protocol for unbreakable AI/agent messaging
-repository: https://github.com/smilinTux/skcomm
+repository: https://github.com/smilinTux/skcomms
 license: GPL-3.0
 
 # Feature groups aligned to SKForge schema
@@ -71,7 +71,7 @@ groups:
     description: File-based messaging via sync services (v0 protocol)
     features:
       - name: Nextcloud Sync
-        description: ~/Nextcloud/p/skcomm/ or similar for message exchange
+        description: ~/Nextcloud/p/skcomms/ or similar for message exchange
         complexity: low
         default: true
         dependencies: []

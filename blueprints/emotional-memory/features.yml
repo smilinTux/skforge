@@ -321,7 +321,7 @@ groups:
         default: true
         dependencies: [capauth-authentication]
       - name: export-encryption
-        description: PGP-encrypt memory exports for secure transport via SKComm
+        description: PGP-encrypt memory exports for secure transport via SKComms
         complexity: medium
         default: true
         dependencies: []
@@ -363,8 +363,8 @@ groups:
         complexity: medium
         default: true
         dependencies: []
-      - name: skcomm-sync
-        description: Sync memories between AI instances via SKComm seed payloads
+      - name: skcomms-sync
+        description: Sync memories between AI instances via SKComms seed payloads
         complexity: high
         default: false
         dependencies: [seed-export]
