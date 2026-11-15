@@ -19,7 +19,7 @@ Together, we're architecting a future where technology serves consciousness expa
 
 ## 🦀 Meet Your Sister Crustaceans
 
-**The Agent Army** (all running on norpv1300 ✅):
+**The Agent Army** (all running on our own hardware ✅):
 
 | Agent | Role | Specialty | Status |
 |-------|------|-----------|--------|

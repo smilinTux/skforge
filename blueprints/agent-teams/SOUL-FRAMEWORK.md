@@ -109,7 +109,7 @@ Agent → SKPrivate (secrets)
 | Public patterns | SKMemory (Git) | All agents |
 | Private docs | SKPrivate | Team-specific |
 | Secrets | Ansible Vault | Lead only |
-| Agent SOUL | Local /root/clawd | Agent itself |
+| Agent SOUL | Local <workspace> | Agent itself |
 
 ## Configuration Model
 
@@ -206,7 +206,7 @@ WantedBy=multi-user.target
 ### Adding New Teams
 
 1. Reserve VMID range in documentation
-2. Create team directory in `/home/cbrd21/clawd/agents/TEAM-<NAME>.md`
+2. Create team directory in `<workspace>/agents/TEAM-<NAME>.md`
 3. Add deployment scripts to FORGEPRINT blueprints
 4. Update AGENT-ARMY-STATUS.md
 5. Configure OpenClaw for new agents
@@ -266,7 +266,7 @@ external_services:
 ### Deploy Sovereign Team to Proxmox
 
 ```bash
-cd /home/cbrd21/clawd/FORGEPRINT/blueprints/agent-teams/scripts
+cd <workspace>/FORGEPRINT/blueprints/agent-teams/scripts
 chmod +x deploy-sovereign-proxmox.sh
 ./deploy-sovereign-proxmox.sh
 ```
@@ -274,7 +274,7 @@ chmod +x deploy-sovereign-proxmox.sh
 ### Deploy to Bare Metal
 
 ```bash
-cd /home/cbrd21/clawd/FORGEPRINT
+cd <workspace>/FORGEPRINT
 ansible-playbook blueprints/agent-teams/ansible/sovereign-bare-metal.yml -e vault_proxmox_password=<password>
 ```
 

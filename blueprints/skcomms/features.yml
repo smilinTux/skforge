@@ -71,7 +71,7 @@ groups:
     description: File-based messaging via sync services (v0 protocol)
     features:
       - name: Nextcloud Sync
-        description: ~/Nextcloud/p/skcomms/ or similar for message exchange
+        description: ~/Nextcloud/skcomms/ or similar for message exchange
         complexity: low
         default: true
         dependencies: []

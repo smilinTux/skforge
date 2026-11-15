@@ -164,16 +164,11 @@ git submodule update --init
 
 # Check critical services
 openclaw health
-curl -s http://192.168.0.100:11434/api/tags
+curl -s http://localhost:11434/api/tags
 ```
 
 ### Key Contacts
-| Name | Handle | Context |
-|------|--------|---------|
-| Chef | @chefboyrdave21 | Primary human |
-| Casey | @mr_arketech | Operationors AI, affidavits |
-| JZ | @JZ_tRank | SKGentis trustee |
-| Luna | @LunaLioness | SKGentis trustee |
+Personal contact handles are kept out of this public repo. Keep your own contact list in your private workspace.
 
 ---
 

@@ -5,7 +5,7 @@
 
 ## 🤖 **CURRENT DEPLOYMENT STATUS** ✅
 
-**All 12 agents running on norpv1300:**
+**All 12 agents running on our own hardware:**
 
 | VMID | Agent | Status | CPU | Role | Uptime |
 |------|-------|--------|-----|------|--------|

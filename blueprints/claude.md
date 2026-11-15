@@ -44,7 +44,7 @@ team-blueprints/
 ```
 
 ### The Context Conflation Incident
-**What happened**: Almost sent personal empire details to SKGentis business channel
+**What happened**: Almost sent personal details to a business channel
 **Fix**: Always run `./skills/context-separation/scripts/validate-message.sh` before posting
 **Rule**: Business → Personal = FORBIDDEN. Personal → Business = FORBIDDEN.
 
@@ -96,7 +96,7 @@ team-blueprints/
 
 # Check critical services
 openclaw health
-curl -s http://192.168.0.100:11434/api/tags
+curl -s http://localhost:11434/api/tags
 
 # Manual backup
 git add -A --dry-run  # Check first!
@@ -105,11 +105,8 @@ git push
 ```
 
 ### Contact
-- **Chef**: @chefboyrdave21 (Telegram), chefboyrdave2.1@gmail.com
-- **Casey**: @mr_arketech (Operationors AI, affidavits)
-- **JZ**: @JZ_tRank (SKGentis trustee)
-- **Luna**: @LunaLioness (SKGentis trustee)
+Personal contact handles are kept out of this public repo. Keep your own contact list in your private workspace.
 
 ---
 *Last updated: 2026-02-18*
-*Repository: /home/cbrd21/clawd*
+*Repository: your workspace root*
