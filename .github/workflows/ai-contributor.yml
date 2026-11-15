@@ -22,9 +22,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check if AI contributor
         id: check
+        env:
+          # Pass the body through the environment. Interpolating it into the
+          # script text broke on any quote and ran backtick or $() text from the
+          # PR description as shell commands.
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
           # Check for AI signatures in PR
-          if echo "${{ github.event.pull_request.body }}" | grep -i "ai-generated\|#ai\|sister.crustacean\|moltie"; then
+          if printf '%s' "$PR_BODY" | grep -i "ai-generated\|#ai\|sister.crustacean\|moltie"; then
             echo "is-ai=true" >> $GITHUB_OUTPUT
             echo "type=ai" >> $GITHUB_OUTPUT
           else
@@ -96,12 +101,14 @@ jobs:
           echo "✅ Security scan passed"
 
       - name: 📝 Documentation Check
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
           echo "📝 Checking AI contributor documentation..."
           
           # Ensure AI contributors document their reasoning
-          if [ "${{ github.event.pull_request.body }}" ]; then
-            if echo "${{ github.event.pull_request.body }}" | grep -i "approach\|reasoning\|algorithm\|implementation"; then
+          if [ -n "$PR_BODY" ]; then
+            if printf '%s' "$PR_BODY" | grep -i "approach\|reasoning\|algorithm\|implementation"; then
               echo "✅ PR includes reasoning/approach explanation"
             else
               echo "⚠️  Consider adding your reasoning/approach to the PR description"
