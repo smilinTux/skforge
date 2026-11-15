@@ -184,6 +184,8 @@ Any AI (or human) can follow this step-by-step process to:
 
 > *Copy-paste the quick-start prompt from RECON.md into any AI and point it at a software category. Instant blueprint.*
 
+**Recommended tool:** [REA (Reverse Engineer Anything)](https://github.com/morluto/rea), an MIT-licensed MCP for studying how an app really behaves. Setup, the official sources and the clean-room rule are in [RECON.md](./RECON.md#-recommended-tool-rea). REA users: share what you learn as a blueprint, see [CONTRIBUTING.md](./CONTRIBUTING.md#-from-rea-analysis-to-blueprint).
+
 ---
 
 ## 🤝 Contributing
