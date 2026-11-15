@@ -1,5 +1,5 @@
 {
-  "name": "forgeprint",
+  "name": "@smilintux/skforge",
   "version": "0.2.0",
   "description": "AI-native software blueprints. Don't use software. Forge your own. 🐧",
   "type": "module",
@@ -35,6 +35,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/smilinTux/skforge.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/smilinTux/skforge/issues"

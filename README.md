@@ -17,8 +17,8 @@ Pick your category. Choose your features. Select your language. Let AI build it.
 Runtime: **Node ≥22**.
 
 ```bash
-npm install -g skforge
-# or: pnpm add -g skforge
+npm install -g @smilintux/skforge
+# or: pnpm add -g @smilintux/skforge
 
 forge onboard
 ```

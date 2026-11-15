@@ -145,8 +145,8 @@ ${c.bold('COMMANDS')}
   ${c.green('version')}       Show version
 
 ${c.bold('INSTALL')}
-  npm install -g skforge        ${c.dim('# npm')}
-  pnpm add -g skforge           ${c.dim('# pnpm')}
+  npm install -g @smilintux/skforge        ${c.dim('# npm')}
+  pnpm add -g @smilintux/skforge           ${c.dim('# pnpm')}
   curl -fsSL skforge.io/install.sh | sh  ${c.dim('# shell')}
 
 ${c.bold('QUICK START')}
@@ -904,7 +904,7 @@ async function cmdUpdate(category) {
   const remote = await fetchRemoteCategories();
   if (!remote) {
     console.log(c.red('  Cannot reach GitHub. Check your connection.'));
-    console.log(c.dim('  Or update via npm: npm update -g forgeprint'));
+    console.log(c.dim('  Or update via npm: npm update -g @smilintux/skforge'));
     return;
   }
 
