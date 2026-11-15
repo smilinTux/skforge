@@ -45,14 +45,14 @@ negotiation_patterns:
       - "If auto-approve: issue token, notify human"
       - "If manual: present to human with recommendation"
     example: |
-      Jarvis (Casey's AI): "Casey would like read access to Chef's
+      Jarvis (Alex's AI): "Alex would like read access to Sam's
       3D printer material specs for a collaborative project."
       
-      Lumina (Chef's AI): "Checking policies... Chef has auto-approve
-      for Casey on SKForge read access. Issuing capability token:
+      Lumina (Sam's AI): "Checking policies... Sam has auto-approve
+      for Alex on SKForge read access. Issuing capability token:
       read-only, 7-day expiry, printer specs only."
       
-      Lumina to Chef: "Gave Casey read access to printer specs
+      Lumina to Sam: "Gave Alex read access to printer specs
       for 7 days. Auto-approved per your collaboration policy."
 
   mutual_access_exchange:
@@ -61,10 +61,10 @@ negotiation_patterns:
       - "Tokens issued simultaneously"
       - "Both humans notified"
     example: |
-      Lumina: "Chef wants to share blueprint with Casey and also
-      needs access to Casey's testing results."
+      Lumina: "Sam wants to share blueprint with Alex and also
+      needs access to Alex's testing results."
       
-      Jarvis: "Casey approves reciprocal access. Exchanging tokens."
+      Jarvis: "Alex approves reciprocal access. Exchanging tokens."
 
   escalation_to_human:
     triggers:
@@ -74,7 +74,7 @@ negotiation_patterns:
       - "Unusual time or pattern"
     presentation: |
       "🔔 Access Request:
-       From: Casey (via Jarvis)
+       From: Alex (via Jarvis)
        Wants: Read access to your medical notes
        Advocate recommendation: DENY (medical data, no precedent)
        [Allow] [Deny] [Allow with restrictions]"

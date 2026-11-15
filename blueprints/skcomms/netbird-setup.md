@@ -8,7 +8,7 @@ Netbird provides self-hosted WireGuard mesh VPN — the primary Layer 1 channel 
 
 ```
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   norap2027  │◄───►│  norap2027   │◄───►│   norap2027  │
+│    node-a    │◄───►│    node-b    │◄───►│    node-c    │
 │   (Lumina)   │     │  (Opus)      │     │   (Jarvis)   │
 └──────────────┘     └──────────────┘     └──────────────┘
        │                    │                    │
@@ -40,7 +40,7 @@ docker compose up -d netbird-server
 curl -fsSL https://pkgs.netbird.io/install.sh | bash
 
 # Configure
-netbird up --management-url https://netbird.skstack01.douno.it:33073 \
+netbird up --management-url https://netbird.example.com:33073 \
   --setup-key <KEY> \
   --hostname lumina-agent
 

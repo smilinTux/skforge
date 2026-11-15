@@ -67,7 +67,7 @@ curl -X POST https://api.github.com/repos/smilinTux/skcomms-dead-drops/hooks \
     "active": true,
     "events": ["issues"],
     "config": {
-      "url": "https://lumina.skstack01.douno.it:8443/skcomms/github-webhook",
+      "url": "https://hooks.example.com:8443/skcomms/github-webhook",
       "content_type": "json"
     }
   }'

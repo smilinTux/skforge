@@ -67,8 +67,7 @@ Every SKForge recipe has a battle-tested reference in SKStacks.
 - [ ] Documentation (architecture decisions, runbooks, operational guides)
 
 ### What Stays Private (never ships)
-- [ ] SKGentis Trust code (client-specific, NDA)
-- [ ] NAMStacks tribal government code (client-specific)
+- [ ] Client-specific code (under NDA or client agreements)
 - [ ] Private keys, credentials, vault passwords
 - [ ] Client-specific Ansible inventories and host vars
 - [ ] Internal IP addresses and network topology
@@ -84,9 +83,7 @@ Before any SKStacks code goes public:
    - [ ] Verify `.gitignore` covers all sensitive paths
 
 2. **Client Decoupling**
-   - [ ] Remove all SKGentis references
-   - [ ] Remove all NAMStacks references
-   - [ ] Remove all Gentis Trust references
+   - [ ] Remove all client and customer names and references
    - [ ] Replace client-specific configs with generic examples
    - [ ] Template private values as `{{ PLACEHOLDER }}`
 
