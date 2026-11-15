@@ -10,12 +10,13 @@
  * Apache 2.0 | https://skforge.io
  */
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, unlinkSync } from 'node:fs';
 import { join, dirname, basename, resolve } from 'node:path';
-import { homedir } from 'node:os';
+import { homedir, tmpdir } from 'node:os';
 import { createInterface } from 'node:readline';
 import { fileURLToPath } from 'node:url';
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
+import { buildContributePrBody } from './cli/contribute-body.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -821,10 +822,21 @@ async function cmdContribute(category) {
     execSync(`git -C "${repoRoot}" commit -m "feat(blueprint): add ${category} blueprint"`, { stdio: 'pipe' });
     execSync(`git -C "${repoRoot}" push -u origin ${branch}`, { stdio: 'pipe' });
 
-    const prUrl = execSync(
-      `gh pr create --repo ${GITHUB_OWNER}/${GITHUB_REPO} --title "feat(blueprint): add ${category}" --body "New blueprint: **${category}**\n\nGenerated via \\\`forge contribute\\\`.\n\nFeatures: ${features}"`,
-      { stdio: 'pipe', cwd: repoRoot }
-    ).toString().trim();
+    // Body goes through a file and gh runs without a shell, so backticks,
+    // quotes and newlines in the checklist cannot break or inject into a command.
+    const bodyFile = join(tmpdir(), `forge-pr-body-${process.pid}.md`);
+    writeFileSync(bodyFile, buildContributePrBody({ category, features }));
+    let prUrl;
+    try {
+      prUrl = execFileSync(
+        'gh',
+        ['pr', 'create', '--repo', `${GITHUB_OWNER}/${GITHUB_REPO}`,
+         '--title', `feat(blueprint): add ${category}`, '--body-file', bodyFile],
+        { stdio: 'pipe', cwd: repoRoot }
+      ).toString().trim();
+    } finally {
+      try { unlinkSync(bodyFile); } catch {}
+    }
 
     console.log(`  ${c.green('PR created:')} ${prUrl}\n`);
   } catch (err) {

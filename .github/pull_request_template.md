@@ -12,7 +12,7 @@ Required for any blueprint or feature list that came from analyzing software, wh
 - [ ] Everything is written in my own words as behavior, features and architecture.
 - [ ] Raw tool output (evidence listings, snapshots, captures, decompiled views) is not part of this PR.
 - [ ] Anything security-sensitive I found was reported to the vendor and is not in the blueprint.
-- [ ] Below, I name what I analyzed (product and version), my basis for analyzing it, and the tool and version used.
+- [ ] The PR description names what I analyzed (product and version), my basis for analyzing it, and the tool and version used.
 
 **Analyzed:** <!-- product and version -->
 **Basis:** <!-- own license / open source / written authorization -->
