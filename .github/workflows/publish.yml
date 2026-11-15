@@ -40,7 +40,7 @@ jobs:
 
   publish-npm:
     needs: test
-    if: always() && hashFiles('package.json') != ''
+    if: always()
     runs-on: ubuntu-latest
     # npm trusted publishing (OIDC): no stored token; provenance is signed.
     # npmjs.com trusted publisher for @smilintux/skforge: owner smilinTux,
