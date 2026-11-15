@@ -30,7 +30,7 @@ First off — **thank you**. You're helping build something that makes software 
    node forge.mjs contribute <category>
    ```
    It checks that `BLUEPRINT.md` and `features.yml` exist and are filled in, creates a branch, commits and opens the PR with `gh`. If `gh` is missing it prints the manual fork-and-PR steps.
-6. **Confirm the clean-room checklist in the PR.** `forge contribute` opens the PR with a short body, so edit the description and paste the checklist from the [PR template](./.github/pull_request_template.md), with what you analyzed, your basis for analyzing it, and the tool and version.
+6. **Confirm the clean-room checklist in the PR.** `forge contribute` opens the PR with the checklist already in its description (the same text as the [PR template](./.github/pull_request_template.md)). Edit the description, tick each item you can honestly confirm, and fill in what you analyzed, your basis for analyzing it, and the tool and version. forge cannot verify the items for you.
 
 A reviewer will not merge a blueprint whose PR leaves the checklist unconfirmed.
 

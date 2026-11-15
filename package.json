@@ -14,7 +14,7 @@
   "scripts": {
     "start": "node forge.mjs",
     "build": "echo 'No build step required'",
-    "test": "node --test test/"
+    "test": "node --test \"test/**/*.test.mjs\""
   },
   "keywords": [
     "ai",
