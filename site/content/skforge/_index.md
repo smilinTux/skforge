@@ -9,7 +9,7 @@ title: "SKForge"
 ### Install
 
 ```bash
-npm install -g skforge
+npm install -g @smilintux/skforge
 forge onboard
 ```
 
